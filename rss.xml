@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" type="application/rss+xml" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Sat, 26 Mar 2016 15:47:11 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Default nikola python version (3.5.1) example</title><link>https://boo62.github.io/blog/default-nikola-python-version-351-example/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" rel="self" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Sat, 26 Mar 2016 16:11:48 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Default nikola python version (3.5.1) example</title><link>https://boo62.github.io/blog/default-nikola-python-version-351-example/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -455,7 +455,7 @@ jumps to point-min.
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="another-title"&gt;
 &lt;h2&gt;Another title&lt;/h2&gt;
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/another-post/</guid><pubDate>Thu, 24 Mar 2016 16:33:57 GMT</pubDate></item><item><title>My First Blog Post!</title><link>https://boo62.github.io/blog/my-first-blog-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;p&gt;I reprduce &lt;a class="reference external" href="https://getnikola.com/quickstart.html"&gt;https://getnikola.com/quickstart.html&lt;/a&gt; and play around.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/another-post/</guid><pubDate>Thu, 24 Mar 2016 16:33:57 GMT</pubDate></item><item><title>My First Blog Post!</title><link>https://boo62.github.io/blog/my-first-blog-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;p&gt;Here I reproduce &lt;a class="reference external" href="https://getnikola.com/quickstart.html"&gt;https://getnikola.com/quickstart.html&lt;/a&gt; and play around.&lt;/p&gt;
 &lt;p&gt;A paragraph.&lt;/p&gt;
 &lt;blockquote&gt;
 This &lt;em&gt;paragraph&lt;/em&gt; will result in an indented &lt;strong&gt;block&lt;/strong&gt; of text, typically
