@@ -10,9 +10,13 @@
 #+END_COMMENT
 
 
-* TODO Things to do [1/3]
-  - [ ] Remove demo material
+* TODO Blog [3/3]
+  - [X] Remove demo material
   - [X] Add an orgmode page
-  - [ ] Deploy to GitHub pages
+  - [X] Deploy to GitHub pages
 
-** A subheading
+* TODO Proposal [0/3]
+  - [ ] Learn magit
+  - [ ] Learn LaTeX in Emacs
+  - [ ] Make outline of proposal
+  - [ ]	Read papers
