@@ -20,3 +20,5 @@
   - [ ] Learn LaTeX in Emacs
   - [ ] Make outline of proposal
   - [ ]	Read papers
+
+* TODO Other [0/0]
