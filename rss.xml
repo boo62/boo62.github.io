@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>My Nikola Site</title><link>https://example.com/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" rel="self" href="https://example.com/rss.xml"></atom:link><language>en</language><lastBuildDate>Sat, 26 Mar 2016 12:19:24 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Default nikola python version (3.5.1) example</title><link>https://example.com/blog/default-nikola-python-version-351-example/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>My Nikola Site</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" rel="self" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Sat, 26 Mar 2016 15:03:00 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Default nikola python version (3.5.1) example</title><link>https://boo62.github.io/blog/default-nikola-python-version-351-example/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -75,7 +75,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Installing-kernels-for-ipython/jupyter-notebook"&gt;Installing kernels for ipython/jupyter notebook&lt;a class="anchor-link" href="https://example.com/blog/default-nikola-python-version-351-example/#Installing-kernels-for-ipython/jupyter-notebook"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;You can install a new ipykernel in a Python evnironment.&lt;/p&gt;
+&lt;h3 id="Installing-kernels-for-ipython/jupyter-notebook"&gt;Installing kernels for ipython/jupyter notebook&lt;a class="anchor-link" href="https://boo62.github.io/blog/default-nikola-python-version-351-example/#Installing-kernels-for-ipython/jupyter-notebook"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;You can install a new ipykernel in a Python evnironment.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pyenv activate myenv
 pip install numpy
 pip install pandas
@@ -86,11 +86,11 @@ pip install ipykernel
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You should then be able to use this kernel in notebooks inside other
 environments. E.g. in your nikola blog.&lt;/p&gt;
-&lt;h3 id="Creating-a-new-nikola-ipynb-blogpost"&gt;Creating a new nikola ipynb blogpost&lt;a class="anchor-link" href="https://example.com/blog/default-nikola-python-version-351-example/#Creating-a-new-nikola-ipynb-blogpost"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nikola new_post -f ipynb@KERNEL
+&lt;h3 id="Creating-a-new-nikola-ipynb-blogpost"&gt;Creating a new nikola ipynb blogpost&lt;a class="anchor-link" href="https://boo62.github.io/blog/default-nikola-python-version-351-example/#Creating-a-new-nikola-ipynb-blogpost"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nikola new_post -f ipynb@KERNEL
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We would use ipynb@myenv to use the kernel created in the above example.
 If @KERNEL is missing then it defaults to the nikola Python version.&lt;/p&gt;
-&lt;h3 id="Editing-ipython-notebooks-in-Emacs"&gt;Editing ipython notebooks in Emacs&lt;a class="anchor-link" href="https://example.com/blog/default-nikola-python-version-351-example/#Editing-ipython-notebooks-in-Emacs"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To edit ipython notebooks in Emacs use package ein.&lt;/p&gt;
+&lt;h3 id="Editing-ipython-notebooks-in-Emacs"&gt;Editing ipython notebooks in Emacs&lt;a class="anchor-link" href="https://boo62.github.io/blog/default-nikola-python-version-351-example/#Editing-ipython-notebooks-in-Emacs"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;To edit ipython notebooks in Emacs use package ein.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;First start the server&lt;/li&gt;
 &lt;/ul&gt;
@@ -143,7 +143,7 @@ If @KERNEL is missing then it defaults to the nikola Python version.&lt;/p&gt;
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://example.com/blog/default-nikola-python-version-351-example/</guid><pubDate>Fri, 25 Mar 2016 20:42:17 GMT</pubDate></item><item><title>example Python-2.7.11 notebook</title><link>https://example.com/blog/example-python-2711-notebook/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+</description><guid>https://boo62.github.io/blog/default-nikola-python-version-351-example/</guid><pubDate>Fri, 25 Mar 2016 20:42:17 GMT</pubDate></item><item><title>example Python-2.7.11 notebook</title><link>https://boo62.github.io/blog/example-python-2711-notebook/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
@@ -223,7 +223,7 @@ If @KERNEL is missing then it defaults to the nikola Python version.&lt;/p&gt;
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://example.com/blog/example-python-2711-notebook/</guid><pubDate>Fri, 25 Mar 2016 20:08:15 GMT</pubDate></item><item><title>org-mode example</title><link>https://example.com/blog/org-mode-example/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div id="outline-container-orgheadline5" class="outline-2"&gt;
+</description><guid>https://boo62.github.io/blog/example-python-2711-notebook/</guid><pubDate>Fri, 25 Mar 2016 20:08:15 GMT</pubDate></item><item><title>org-mode example</title><link>https://boo62.github.io/blog/org-mode-example/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div id="outline-container-orgheadline5" class="outline-2"&gt;
 &lt;h2 id="orgheadline5"&gt;Headline&lt;/h2&gt;
 &lt;div class="outline-text-2" id="text-orgheadline5"&gt;
 &lt;/div&gt;&lt;div id="outline-container-orgheadline1" class="outline-3"&gt;
@@ -406,7 +406,7 @@ removes syntax highlighting.
 &lt;span class="nv"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="nv"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"coderef-jump"&lt;/span&gt; &lt;span class="nv"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"coderef-off"&lt;/span&gt;&lt;span class="nv"&gt;&amp;gt;&amp;lt;span&lt;/span&gt; &lt;span class="nv"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"linenr"&lt;/span&gt;&lt;span class="nv"&gt;&amp;gt;2:&lt;/span&gt; &lt;span class="nv"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;goto-char&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;point-min&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;&lt;span class="nv"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;
-In line &lt;a href="https://example.com/blog/org-mode-example/#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');"&gt;1&lt;/a&gt; we remember the current position.  &lt;a href="https://example.com/blog/org-mode-example/#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');"&gt;Line 2&lt;/a&gt;
+In line &lt;a href="https://boo62.github.io/blog/org-mode-example/#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');"&gt;1&lt;/a&gt; we remember the current position.  &lt;a href="https://boo62.github.io/blog/org-mode-example/#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');"&gt;Line 2&lt;/a&gt;
 jumps to point-min.
 &lt;/p&gt;
 
@@ -415,7 +415,7 @@ jumps to point-min.
    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Goto-char&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;point-min&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;
-In line &lt;a href="https://example.com/blog/org-mode-example/#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');"&gt;1&lt;/a&gt; we remember the current position.  &lt;a href="https://example.com/blog/org-mode-example/#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');"&gt;Line 2&lt;/a&gt;
+In line &lt;a href="https://boo62.github.io/blog/org-mode-example/#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');"&gt;1&lt;/a&gt; we remember the current position.  &lt;a href="https://boo62.github.io/blog/org-mode-example/#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');"&gt;Line 2&lt;/a&gt;
 jumps to point-min.
 &lt;/p&gt;
 
@@ -437,10 +437,10 @@ jumps to point-min.
 &lt;li class="off"&gt;&lt;code&gt;[ ]&lt;/code&gt; talk to the neighbors&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description><guid>https://example.com/blog/org-mode-example/</guid><pubDate>Fri, 25 Mar 2016 12:31:27 GMT</pubDate></item><item><title>Another Post</title><link>https://example.com/blog/another-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="a-listing-to-some-python-code"&gt;
+&lt;/div&gt;</description><guid>https://boo62.github.io/blog/org-mode-example/</guid><pubDate>Fri, 25 Mar 2016 12:31:27 GMT</pubDate></item><item><title>Another Post</title><link>https://boo62.github.io/blog/another-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="a-listing-to-some-python-code"&gt;
 &lt;h2&gt;A listing to some python code.&lt;/h2&gt;
 &lt;p&gt;hello.py is inside the listings folder.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://example.com/listings/hello.py.html"&gt;hello.py&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://boo62.github.io/listings/hello.py.html"&gt;hello.py&lt;/a&gt;&lt;/p&gt;
 &lt;pre class="code python"&gt;&lt;a name="rest_code_328036b997c44a1db8a7106c632573d0-1"&gt;&lt;/a&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
 &lt;a name="rest_code_328036b997c44a1db8a7106c632573d0-2"&gt;&lt;/a&gt;
 &lt;a name="rest_code_328036b997c44a1db8a7106c632573d0-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
@@ -455,7 +455,7 @@ jumps to point-min.
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="another-title"&gt;
 &lt;h2&gt;Another title&lt;/h2&gt;
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://example.com/blog/another-post/</guid><pubDate>Thu, 24 Mar 2016 16:33:57 GMT</pubDate></item><item><title>My First Blog Post!</title><link>https://example.com/blog/my-first-blog-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;p&gt;A paragraph.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/another-post/</guid><pubDate>Thu, 24 Mar 2016 16:33:57 GMT</pubDate></item><item><title>My First Blog Post!</title><link>https://boo62.github.io/blog/my-first-blog-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;p&gt;A paragraph.&lt;/p&gt;
 &lt;blockquote&gt;
 This &lt;em&gt;paragraph&lt;/em&gt; will result in an indented &lt;strong&gt;block&lt;/strong&gt; of text, typically
 used for &lt;tt class="docutils literal"&gt;quoting&lt;/tt&gt; other text.&lt;/blockquote&gt;
@@ -548,7 +548,7 @@ be inset for aesthetics.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="images"&gt;
 &lt;h2&gt;Images&lt;/h2&gt;
-&lt;img alt="../../images/illus_001.jpg" src="https://example.com/images/illus_001.jpg"&gt;
+&lt;img alt="../../images/illus_001.jpg" src="https://boo62.github.io/images/illus_001.jpg"&gt;
 &lt;!-- You can make a
 comment like this. --&gt;
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://example.com/blog/my-first-blog-post/</guid><pubDate>Thu, 24 Mar 2016 10:58:12 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/my-first-blog-post/</guid><pubDate>Thu, 24 Mar 2016 10:58:12 GMT</pubDate></item></channel></rss>

@@ -6,59 +6,59 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>https://example.com/</loc>
+  <loc>https://boo62.github.io/</loc>
   <lastmod>2016-03-26T12:19:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/2016/</loc>
+  <loc>https://boo62.github.io/2016/</loc>
   <lastmod>2016-03-24T16:33:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/archive.html</loc>
+  <loc>https://boo62.github.io/archive.html</loc>
+  <lastmod>2016-03-26T15:02:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/blog/</loc>
+  <lastmod>2016-03-26T12:28:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/blog/another-post/</loc>
+  <lastmod>2016-03-26T10:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/blog/default-nikola-python-version-351-example/</loc>
+  <lastmod>2016-03-26T10:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/blog/example-python-2711-notebook/</loc>
+  <lastmod>2016-03-26T10:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/blog/my-first-blog-post/</loc>
+  <lastmod>2016-03-26T10:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/blog/org-mode-example/</loc>
+  <lastmod>2016-03-26T10:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/categories/</loc>
   <lastmod>2016-03-26T12:19:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/blog/</loc>
+  <loc>https://boo62.github.io/galleries/</loc>
   <lastmod>2016-03-26T12:28:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/blog/another-post/</loc>
-  <lastmod>2016-03-26T10:56:00Z</lastmod>
- </url>
- <url>
-  <loc>https://example.com/blog/default-nikola-python-version-351-example/</loc>
-  <lastmod>2016-03-26T10:56:00Z</lastmod>
- </url>
- <url>
-  <loc>https://example.com/blog/example-python-2711-notebook/</loc>
-  <lastmod>2016-03-26T10:56:00Z</lastmod>
- </url>
- <url>
-  <loc>https://example.com/blog/my-first-blog-post/</loc>
-  <lastmod>2016-03-26T10:56:00Z</lastmod>
- </url>
- <url>
-  <loc>https://example.com/blog/org-mode-example/</loc>
-  <lastmod>2016-03-26T10:56:00Z</lastmod>
- </url>
- <url>
-  <loc>https://example.com/categories/</loc>
-  <lastmod>2016-03-26T12:19:00Z</lastmod>
- </url>
- <url>
-  <loc>https://example.com/galleries/</loc>
+  <loc>https://boo62.github.io/listings/</loc>
   <lastmod>2016-03-26T12:28:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/listings/</loc>
-  <lastmod>2016-03-26T12:28:00Z</lastmod>
- </url>
- <url>
-  <loc>https://example.com/listings/__pycache__/</loc>
+  <loc>https://boo62.github.io/listings/__pycache__/</loc>
   <lastmod>2016-03-24T10:53:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/listings/hello.py.html</loc>
-  <lastmod>2016-03-26T12:19:00Z</lastmod>
+  <loc>https://boo62.github.io/listings/hello.py.html</loc>
+  <lastmod>2016-03-26T15:03:00Z</lastmod>
  </url>
 </urlset>
