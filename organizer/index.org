@@ -1,6 +1,6 @@
 #+BEGIN_COMMENT
 .. title: page example in orgmode
-.. slug: index
+.. slug: organizer
 .. date: 2016-03-26 10:11:51 UTC
 .. tags: 
 .. category: 
