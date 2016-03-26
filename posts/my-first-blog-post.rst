@@ -15,6 +15,8 @@
 This is my first post in Nikola
 -------------------------------
 
+I reprduce https://getnikola.com/quickstart.html and play around.
+
 A paragraph.
 
   This *paragraph* will result in an indented **block** of text, typically
