@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" href="https://boo62.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 27 Apr 2016 17:58:57 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Simulate Independent and CANS Plates</title><link>https://boo62.github.io/blog/simulate-independent-and-cans-plates/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" type="application/rss+xml" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Thu, 28 Apr 2016 19:11:36 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Least squares fit of simulated time-courses</title><link>https://boo62.github.io/blog/least-squares-fit-of-simulated-time-courses/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+&lt;h2&gt;Outline&lt;/h2&gt;
+&lt;p&gt;Here I look at least squares fits of the CANS model to simulated CANS
+data. I do this for two simulations of a 3x3 plate. In the first all
+cultures have non-zero growth constants (r&lt;sub&gt;i&lt;/sub&gt;); in the second
+some of the cultures have zero growth constant. Of the three curves
+plotted, only the amount of cells (blue) is used to recover
+parameters. Simulations contain 21 time-points. This is an attempt to
+keep fitting relevent to the data we will be using.&lt;/p&gt;
+&lt;p&gt;In the simulations rate constants are drawn from a N(1, 1)
+distribution. I set other parameters manually.&lt;/p&gt;
+&lt;p&gt;I compare the perfomance of two fitting approaches. The first allows
+constants for the secretion of signal by cells &lt;span class="math"&gt;\((\beta)\)&lt;/span&gt; and the
+effect of signal on cells &lt;span class="math"&gt;\((\alpha)\)&lt;/span&gt; to vary beteen cultures; the
+second does not.&lt;/p&gt;
+&lt;p&gt;The fixing of other parameters is sumarised below.&lt;/p&gt;
+&lt;p&gt;Plate level:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;C(t=0) - Initial cell amount&lt;/li&gt;
+&lt;li&gt;N(t=0) - Initial nutrient amount&lt;/li&gt;
+&lt;li&gt;S(t=0) - Initial signal amount&lt;/li&gt;
+&lt;li&gt;k&lt;sub&gt;n&lt;/sub&gt; - Nutrient diffusion constant&lt;/li&gt;
+&lt;li&gt;k&lt;sub&gt;s&lt;/sub&gt; - Signal diffusion constant&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Culture level:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;r&lt;sub&gt;i&lt;/sub&gt; - Growth constants&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="culture-level-alpha-and-beta"&gt;
+&lt;h2&gt;Culture level alpha and beta&lt;/h2&gt;
+&lt;img alt="../images/least-squares-fit-of-simulated-time-courses/sim1_true.png" src="https://boo62.github.io/blog/images/least-squares-fit-of-simulated-time-courses/sim1_true.png" style="width: 49%;"&gt;
+&lt;img alt="../images/least-squares-fit-of-simulated-time-courses/mod1_sim1_est.png" src="https://boo62.github.io/blog/images/least-squares-fit-of-simulated-time-courses/mod1_sim1_est.png" style="width: 49%;"&gt;
+&lt;p&gt;Insert tables with deviations here&lt;/p&gt;
+&lt;img alt="../images/least-squares-fit-of-simulated-time-courses/sim2_true.png" src="https://boo62.github.io/blog/images/least-squares-fit-of-simulated-time-courses/sim2_true.png" style="width: 49%;"&gt;
+&lt;img alt="../images/least-squares-fit-of-simulated-time-courses/mod1_sim2_est.png" src="https://boo62.github.io/blog/images/least-squares-fit-of-simulated-time-courses/mod1_sim2_est.png" style="width: 49%;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="plate-level-alpha-and-beta"&gt;
+&lt;h2&gt;Plate level alpha and beta&lt;/h2&gt;
+&lt;img alt="../images/least-squares-fit-of-simulated-time-courses/sim1_true.png" src="https://boo62.github.io/blog/images/least-squares-fit-of-simulated-time-courses/sim1_true.png" style="width: 49%;"&gt;
+&lt;img alt="../images/least-squares-fit-of-simulated-time-courses/mod2_sim1_est.png" src="https://boo62.github.io/blog/images/least-squares-fit-of-simulated-time-courses/mod2_sim1_est.png" style="width: 49%;"&gt;
+&lt;img alt="../images/least-squares-fit-of-simulated-time-courses/sim2_true.png" src="https://boo62.github.io/blog/images/least-squares-fit-of-simulated-time-courses/sim2_true.png" style="width: 49%;"&gt;
+&lt;img alt="../images/least-squares-fit-of-simulated-time-courses/mod2_sim2_est.png" src="https://boo62.github.io/blog/images/least-squares-fit-of-simulated-time-courses/mod2_sim2_est.png" style="width: 49%;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="discussion"&gt;
+&lt;h2&gt;Discussion&lt;/h2&gt;
+&lt;p&gt;Fits are better for plate level &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt; and &lt;span class="math"&gt;\(\beta\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;If one or more cultures on a plate has a zero growth constant (r),
+then fits are worse.&lt;/p&gt;
+&lt;p&gt;This may not be the case for different parameters (particularly ks).&lt;/p&gt;
+&lt;p&gt;We should also compare how well the independent model recovers rate
+constants.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/least-squares-fit-of-simulated-time-courses/</guid><pubDate>Thu, 28 Apr 2016 17:33:17 GMT</pubDate></item><item><title>Simulate Independent and CANS Plates</title><link>https://boo62.github.io/blog/simulate-independent-and-cans-plates/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -45,6 +97,68 @@ for the effect of signal on culture population. The independent model is a speci
 
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.display&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Image&lt;/span&gt;
+&lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'../ipynb_images/square_array.png'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+
+
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_text output_error"&gt;
+&lt;pre&gt;
+&lt;span class="ansi-red-intense-fg ansi-bold"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ansi-red-intense-fg ansi-bold"&gt;FileNotFoundError&lt;/span&gt;                         Traceback (most recent call last)
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;&amp;lt;ipython-input-1-1365f2add76a&amp;gt;&lt;/span&gt; in &lt;span class="ansi-cyan-fg"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;&lt;span class="ansi-blue-intense-fg ansi-bold"&gt;()&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;      1&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;from&lt;/span&gt; IPython&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;display &lt;span class="ansi-green-intense-fg ansi-bold"&gt;import&lt;/span&gt; Image
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;----&amp;gt; 2&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt; &lt;/span&gt;Image&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;filename&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;=&lt;/span&gt;&lt;span class="ansi-blue-intense-fg ansi-bold"&gt;'../ipynb_images/square_array.png'&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;
+
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;/home/dan/.pyenv/versions/cans-3.5.1/lib/python3.5/site-packages/IPython/core/display.py&lt;/span&gt; in &lt;span class="ansi-cyan-fg"&gt;__init__&lt;/span&gt;&lt;span class="ansi-blue-intense-fg ansi-bold"&gt;(self, data, url, filename, format, embed, width, height, retina, unconfined, metadata)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    749&lt;/span&gt;         self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;unconfined &lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;=&lt;/span&gt; unconfined
+&lt;span class="ansi-green-fg"&gt;    750&lt;/span&gt;         self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;metadata &lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;=&lt;/span&gt; metadata
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;--&amp;gt; 751&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;         &lt;/span&gt;super&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;Image&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;,&lt;/span&gt; self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;__init__&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;data&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;=&lt;/span&gt;data&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;,&lt;/span&gt; url&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;=&lt;/span&gt;url&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;,&lt;/span&gt; filename&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;=&lt;/span&gt;filename&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    752&lt;/span&gt; 
+&lt;span class="ansi-green-fg"&gt;    753&lt;/span&gt;         &lt;span class="ansi-green-intense-fg ansi-bold"&gt;if&lt;/span&gt; retina&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;:&lt;/span&gt;
+
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;/home/dan/.pyenv/versions/cans-3.5.1/lib/python3.5/site-packages/IPython/core/display.py&lt;/span&gt; in &lt;span class="ansi-cyan-fg"&gt;__init__&lt;/span&gt;&lt;span class="ansi-blue-intense-fg ansi-bold"&gt;(self, data, url, filename)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    386&lt;/span&gt;         self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;filename &lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;=&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;None&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;if&lt;/span&gt; filename &lt;span class="ansi-green-intense-fg ansi-bold"&gt;is&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;None&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;else&lt;/span&gt; unicode_type&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;filename&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    387&lt;/span&gt; 
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;--&amp;gt; 388&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;         &lt;/span&gt;self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;reload&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    389&lt;/span&gt;         self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;_check_data&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    390&lt;/span&gt; 
+
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;/home/dan/.pyenv/versions/cans-3.5.1/lib/python3.5/site-packages/IPython/core/display.py&lt;/span&gt; in &lt;span class="ansi-cyan-fg"&gt;reload&lt;/span&gt;&lt;span class="ansi-blue-intense-fg ansi-bold"&gt;(self)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    771&lt;/span&gt;         &lt;span class="ansi-blue-intense-fg ansi-bold"&gt;"""Reload the raw data from file or URL."""&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    772&lt;/span&gt;         &lt;span class="ansi-green-intense-fg ansi-bold"&gt;if&lt;/span&gt; self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;embed&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;:&lt;/span&gt;
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;--&amp;gt; 773&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;             &lt;/span&gt;super&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;Image&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;,&lt;/span&gt;self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;reload&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    774&lt;/span&gt;             &lt;span class="ansi-green-intense-fg ansi-bold"&gt;if&lt;/span&gt; self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;retina&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;:&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    775&lt;/span&gt;                 self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;_retina_shape&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;
+
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;/home/dan/.pyenv/versions/cans-3.5.1/lib/python3.5/site-packages/IPython/core/display.py&lt;/span&gt; in &lt;span class="ansi-cyan-fg"&gt;reload&lt;/span&gt;&lt;span class="ansi-blue-intense-fg ansi-bold"&gt;(self)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    404&lt;/span&gt;         &lt;span class="ansi-blue-intense-fg ansi-bold"&gt;"""Reload the raw data from file or URL."""&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    405&lt;/span&gt;         &lt;span class="ansi-green-intense-fg ansi-bold"&gt;if&lt;/span&gt; self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;filename &lt;span class="ansi-green-intense-fg ansi-bold"&gt;is&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;not&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;None&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;:&lt;/span&gt;
+&lt;span class="ansi-green-intense-fg ansi-bold"&gt;--&amp;gt; 406&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;             &lt;/span&gt;&lt;span class="ansi-green-intense-fg ansi-bold"&gt;with&lt;/span&gt; open&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;filename&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;,&lt;/span&gt; self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;_read_flags&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;as&lt;/span&gt; f&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;:&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    407&lt;/span&gt;                 self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;data &lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;=&lt;/span&gt; f&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;read&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;(&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;)&lt;/span&gt;
+&lt;span class="ansi-green-fg"&gt;    408&lt;/span&gt;         &lt;span class="ansi-green-intense-fg ansi-bold"&gt;elif&lt;/span&gt; self&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;.&lt;/span&gt;url &lt;span class="ansi-green-intense-fg ansi-bold"&gt;is&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;not&lt;/span&gt; &lt;span class="ansi-green-intense-fg ansi-bold"&gt;None&lt;/span&gt;&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;:&lt;/span&gt;
+
+&lt;span class="ansi-red-intense-fg ansi-bold"&gt;FileNotFoundError&lt;/span&gt;: [Errno 2] No such file or directory: '../ipynb_images/square_array.png'&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;

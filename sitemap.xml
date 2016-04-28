@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>https://boo62.github.io/archive.html</loc>
-  <lastmod>2016-04-27T17:58:00Z</lastmod>
+  <lastmod>2016-04-28T19:11:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/</loc>
-  <lastmod>2016-04-27T17:58:00Z</lastmod>
+  <lastmod>2016-04-28T19:11:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/another-post/</loc>
@@ -32,6 +32,10 @@
  <url>
   <loc>https://boo62.github.io/blog/example-python-2711-notebook/</loc>
   <lastmod>2016-04-27T11:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/blog/least-squares-fit-of-simulated-time-courses/</loc>
+  <lastmod>2016-04-28T19:11:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/my-first-blog-post/</loc>
