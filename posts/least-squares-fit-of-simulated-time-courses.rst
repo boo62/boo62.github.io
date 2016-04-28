@@ -46,16 +46,16 @@ Culture level:
 Culture level alpha and beta
 ----------------------------
 
-.. image:: ../images/least-squares-fit-of-simulated-time-courses/sim1_true.png
+.. image:: ../../images/least-squares-fit-of-simulated-time-courses/sim1_true.png
    :width: 49%
-.. image:: ../images/least-squares-fit-of-simulated-time-courses/mod1_sim1_est.png
+.. image:: ../../images/least-squares-fit-of-simulated-time-courses/mod1_sim1_est.png
    :width: 49%
 
 Insert tables with deviations here
 
-.. image:: ../images/least-squares-fit-of-simulated-time-courses/sim2_true.png
+.. image:: ../../images/least-squares-fit-of-simulated-time-courses/sim2_true.png
    :width: 49%
-.. image:: ../images/least-squares-fit-of-simulated-time-courses/mod1_sim2_est.png
+.. image:: ../../images/least-squares-fit-of-simulated-time-courses/mod1_sim2_est.png
    :width: 49%
 
 
@@ -63,14 +63,14 @@ Plate level alpha and beta
 --------------------------
 
 
-.. image:: ../images/least-squares-fit-of-simulated-time-courses/sim1_true.png
+.. image:: ../../images/least-squares-fit-of-simulated-time-courses/sim1_true.png
    :width: 49%
-.. image:: ../images/least-squares-fit-of-simulated-time-courses/mod2_sim1_est.png
+.. image:: ../../images/least-squares-fit-of-simulated-time-courses/mod2_sim1_est.png
    :width: 49%
 
-.. image:: ../images/least-squares-fit-of-simulated-time-courses/sim2_true.png
+.. image:: ../../images/least-squares-fit-of-simulated-time-courses/sim2_true.png
    :width: 49%
-.. image:: ../images/least-squares-fit-of-simulated-time-courses/mod2_sim2_est.png
+.. image:: ../../images/least-squares-fit-of-simulated-time-courses/mod2_sim2_est.png
    :width: 49%
 
 
