@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 28 Apr 2016 19:16:59 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Least squares fit of simulated time-courses</title><link>https://boo62.github.io/blog/least-squares-fit-of-simulated-time-courses/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" rel="self" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Thu, 28 Apr 2016 19:22:12 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Least squares fit of simulated time-courses</title><link>https://boo62.github.io/blog/least-squares-fit-of-simulated-time-courses/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;Here I look at least squares fits of the CANS model to simulated CANS
 data. I do this for two simulations of a 3x3 plate. In the first all
@@ -80,8 +80,8 @@ closest neighbours of each culture, indicated by the darker blue
 circles. Assuming a well stirred
 mixture, we begin by describing nutrient dependent growth of each
 culture using mass action kinetics and the reaction equation,&lt;/p&gt;
-$$N + C \xrightarrow[]{r_{i}} 2C,$$$$rate = r_{i}[N][C]$$&lt;p&gt;where, $r_{i}$ is a growth constant (units $M^{-1}s^{-1}$), $C$ is a cell, $N$ is an amount of nutrients required for a cell to divide, and [~] are concentrations.
-&lt;img src="https://boo62.github.io/blog/simulate-independent-and-cans-plates/ipynb-images/square_array.png"&gt;&lt;/p&gt;
+$$N + C \xrightarrow[]{r_{i}} 2C,$$$$rate = r_{i}[N][C]$$&lt;p&gt;where, $r_{i}$ is a growth constant (units $M^{-1}s^{-1}$), $C$ is a cell, $N$ is an amount of nutrients required for a cell to divide, and [~] are concentrations.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://boo62.github.io/images/square_array.png"&gt;&lt;/p&gt;
 &lt;p&gt;As a first approach, assuming that the number of cells
 is continuous, we incorporate the effect of signal molecules on
 growth and the diffusion of both signal molecules and nutrients using
