@@ -170,13 +170,13 @@ THEME_COLOR = '#5670d4'
 #
 
 POSTS = (
-    ("posts/*.rst", "blog", "post.tmpl"),
-    ("posts/*.txt", "blog", "post.tmpl"),
-    ("posts/*.html", "blog", "post.tmpl"),
+    ("blog/posts/*.rst", "blog", "post.tmpl"),
+    ("blog/posts/*.txt", "blog", "post.tmpl"),
+    ("blog/posts/*.html", "blog", "post.tmpl"),
     # Extras for emacs org-mode, latex, and ipython notebook.
-    ("posts/*.org", "blog", "post.tmpl"),
-    ("posts/*.tex", "blog", "post.tmpl"),
-    ("posts/*.ipynb", "blog", "post.tmpl"),
+    ("blog/posts/*.org", "blog", "post.tmpl"),
+    ("blog/posts/*.tex", "blog", "post.tmpl"),
+    ("blog/posts/*.ipynb", "blog", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.rst", "", "story.tmpl"),
