@@ -110,23 +110,311 @@ second does not.</p>
 <ul class="simple">
 <li>r<sub>i</sub> - Growth constants</li>
 </ul>
+<p>Parameter Values and Initial Guesses:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%">
+<col width="30%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom"><tr>
+<th class="head">Parameter</th>
+<th class="head">Value</th>
+<th class="head">Initial guess</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.1</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>1.0</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>S(t=0)</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>0.1</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>k<sub>s</sub>
+</td>
+<td>0.1</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td><span class="math">\(\beta\)</span></td>
+<td>0.05</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td><span class="math">\(\alpha\)</span></td>
+<td>0.05</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>r</td>
+<td>(see below)</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%">
+<col width="35%">
+<col width="35%">
+</colgroup>
+<thead valign="bottom"><tr>
+<th class="head">Parameter</th>
+<th class="head">Value Sim 1</th>
+<th class="head">Value Sim 2</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td>r<sub>0</sub>
+</td>
+<td>2.12038296</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>r<sub>1</sub>
+</td>
+<td>0.23529426</td>
+<td>2.70508608</td>
+</tr>
+<tr>
+<td>r<sub>2</sub>
+</td>
+<td>0.71800327</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>r<sub>3</sub>
+</td>
+<td>0.70340588</td>
+<td>1.33112558</td>
+</tr>
+<tr>
+<td>r<sub>4</sub>
+</td>
+<td>1.89093006</td>
+<td>0.66875854</td>
+</tr>
+<tr>
+<td>r<sub>5</sub>
+</td>
+<td>0.32824214</td>
+<td>0.96721998</td>
+</tr>
+<tr>
+<td>r<sub>6</sub>
+</td>
+<td>1.02039575</td>
+<td>1.22867934</td>
+</tr>
+<tr>
+<td>r<sub>7</sub>
+</td>
+<td>1.77496177</td>
+<td>0.64268857</td>
+</tr>
+<tr>
+<td>r<sub>8</sub>
+</td>
+<td>0.57991352</td>
+<td>2.09978633</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="culture-level-alpha-and-beta">
-<h2>Culture level alpha and beta</h2>
-<img alt="../../images/least-squares-fit-of-simulated-time-courses/sim1_true.png" src="../images/least-squares-fit-of-simulated-time-courses/sim1_true.png" style="width: 49%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/mod1_sim1_est.png" src="../images/least-squares-fit-of-simulated-time-courses/mod1_sim1_est.png" style="width: 49%;"><p>Insert tables with deviations here</p>
-<img alt="../../images/least-squares-fit-of-simulated-time-courses/sim2_true.png" src="../images/least-squares-fit-of-simulated-time-courses/sim2_true.png" style="width: 49%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/mod1_sim2_est.png" src="../images/least-squares-fit-of-simulated-time-courses/mod1_sim2_est.png" style="width: 49%;">
+<div class="section" id="non-zero-ri">
+<h2>Non-zero r<sub>i</sub>
+</h2>
+<p>Plots of simulation 1 and fitting:</p>
+<img alt="../../images/least-squares-fit-of-simulated-time-courses/sim1_true.png" src="../images/least-squares-fit-of-simulated-time-courses/sim1_true.png" style="width: 32%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/mod1_sim1_est.png" src="../images/least-squares-fit-of-simulated-time-courses/mod1_sim1_est.png" style="width: 32%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/mod2_sim1_est.png" src="../images/least-squares-fit-of-simulated-time-courses/mod2_sim1_est.png" style="width: 32%;"><p>Deviations of fitted parameters:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%">
+<col width="32%">
+<col width="32%">
+</colgroup>
+<thead valign="bottom"><tr>
+<th class="head">Parameter</th>
+<th class="head">Deviation Model 1</th>
+<th class="head">Deviation Model 2</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.0020385744</td>
+<td>4.21348985868E-007</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>0.0173966107</td>
+<td>1.35868377105E-006</td>
+</tr>
+<tr>
+<td>S(t=0)</td>
+<td>0.0256967688</td>
+<td>7.27393393862E-006</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>0.0034546308</td>
+<td>1.53308832754E-007</td>
+</tr>
+<tr>
+<td>k<sub>s</sub>
+</td>
+<td>0.0065764685</td>
+<td>2.6762262845E-006</td>
+</tr>
+<tr>
+<td><span class="math">\(\beta\)</span></td>
+<td> </td>
+<td>0.0094500157</td>
+</tr>
+<tr>
+<td><span class="math">\(\alpha\)</span></td>
+<td> </td>
+<td>0.0116516464</td>
+</tr>
+<tr>
+<td>
+<span class="math">\(\beta\)</span> (MAD)</td>
+<td>0.098591232</td>
+<td> </td>
+</tr>
+<tr>
+<td>
+<span class="math">\(\alpha\)</span> (MAD)</td>
+<td>0.0322358689</td>
+<td> </td>
+</tr>
+<tr>
+<td>r (MAD)</td>
+<td>0.0338617287</td>
+<td>4.29413653051E-006</td>
+</tr>
+</tbody>
+</table>
+<p>Here we find that parameter fitting is more accurate for model 2 where
+<span class="math">\(\alpha\)</span> and <span class="math">\(\beta\)</span> are plate level.</p>
 </div>
-<div class="section" id="plate-level-alpha-and-beta">
-<h2>Plate level alpha and beta</h2>
-<img alt="../../images/least-squares-fit-of-simulated-time-courses/sim1_true.png" src="../images/least-squares-fit-of-simulated-time-courses/sim1_true.png" style="width: 49%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/mod2_sim1_est.png" src="../images/least-squares-fit-of-simulated-time-courses/mod2_sim1_est.png" style="width: 49%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/sim2_true.png" src="../images/least-squares-fit-of-simulated-time-courses/sim2_true.png" style="width: 49%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/mod2_sim2_est.png" src="../images/least-squares-fit-of-simulated-time-courses/mod2_sim2_est.png" style="width: 49%;">
+<div class="section" id="zero-value-ri">
+<h2>Zero-value r<sub>i</sub>
+</h2>
+<p>Plots of simulation 2 and fitting:</p>
+<img alt="../../images/least-squares-fit-of-simulated-time-courses/sim2_true.png" src="../images/least-squares-fit-of-simulated-time-courses/sim2_true.png" style="width: 32%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/mod1_sim2_est.png" src="../images/least-squares-fit-of-simulated-time-courses/mod1_sim2_est.png" style="width: 32%;"><img alt="../../images/least-squares-fit-of-simulated-time-courses/mod2_sim2_est.png" src="../images/least-squares-fit-of-simulated-time-courses/mod2_sim2_est.png" style="width: 32%;"><p>Deviations of fitted parameters:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%">
+<col width="32%">
+<col width="32%">
+</colgroup>
+<thead valign="bottom"><tr>
+<th class="head">Parameter</th>
+<th class="head">Deviation Model 1</th>
+<th class="head">Deviation Model 2</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.0028789924</td>
+<td>0.0282316976</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>0.0282431081</td>
+<td>0.1812336171</td>
+</tr>
+<tr>
+<td>S(t=0)</td>
+<td>0.1646590344</td>
+<td>0</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>0.0051864629</td>
+<td>0.2120190497</td>
+</tr>
+<tr>
+<td>k<sub>s</sub>
+</td>
+<td>0.1</td>
+<td>0.05187543</td>
+</tr>
+<tr>
+<td><span class="math">\(\beta\)</span></td>
+<td> </td>
+<td>0.05</td>
+</tr>
+<tr>
+<td><span class="math">\(\alpha\)</span></td>
+<td> </td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>
+<span class="math">\(\beta\)</span> (MAD)</td>
+<td>0.2544472169</td>
+<td> </td>
+</tr>
+<tr>
+<td>
+<span class="math">\(\alpha\)</span> (MAD)</td>
+<td>0.2208869765</td>
+<td> </td>
+</tr>
+<tr>
+<td>r (MAD)</td>
+<td>0.1572653337</td>
+<td>0.6894003751</td>
+</tr>
+</tbody>
+</table>
+<p>Both models have more trouble fitting plates where some cultures have
+zero growth constant. Model 1 finds a local minimum where diffusion
+constant k<sub>s</sub> is zero and <span class="math">\(\beta\)</span> and <span class="math">\(\alpha\)</span>
+vary a lot between cultures; model 2 finds a local minimum where
+<span class="math">\(\beta\)</span> and <span class="math">\(\alpha\)</span> are both zero and no signal is ever
+produced. Estimates of
+growth constant (r) are actually worse in model 2 where there are
+fewer free parameters. It may be possible to get a better fit with
+model 2 using different parameter guesses.</p>
+<p>Fits would likely be better for different true parameter values. In
+particular signal diffusion (controlled by k<sub>s</sub>) occurs quickly
+in the simulations such that levels of signal are very similar in all
+cultures.</p>
 </div>
-<div class="section" id="discussion">
-<h2>Discussion</h2>
-<p>Fits are better for plate level <span class="math">\(\alpha\)</span> and <span class="math">\(\beta\)</span>.</p>
-<p>If one or more cultures on a plate has a zero growth constant (r),
-then fits are worse.</p>
-<p>This may not be the case for different parameters (particularly ks).</p>
-<p>We should also compare how well the independent model recovers rate
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>In the first example, with non-zero growth constants, fits are better
+for plate level <span class="math">\(\beta\)</span> and <span class="math">\(\alpha\)</span>.</p>
+<p>Where there are zero value growth constants, both models have trouble
+producing accurate fits. In the example studied, fits with plate level
+<span class="math">\(\beta\)</span> and <span class="math">\(\alpha\)</span> were actually worse, although this may not
+be true in general. We could determine this with simulations.</p>
+<p>Better fits may be obtained using different starting parameters or in
+cases where true parameters (besides r) are different.</p>
+<p>Parameter estimates may be better of worse for larger plates and we
+should check this. If we
+let <span class="math">\(\beta\)</span> and <span class="math">\(\alpha\)</span> vary from culture to culture we have many
+more free parameters. If we fix <span class="math">\(\beta\)</span> and <span class="math">\(\alpha\)</span> at the plate
+level then we have more information to determine parameters.</p>
+<p>We should also compare how well the independent model recovers growth
 constants.</p>
 </div>
 </div>
