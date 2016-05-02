@@ -41,10 +41,10 @@ In the independent model we lose k\ :sub:`n` and the second term in
 Parameter Estimation
 ---------------------
 
-Parameter Values and Initial Guesses:
+True parameter values and starting points:
 
 ================ ============= ==============
-Parameter        True Value    Initial guess
+Parameter        Truth         Start
 ================ ============= ==============
 C(t=0)           0.01          0.005
 N(t=0)           1.0           0.8
@@ -56,7 +56,7 @@ Deviations of estimated prarameters from truth for independent and
 competition fits for each k\ :sub:`n`.
 
 ==================== ================== ===================
-k\ :sub:`n` = 0.0    Absolute Deviation
+k\ :sub:`n` = 0.00   Absolute Deviation
 -------------------- --------------------------------------
 Parameter            Independent        Competition
 ==================== ================== ===================
@@ -67,7 +67,7 @@ r (MAD)              0.190852862        0.4386880843
 ==================== ================== ===================
 
 ==================== ================== ===================
-k\ :sub:`n` = 0.2    Absolute Deviation
+k\ :sub:`n` = 0.02   Absolute Deviation
 -------------------- --------------------------------------
 Parameter            Independent        Competition
 ==================== ================== ===================
@@ -77,19 +77,8 @@ k\ :sub:`n`          na                 2.9841599939
 r (MAD)              0.1826788404       0.3903167822
 ==================== ================== ===================
 
-============= ============ ============ ============ ============ ============
-\                          kn = 0.2                  kn = 0.4
--------------------------- ------------------------- -------------------------
-Parameter     True         Inde         Comp         Inde         Comp
-============= ============ ============ ============ ============ ============
-r\ :sub:`103` 1.1486959982 1.2793945487 1.3709772711 1.0996377636 1.1496507404
-r\ :sub:`104` 0.0          0.1771394709 0.3769809764 0.7524952086 0.8008519751
-r\ :sub:`105` 0.0          0.1771394709 0.3146762171 0.7524952086 0.7500936007
-r\ :sub:`106` 2.5982502954 2.0474094037 1.4770082394 1.5207112715 1.3310899556
-============= ============ ============ ============ ============ ============
-
 ==================== ================== ===================
-k\ :sub:`n` = 0.4    Absolute Deviation
+k\ :sub:`n` = 0.04   Absolute Deviation
 -------------------- --------------------------------------
 Parameter            Independent        Competition
 ==================== ================== ===================
@@ -100,7 +89,7 @@ r (MAD)              0.4708014932       0.5628802379
 ==================== ================== ===================
 
 ==================== ================== ===================
-k\ :sub:`n` = 0.6    Absolute Deviation
+k\ :sub:`n` = 0.06   Absolute Deviation
 -------------------- --------------------------------------
 Parameter            Independent        Competition
 ==================== ================== ===================
@@ -111,7 +100,7 @@ r (MAD)              0.1802694093       0.6775813612
 ==================== ================== ===================
 
 ==================== ================== ===================
-k\ :sub:`n` = 0.8    Absolute Deviation
+k\ :sub:`n` = 0.08   Absolute Deviation
 -------------------- --------------------------------------
 Parameter            Independent        Competition
 ==================== ================== ===================
@@ -121,41 +110,69 @@ k\ :sub:`n`          na                 4.2788862717
 r (MAD)              0.633607027        0.3568786201
 ==================== ================== ===================
 
-[*] Suggests either that there is an error in my code or that I am not
-finding the correct minimum.
+[*] Here N(t=0) = 0. This suggests that there is either an error in my
+code or that I am very far off the correct minimum. We may need more
+iterations and stricter stopping criteria or randomized starting
+points.
 
 ==================== ================== ===================
-K\ :sub:`n` = 1.0    Absolute Deviation
+K\ :sub:`n` = 0.10   Absolute Deviation
 -------------------- --------------------------------------
 Parameter            Independent        Competition
 ==================== ================== ===================
-C(t=0)
-N(t=0)
-k\ :sub:`n`          na
-r (MAD)
+C(t=0)               0.0097751934       0.009844427
+N(t=0)               0.4692137739       0.3906327995
+k\ :sub:`n`          na                 0.2757623871
+r (MAD)              0.4686886906       0.6644247129
 ==================== ================== ===================
+
+The table below looks in more detail at estimated growth constants for
+several cultures.
+
+============= ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============
+r comparisons              kn = 0.00                 kn = 0.02                 kn = 0.04                 kn = 0.06                 kn = 0.08                 kn = 0.10
+-------------------------- ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- -------------------------
+Parameter     True         Inde         Comp         Inde         Comp         Inde         Comp         Inde         Comp         Inde         Comp         Inde         Comp
+============= ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============
+r\ :sub:`103` 1.1486959982 1.3975809726 1.2959263048 1.2793945487 1.3709772711 1.0996377636 1.1496507404 1.2177886294 1.0171114045 1.3895410385 1.2545946564 1.1681781585 1.0265767989
+r\ :sub:`104` 0.0          0            0.3862534626 0.1771394709 0.3769809764 0.7524952086 0.8008519751 0.1825984888 0.977010341  0.2745071207 0            0.5130299779 0.9700054622
+r\ :sub:`105` 0.0          0            0.3761274272 0.1771394709 0.3146762171 0.7524952086 0.7500936007 0.1825984888 0.9688554457 0.2745071207 0            0.5130299779 0.9566645362
+r\ :sub:`106` 2.5982502954 2.0041840847 1.2742893363 2.0474094037 1.4770082394 1.5207112715 1.3310899556 2.5908600678 1.0447486162 5.0174849268 1.7593753618 4.3775980469 1.0954085781
+============= ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============ ============
+
 
 Discussion
 ----------
 
+
+In the last blog post, using the CNS model, fits of C and N were good
+compared to fits of S. We therefore beleived that removing S from the
+model and just studying C and N would produce good estimates of
+parameters in a shorter time. However, due to the different shape of
+CN and CNS growth curves, estimates may in fact be less accurate. We
+will verify this using smaller 3x3 plates as we did in CNS fits.
+
 Surprisingly, the independent model is not fitting well to data
 generated with the competition model with kn = 0. Is there an error
-somewhere? Is the stopping criteria to loose?
+somewhere? Is the stopping criteria too lax?
 
-
-The independent model find the same r value for all zero growth cultures.
+The independent model finds the same minimum r value for
+all zero growth cultures.
 
 
 
 Possible Solutions
 ------------------
 
-* Would longer observation times imporve results?
+* Would more observations imporve results?
+
+  - Perhaps I do not have enough timepoints during the growth phase or
+    at the tail.
 
 * Add extra bounds and constriaints.
 
-  - For the slowest growers, use r\ :sub:`i`\'s from independent fits
-    as maximum bounds in competition fits.
+  - Find zero growers from independent fits (all have the same minimum
+    r value) and constrain these to be zero in competition fits.
 
     + Requires extra computation.
 
