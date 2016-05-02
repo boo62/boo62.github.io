@@ -10,9 +10,9 @@
 Outline
 -------
 
-Here I fit full plate simulations of the competition only model,
-varying nutrient diffusion constant k\ :sub:`n`, and asses how well
-parameters are recovered.
+Here I fit full plate simulations of the competition only model by
+least squares, vary nutrient diffusion constant k\ :sub:`n`, and
+asses how well parameters are recovered.
 
 The Competition Model
 ---------------------
@@ -41,7 +41,7 @@ In the independent model we lose k\ :sub:`n` and the second term in
 Parameter Estimation
 ---------------------
 
-True parameter values and starting points:
+True parameter values and starting points for estimation:
 
 ================ ============= ==============
 Parameter        Truth         Start
@@ -52,24 +52,26 @@ k\ :sub:`n`      0.0 - 1.0     0.05
 r                ~N(1, 1)      1.0
 ================ ============= ==============
 
-Deviations of estimated prarameters from truth for independent and
-competition fits for each k\ :sub:`n`.
+Below are tables of deviations of estimated prarameters from truth for
+independent and competition fits for each k\ :sub:`n`.
 
-==================== ================== ===================
+==================== =================== ===================
 k\ :sub:`n` = 0.00   Absolute Deviation
--------------------- --------------------------------------
-Parameter            Independent        Competition
-==================== ================== ===================
-C(t=0)               0.0055191992       0.0401555437
-N(t=0)               0.0407384612       0.3378106649
-k\ :sub:`n`          na                 2.6926506252
-r (MAD)              0.190852862 *      0.4386880843
-==================== ================== ===================
+-------------------- ---------------------------------------
+Parameter            Independent         Competition
+==================== =================== ===================
+C(t=0)               0.0055191992        0.0401555437
+N(t=0)               0.0407384612        0.3378106649
+k\ :sub:`n`          na                  2.6926506252
+r (MAD)              0.190852862 *       0.4386880843
+==================== =================== ===================
 
 [*] We shoud achieve quite a good fit of the independent model when k\
 :sub:`n` is zero. The fairly poor result here suggests that the
 stopping criteria may have been too lax or that we did not have enough
-timepoints in the 'data'. See also the r comparison table below.
+timepoints in the "data". See also the more detailed growth rate table
+below (final table) where estimates appear to be approaching the
+correct values.
 
 ==================== ================== ===================
 k\ :sub:`n` = 0.02   Absolute Deviation
@@ -115,13 +117,12 @@ k\ :sub:`n`          na                 4.2788862717
 r (MAD)              0.633607027        0.3568786201
 ==================== ================== ===================
 
-[*] Here N(t=0) = 0. This suggests that there is either an error in my
-code or that I am very far off the correct minimum. We may need more
-iterations and stricter stopping criteria or randomized starting
-points.
+[*] Here N(t=0) = 0. This suggests that we are very far off the
+correct minimum. We may need stricter stopping criteria or randomized
+starting points.
 
 ==================== ================== ===================
-K\ :sub:`n` = 0.10   Absolute Deviation
+k\ :sub:`n` = 0.10   Absolute Deviation
 -------------------- --------------------------------------
 Parameter            Independent        Competition
 ==================== ================== ===================
@@ -149,56 +150,64 @@ r\ :sub:`106` 2.598 2.004        1.274 2.047        1.477 1.521        1.331 2.5
 Discussion
 ----------
 
-
-
+The nurtient diffusion constant k\ :sub:`n` is over-estimated in every
+case; by three orders of magnitude in all but two. Independent and
+competition models seem to have similarly poor performance even when
+diffusion constant is large.
 
 In the last blog post, using the CNS model, fits of C and N were good
 compared to fits of S. We therefore beleived that removing S from the
 model and just studying C and N would produce good estimates of
-parameters in a shorter time. However, due to the different shape of
-CN and CNS growth curves, estimates may in fact be less accurate. We
-will verify this using smaller 3x3 plates as we did in CNS fits.
+parameters in a shorter time. However, due to the less distinctive
+shape of CN compared to CNS growth curves, estimates may be less
+accurate. We will investigate this using smaller 3x3 plates as we did
+in CNS fits. It is likely that some the error seen here can be
+explained by the weaker stopping criteria which we used to speed up
+fits for the larger plate. This is supported by the surprisingly poor
+estimates obtained fitting the independent model when k\ :sub:`n`
+= 0. In this case r estimates, in the last table (Inde k\ :sub:`n` =
+0), appear to be approaching the correct minimum.
 
-Surprisingly, the independent model is not fitting well to data
-generated with the competition model with kn = 0. Is there an error
-somewhere? Is the stopping criteria too lax?
-
-The independent model finds the same minimum r value for
-all zero growth cultures.
-
+Other estimates appear to be far from their true values and here we
+likely have more serious fitting issues. Simulations of smaller plates
+(not shown) seem to suggest that there is a particular issue when some
+cultures have zero growth constant (c.f. previous blog post). We will
+look at ways at solving this issue using smaller simulations.
 
 
 Possible Solutions
 ------------------
+
+* Use stricter stopping criteria.
+
+  - We should get a good fit of the independent model to k\ :sub:`n` =
+    0 simulations.
 
 * Would more observations imporve results?
 
   - Perhaps I do not have enough timepoints during the growth phase or
     at the tail.
 
-* Add extra bounds and constriaints.
+* Add extra bounds and constraints.
 
   - Find zero growers from independent fits (all have the same minimum
     r value) and constrain these to be zero in competition fits.
 
-    + Requires extra computation.
+    + Does not require extra computation as we are already fitting the
+      independent model.
 
-  - Consider bounding k\ :sub:`n`.
+  - Consider placing bounds on k\ :sub:`n`.
 
-    + Not clear how to do so without measurement.
+    + Not clear how to do this without measurement.
 
 * Randomize starting conditions.
 
-  - Requries much extra computation.
+  - Requries extra computation.
 
 * Would Bayesian fitting be more accurate?
 
-* Use a different model.
-
+We are assuming that there are no errors in the code. As the code is
+now more stable it might be a good idea to start writing some tests.
 
 I will try some of these solutions for 2x2 and 3x3 plates containing
 a proportion of cultures with zero growth constant.
-
-
-As the code is more stable now it might be a good idea to start
-writing some tests.
