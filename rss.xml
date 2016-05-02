@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 02 May 2016 17:09:46 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Fitting of full plate (16x24) competition model simulations</title><link>https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 02 May 2016 17:37:03 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Fitting of full plate (16x24) competition model simulations</title><link>https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;Here I fit full plate simulations of the competition only model by
 least squares, vary nutrient diffusion constant k&lt;sub&gt;n&lt;/sub&gt;, and
@@ -9,21 +9,19 @@ asses how well parameters are recovered.&lt;/p&gt;
 &lt;h2&gt;The Competition Model&lt;/h2&gt;
 &lt;p&gt;The competition model is goverened by the following ODEs:&lt;/p&gt;
 &lt;div class="math"&gt;
-\begin{equation*}
-\begin{align}
-\frac{dC_{i}}{dt}&amp;amp; = r_{i}N_{i}C_{i}\\
-\frac{dN_{i}}{dt}&amp;amp; = - r_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
-\end{align}
-\end{equation*}
+\begin{align*}
+\frac{dC_{i}}{dt} = r_{i}N_{i}C_{i},\\
+\frac{dN_{i}}{dt} = - r_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
+\end{align*}
 &lt;/div&gt;
-&lt;p&gt;For a full 16x24 plate we have 384 r&lt;sub&gt;i&lt;/sub&gt;'s and three additional
+&lt;p&gt;For a full 16x24 plate we have 384 r&lt;sub&gt;i&lt;/sub&gt;s and three additional
 parameters:&lt;/p&gt;
 &lt;p&gt;C(t=0),
 N(t=0),
 and
 k&lt;sub&gt;n&lt;/sub&gt;.&lt;/p&gt;
 &lt;p&gt;In the independent model we lose k&lt;sub&gt;n&lt;/sub&gt; and the second term in
-&lt;span class="math"&gt;\(\dot{N}\)&lt;/span&gt;vanishes.&lt;/p&gt;
+&lt;span class="math"&gt;\(\dot{N}\)&lt;/span&gt; vanishes.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="parameter-estimation"&gt;
 &lt;h2&gt;Parameter Estimation&lt;/h2&gt;
@@ -279,18 +277,18 @@ several cultures. Values are rounded to 3.d.p.&lt;/p&gt;
 &lt;colgroup&gt;
 &lt;col width="11%"&gt;
 &lt;col width="4%"&gt;
-&lt;col width="10%"&gt;
-&lt;col width="4%"&gt;
-&lt;col width="10%"&gt;
-&lt;col width="4%"&gt;
-&lt;col width="10%"&gt;
-&lt;col width="4%"&gt;
-&lt;col width="10%"&gt;
-&lt;col width="4%"&gt;
-&lt;col width="10%"&gt;
-&lt;col width="4%"&gt;
-&lt;col width="9%"&gt;
-&lt;col width="5%"&gt;
+&lt;col width="8%"&gt;
+&lt;col width="7%"&gt;
+&lt;col width="8%"&gt;
+&lt;col width="7%"&gt;
+&lt;col width="8%"&gt;
+&lt;col width="7%"&gt;
+&lt;col width="8%"&gt;
+&lt;col width="7%"&gt;
+&lt;col width="8%"&gt;
+&lt;col width="7%"&gt;
+&lt;col width="7%"&gt;
+&lt;col width="8%"&gt;
 &lt;/colgroup&gt;
 &lt;thead valign="bottom"&gt;
 &lt;tr&gt;&lt;th class="head" colspan="2"&gt;&lt;/th&gt;
