@@ -18,7 +18,7 @@ The Competition Model
 ---------------------
 
 
-The competition model is goverened by the following ODEs:
+The competition model is defined by the following ODEs:
 
 .. math::
 
