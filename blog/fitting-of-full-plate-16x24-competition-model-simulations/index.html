@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitting of full plate (16x24) competition model simulations | boo62</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Daniel Boocock">
+<link rel="prev" href="../least-squares-fit-of-simulated-time-courses/" title="Least squares fit of simulated time-courses" type="text/html">
+<meta property="og:site_name" content="boo62">
+<meta property="og:title" content="Fitting of full plate (16x24) competition model simulations">
+<meta property="og:url" content="https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/">
+<meta property="og:description" content="Outline
+Here I fit full plate simulations of the competition only model by
+least squares, vary nutrient diffusion constant kn, and
+asses how well parameters are recovered.
+
+
+The Competition Model
+The ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-05-02T13:03:19+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://boo62.github.io/">
+
+                <span id="blog-title">boo62</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../organizer/">Organizer</a>
+                </li>
+<li>
+<a href="../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+                </li>
+<li>
+<a href="../">Blog</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Fitting of full plate (16x24) competition model simulations</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    Daniel Boocock
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-05-02T13:03:19+01:00" itemprop="datePublished" title="2016-05-02 13:03">2016-05-02 13:03</time></a></p>
+                <p class="commentline">
+        
+
+
+            
+        </p>
+<p class="sourceline"><a href="index.rst" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="section" id="outline">
+<h2>Outline</h2>
+<p>Here I fit full plate simulations of the competition only model by
+least squares, vary nutrient diffusion constant k<sub>n</sub>, and
+asses how well parameters are recovered.</p>
+</div>
+<div class="section" id="the-competition-model">
+<h2>The Competition Model</h2>
+<p>The competition model is goverened by the following ODEs:</p>
+<div class="math">
+\begin{equation*}
+\begin{align}
+\frac{dC_{i}}{dt}&amp; = r_{i}N_{i}C_{i}\\
+\frac{dN_{i}}{dt}&amp; = - r_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
+\end{align}
+\end{equation*}
+</div>
+<p>For a full 16x24 plate we have 384 r<sub>i</sub>'s and three additional
+parameters:</p>
+<p>C(t=0),
+N(t=0),
+and
+k<sub>n</sub>.</p>
+<p>In the independent model we lose k<sub>n</sub> and the second term in
+<span class="math">\(\dot{N}\)</span>vanishes.</p>
+</div>
+<div class="section" id="parameter-estimation">
+<h2>Parameter Estimation</h2>
+<p>True parameter values and starting points for estimation:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%">
+<col width="30%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom"><tr>
+<th class="head">Parameter</th>
+<th class="head">Truth</th>
+<th class="head">Start</th>
+</tr></thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.01</td>
+<td>0.005</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>1.0</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>0.0 - 1.0</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>r</td>
+<td>~N(1, 1)</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<p>Below are tables of deviations of estimated prarameters from truth for
+independent and competition fits for each k<sub>n</sub>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th class="head">k<sub>n</sub> = 0.00</th>
+<th class="head" colspan="2">Absolute Deviation</th>
+</tr>
+<tr>
+<th class="head">Parameter</th>
+<th class="head">Independent</th>
+<th class="head">Competition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.0055191992</td>
+<td>0.0401555437</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>0.0407384612</td>
+<td>0.3378106649</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>na</td>
+<td>2.6926506252</td>
+</tr>
+<tr>
+<td>r (MAD)</td>
+<td>0.190852862 *</td>
+<td>0.4386880843</td>
+</tr>
+</tbody>
+</table>
+<p>[*] We shoud achieve quite a good fit of the independent model when k<sub>n</sub> is zero. The fairly poor result here suggests that the
+stopping criteria may have been too lax or that we did not have enough
+timepoints in the "data". See also the more detailed growth rate table
+below (final table) where estimates appear to be approaching the
+correct values.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%">
+<col width="32%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th class="head">k<sub>n</sub> = 0.02</th>
+<th class="head" colspan="2">Absolute Deviation</th>
+</tr>
+<tr>
+<th class="head">Parameter</th>
+<th class="head">Independent</th>
+<th class="head">Competition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.005419919</td>
+<td>0.0131022281</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>0.1807962527</td>
+<td>0.2453326719</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>na</td>
+<td>2.9841599939</td>
+</tr>
+<tr>
+<td>r (MAD)</td>
+<td>0.1826788404</td>
+<td>0.3903167822</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%">
+<col width="32%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th class="head">k<sub>n</sub> = 0.04</th>
+<th class="head" colspan="2">Absolute Deviation</th>
+</tr>
+<tr>
+<th class="head">Parameter</th>
+<th class="head">Independent</th>
+<th class="head">Competition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.0099258493</td>
+<td>0.0021941877</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>0.194596125</td>
+<td>0.0575789015</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>na</td>
+<td>1.3219260354</td>
+</tr>
+<tr>
+<td>r (MAD)</td>
+<td>0.4708014932</td>
+<td>0.5628802379</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%">
+<col width="32%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th class="head">k<sub>n</sub> = 0.06</th>
+<th class="head" colspan="2">Absolute Deviation</th>
+</tr>
+<tr>
+<th class="head">Parameter</th>
+<th class="head">Independent</th>
+<th class="head">Competition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.0083602458</td>
+<td>0.004763655</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>0.296572103</td>
+<td>0.0820861874</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>na</td>
+<td>0.0998595903</td>
+</tr>
+<tr>
+<td>r (MAD)</td>
+<td>0.1802694093</td>
+<td>0.6775813612</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%">
+<col width="32%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th class="head">k<sub>n</sub> = 0.08</th>
+<th class="head" colspan="2">Absolute Deviation</th>
+</tr>
+<tr>
+<th class="head">Parameter</th>
+<th class="head">Independent</th>
+<th class="head">Competition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.0098788302</td>
+<td>0.0068623485</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>0.2818536121</td>
+<td>1 *</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>na</td>
+<td>4.2788862717</td>
+</tr>
+<tr>
+<td>r (MAD)</td>
+<td>0.633607027</td>
+<td>0.3568786201</td>
+</tr>
+</tbody>
+</table>
+<p>[*] Here N(t=0) = 0. This suggests that we are very far off the
+correct minimum. We may need stricter stopping criteria or randomized
+starting points.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%">
+<col width="32%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th class="head">k<sub>n</sub> = 0.10</th>
+<th class="head" colspan="2">Absolute Deviation</th>
+</tr>
+<tr>
+<th class="head">Parameter</th>
+<th class="head">Independent</th>
+<th class="head">Competition</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td>C(t=0)</td>
+<td>0.0097751934</td>
+<td>0.009844427</td>
+</tr>
+<tr>
+<td>N(t=0)</td>
+<td>0.4692137739</td>
+<td>0.3906327995</td>
+</tr>
+<tr>
+<td>k<sub>n</sub>
+</td>
+<td>na</td>
+<td>0.2757623871</td>
+</tr>
+<tr>
+<td>r (MAD)</td>
+<td>0.4686886906</td>
+<td>0.6644247129</td>
+</tr>
+</tbody>
+</table>
+<p>The table below looks in more detail at estimated growth constants for
+several cultures. Values are rounded to 3.d.p.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%">
+<col width="4%">
+<col width="10%">
+<col width="4%">
+<col width="10%">
+<col width="4%">
+<col width="10%">
+<col width="4%">
+<col width="10%">
+<col width="4%">
+<col width="10%">
+<col width="4%">
+<col width="9%">
+<col width="5%">
+</colgroup>
+<thead valign="bottom">
+<tr>
+<th class="head" colspan="2"></th>
+<th class="head" colspan="2">k<sub>n</sub> = 0.00</th>
+<th class="head" colspan="2">k<sub>n</sub> = 0.02</th>
+<th class="head" colspan="2">k<sub>n</sub> = 0.04</th>
+<th class="head" colspan="2">k<sub>n</sub> = 0.06</th>
+<th class="head" colspan="2">k<sub>n</sub> = 0.08</th>
+<th class="head" colspan="2">k<sub>n</sub> = 0.10</th>
+</tr>
+<tr>
+<th class="head">Parameter</th>
+<th class="head">True</th>
+<th class="head">Inde</th>
+<th class="head">Comp</th>
+<th class="head">Inde</th>
+<th class="head">Comp</th>
+<th class="head">Inde</th>
+<th class="head">Comp</th>
+<th class="head">Inde</th>
+<th class="head">Comp</th>
+<th class="head">Inde</th>
+<th class="head">Comp</th>
+<th class="head">Inde</th>
+<th class="head">Comp</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr>
+<td>r<sub>103</sub>
+</td>
+<td>1.149</td>
+<td>1.398</td>
+<td>1.296</td>
+<td>1.279</td>
+<td>1.371</td>
+<td>1.100</td>
+<td>1.150</td>
+<td>1.218</td>
+<td>1.017</td>
+<td>1.390</td>
+<td>1.255</td>
+<td>1.168</td>
+<td>1.027</td>
+</tr>
+<tr>
+<td>r<sub>104</sub>
+</td>
+<td>0.0</td>
+<td>0</td>
+<td>0.386</td>
+<td>0.177</td>
+<td>0.377</td>
+<td>0.752</td>
+<td>0.801</td>
+<td>0.183</td>
+<td>0.977</td>
+<td>0.275</td>
+<td>0</td>
+<td>0.513</td>
+<td>0.970</td>
+</tr>
+<tr>
+<td>r<sub>105</sub>
+</td>
+<td>0.0</td>
+<td>0</td>
+<td>0.376</td>
+<td>0.177</td>
+<td>0.315</td>
+<td>0.753</td>
+<td>0.750</td>
+<td>0.183</td>
+<td>0.969</td>
+<td>0.275</td>
+<td>0</td>
+<td>0.513</td>
+<td>0.957</td>
+</tr>
+<tr>
+<td>r<sub>106</sub>
+</td>
+<td>2.598</td>
+<td>2.004</td>
+<td>1.274</td>
+<td>2.047</td>
+<td>1.477</td>
+<td>1.521</td>
+<td>1.331</td>
+<td>2.591</td>
+<td>1.045</td>
+<td>5.017</td>
+<td>1.759</td>
+<td>4.378</td>
+<td>1.095</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion</h2>
+<p>The nurtient diffusion constant k<sub>n</sub> is over-estimated in every
+case; by three orders of magnitude in all but two. Independent and
+competition models seem to have similarly poor performance even when
+diffusion constant is large.</p>
+<p>In the last blog post, using the CNS model, fits of C and N were good
+compared to fits of S. We therefore beleived that removing S from the
+model and just studying C and N would produce good estimates of
+parameters in a shorter time. However, due to the less distinctive
+shape of CN compared to CNS growth curves, estimates may be less
+accurate. We will investigate this using smaller 3x3 plates as we did
+in CNS fits. It is likely that some the error seen here can be
+explained by the weaker stopping criteria which we used to speed up
+fits for the larger plate. This is supported by the surprisingly poor
+estimates obtained fitting the independent model when k<sub>n</sub>
+= 0. In this case r estimates, in the last table (Inde k<sub>n</sub> =
+0), appear to be approaching the correct minimum.</p>
+<p>Other estimates appear to be far from their true values and here we
+likely have more serious fitting issues. Simulations of smaller plates
+(not shown) seem to suggest that there is a particular issue when some
+cultures have zero growth constant (c.f. previous blog post). We will
+look at ways at solving this issue using smaller simulations.</p>
+</div>
+<div class="section" id="possible-solutions">
+<h2>Possible Solutions</h2>
+<ul class="simple">
+<li>Use stricter stopping criteria.<ul>
+<li>We should get a good fit of the independent model to k<sub>n</sub> =
+0 simulations.</li>
+</ul>
+</li>
+<li>Would more observations imporve results?<ul>
+<li>Perhaps I do not have enough timepoints during the growth phase or
+at the tail.</li>
+</ul>
+</li>
+<li>Add extra bounds and constraints.<ul>
+<li>Find zero growers from independent fits (all have the same minimum
+r value) and constrain these to be zero in competition fits.<ul>
+<li>Does not require extra computation as we are already fitting the
+independent model.</li>
+</ul>
+</li>
+<li>Consider placing bounds on k<sub>n</sub>.<ul>
+<li>Not clear how to do this without measurement.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Randomize starting conditions.<ul>
+<li>Requries extra computation.</li>
+</ul>
+</li>
+<li>Would Bayesian fitting be more accurate?</li>
+</ul>
+<p>We are assuming that there are no errors in the code. As the code is
+now more stable it might be a good idea to start writing some tests.</p>
+<p>I will try some of these solutions for 2x2 and 3x3 plates containing
+a proportion of cultures with zero growth constant.</p>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../least-squares-fit-of-simulated-time-courses/" rel="prev" title="Least squares fit of simulated time-courses">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+
+
+        </section></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:daniel.boocock@protonmail.ch">Daniel Boocock</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

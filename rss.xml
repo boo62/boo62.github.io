@@ -1,5 +1,447 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 29 Apr 2016 12:02:12 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Least squares fit of simulated time-courses</title><link>https://boo62.github.io/blog/least-squares-fit-of-simulated-time-courses/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 02 May 2016 17:09:46 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Fitting of full plate (16x24) competition model simulations</title><link>https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+&lt;h2&gt;Outline&lt;/h2&gt;
+&lt;p&gt;Here I fit full plate simulations of the competition only model by
+least squares, vary nutrient diffusion constant k&lt;sub&gt;n&lt;/sub&gt;, and
+asses how well parameters are recovered.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="the-competition-model"&gt;
+&lt;h2&gt;The Competition Model&lt;/h2&gt;
+&lt;p&gt;The competition model is goverened by the following ODEs:&lt;/p&gt;
+&lt;div class="math"&gt;
+\begin{equation*}
+\begin{align}
+\frac{dC_{i}}{dt}&amp;amp; = r_{i}N_{i}C_{i}\\
+\frac{dN_{i}}{dt}&amp;amp; = - r_{i}N_{i}C_{i} - k_{n}\sum_{j \epsilon \delta_i}(N_{i} - N_{j}).
+\end{align}
+\end{equation*}
+&lt;/div&gt;
+&lt;p&gt;For a full 16x24 plate we have 384 r&lt;sub&gt;i&lt;/sub&gt;'s and three additional
+parameters:&lt;/p&gt;
+&lt;p&gt;C(t=0),
+N(t=0),
+and
+k&lt;sub&gt;n&lt;/sub&gt;.&lt;/p&gt;
+&lt;p&gt;In the independent model we lose k&lt;sub&gt;n&lt;/sub&gt; and the second term in
+&lt;span class="math"&gt;\(\dot{N}\)&lt;/span&gt;vanishes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="parameter-estimation"&gt;
+&lt;h2&gt;Parameter Estimation&lt;/h2&gt;
+&lt;p&gt;True parameter values and starting points for estimation:&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="37%"&gt;
+&lt;col width="30%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Truth&lt;/th&gt;
+&lt;th class="head"&gt;Start&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C(t=0)&lt;/td&gt;
+&lt;td&gt;0.01&lt;/td&gt;
+&lt;td&gt;0.005&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N(t=0)&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;0.8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;k&lt;sub&gt;n&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;0.0 - 1.0&lt;/td&gt;
+&lt;td&gt;0.05&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r&lt;/td&gt;
+&lt;td&gt;~N(1, 1)&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Below are tables of deviations of estimated prarameters from truth for
+independent and competition fits for each k&lt;sub&gt;n&lt;/sub&gt;.&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="34%"&gt;
+&lt;col width="33%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.00&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;Absolute Deviation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Independent&lt;/th&gt;
+&lt;th class="head"&gt;Competition&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C(t=0)&lt;/td&gt;
+&lt;td&gt;0.0055191992&lt;/td&gt;
+&lt;td&gt;0.0401555437&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N(t=0)&lt;/td&gt;
+&lt;td&gt;0.0407384612&lt;/td&gt;
+&lt;td&gt;0.3378106649&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;k&lt;sub&gt;n&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;na&lt;/td&gt;
+&lt;td&gt;2.6926506252&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r (MAD)&lt;/td&gt;
+&lt;td&gt;0.190852862 *&lt;/td&gt;
+&lt;td&gt;0.4386880843&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;[*] We shoud achieve quite a good fit of the independent model when k&lt;sub&gt;n&lt;/sub&gt; is zero. The fairly poor result here suggests that the
+stopping criteria may have been too lax or that we did not have enough
+timepoints in the "data". See also the more detailed growth rate table
+below (final table) where estimates appear to be approaching the
+correct values.&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="35%"&gt;
+&lt;col width="32%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.02&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;Absolute Deviation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Independent&lt;/th&gt;
+&lt;th class="head"&gt;Competition&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C(t=0)&lt;/td&gt;
+&lt;td&gt;0.005419919&lt;/td&gt;
+&lt;td&gt;0.0131022281&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N(t=0)&lt;/td&gt;
+&lt;td&gt;0.1807962527&lt;/td&gt;
+&lt;td&gt;0.2453326719&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;k&lt;sub&gt;n&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;na&lt;/td&gt;
+&lt;td&gt;2.9841599939&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r (MAD)&lt;/td&gt;
+&lt;td&gt;0.1826788404&lt;/td&gt;
+&lt;td&gt;0.3903167822&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="35%"&gt;
+&lt;col width="32%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.04&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;Absolute Deviation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Independent&lt;/th&gt;
+&lt;th class="head"&gt;Competition&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C(t=0)&lt;/td&gt;
+&lt;td&gt;0.0099258493&lt;/td&gt;
+&lt;td&gt;0.0021941877&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N(t=0)&lt;/td&gt;
+&lt;td&gt;0.194596125&lt;/td&gt;
+&lt;td&gt;0.0575789015&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;k&lt;sub&gt;n&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;na&lt;/td&gt;
+&lt;td&gt;1.3219260354&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r (MAD)&lt;/td&gt;
+&lt;td&gt;0.4708014932&lt;/td&gt;
+&lt;td&gt;0.5628802379&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="35%"&gt;
+&lt;col width="32%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.06&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;Absolute Deviation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Independent&lt;/th&gt;
+&lt;th class="head"&gt;Competition&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C(t=0)&lt;/td&gt;
+&lt;td&gt;0.0083602458&lt;/td&gt;
+&lt;td&gt;0.004763655&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N(t=0)&lt;/td&gt;
+&lt;td&gt;0.296572103&lt;/td&gt;
+&lt;td&gt;0.0820861874&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;k&lt;sub&gt;n&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;na&lt;/td&gt;
+&lt;td&gt;0.0998595903&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r (MAD)&lt;/td&gt;
+&lt;td&gt;0.1802694093&lt;/td&gt;
+&lt;td&gt;0.6775813612&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="35%"&gt;
+&lt;col width="32%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.08&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;Absolute Deviation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Independent&lt;/th&gt;
+&lt;th class="head"&gt;Competition&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C(t=0)&lt;/td&gt;
+&lt;td&gt;0.0098788302&lt;/td&gt;
+&lt;td&gt;0.0068623485&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N(t=0)&lt;/td&gt;
+&lt;td&gt;0.2818536121&lt;/td&gt;
+&lt;td&gt;1 *&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;k&lt;sub&gt;n&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;na&lt;/td&gt;
+&lt;td&gt;4.2788862717&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r (MAD)&lt;/td&gt;
+&lt;td&gt;0.633607027&lt;/td&gt;
+&lt;td&gt;0.3568786201&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;[*] Here N(t=0) = 0. This suggests that we are very far off the
+correct minimum. We may need stricter stopping criteria or randomized
+starting points.&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="35%"&gt;
+&lt;col width="32%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.10&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;Absolute Deviation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Independent&lt;/th&gt;
+&lt;th class="head"&gt;Competition&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C(t=0)&lt;/td&gt;
+&lt;td&gt;0.0097751934&lt;/td&gt;
+&lt;td&gt;0.009844427&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N(t=0)&lt;/td&gt;
+&lt;td&gt;0.4692137739&lt;/td&gt;
+&lt;td&gt;0.3906327995&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;k&lt;sub&gt;n&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;na&lt;/td&gt;
+&lt;td&gt;0.2757623871&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r (MAD)&lt;/td&gt;
+&lt;td&gt;0.4686886906&lt;/td&gt;
+&lt;td&gt;0.6644247129&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The table below looks in more detail at estimated growth constants for
+several cultures. Values are rounded to 3.d.p.&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="11%"&gt;
+&lt;col width="4%"&gt;
+&lt;col width="10%"&gt;
+&lt;col width="4%"&gt;
+&lt;col width="10%"&gt;
+&lt;col width="4%"&gt;
+&lt;col width="10%"&gt;
+&lt;col width="4%"&gt;
+&lt;col width="10%"&gt;
+&lt;col width="4%"&gt;
+&lt;col width="10%"&gt;
+&lt;col width="4%"&gt;
+&lt;col width="9%"&gt;
+&lt;col width="5%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head" colspan="2"&gt;&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.00&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.02&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.04&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.06&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.08&lt;/th&gt;
+&lt;th class="head" colspan="2"&gt;k&lt;sub&gt;n&lt;/sub&gt; = 0.10&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;True&lt;/th&gt;
+&lt;th class="head"&gt;Inde&lt;/th&gt;
+&lt;th class="head"&gt;Comp&lt;/th&gt;
+&lt;th class="head"&gt;Inde&lt;/th&gt;
+&lt;th class="head"&gt;Comp&lt;/th&gt;
+&lt;th class="head"&gt;Inde&lt;/th&gt;
+&lt;th class="head"&gt;Comp&lt;/th&gt;
+&lt;th class="head"&gt;Inde&lt;/th&gt;
+&lt;th class="head"&gt;Comp&lt;/th&gt;
+&lt;th class="head"&gt;Inde&lt;/th&gt;
+&lt;th class="head"&gt;Comp&lt;/th&gt;
+&lt;th class="head"&gt;Inde&lt;/th&gt;
+&lt;th class="head"&gt;Comp&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;r&lt;sub&gt;103&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;1.149&lt;/td&gt;
+&lt;td&gt;1.398&lt;/td&gt;
+&lt;td&gt;1.296&lt;/td&gt;
+&lt;td&gt;1.279&lt;/td&gt;
+&lt;td&gt;1.371&lt;/td&gt;
+&lt;td&gt;1.100&lt;/td&gt;
+&lt;td&gt;1.150&lt;/td&gt;
+&lt;td&gt;1.218&lt;/td&gt;
+&lt;td&gt;1.017&lt;/td&gt;
+&lt;td&gt;1.390&lt;/td&gt;
+&lt;td&gt;1.255&lt;/td&gt;
+&lt;td&gt;1.168&lt;/td&gt;
+&lt;td&gt;1.027&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r&lt;sub&gt;104&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.386&lt;/td&gt;
+&lt;td&gt;0.177&lt;/td&gt;
+&lt;td&gt;0.377&lt;/td&gt;
+&lt;td&gt;0.752&lt;/td&gt;
+&lt;td&gt;0.801&lt;/td&gt;
+&lt;td&gt;0.183&lt;/td&gt;
+&lt;td&gt;0.977&lt;/td&gt;
+&lt;td&gt;0.275&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.513&lt;/td&gt;
+&lt;td&gt;0.970&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r&lt;sub&gt;105&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.376&lt;/td&gt;
+&lt;td&gt;0.177&lt;/td&gt;
+&lt;td&gt;0.315&lt;/td&gt;
+&lt;td&gt;0.753&lt;/td&gt;
+&lt;td&gt;0.750&lt;/td&gt;
+&lt;td&gt;0.183&lt;/td&gt;
+&lt;td&gt;0.969&lt;/td&gt;
+&lt;td&gt;0.275&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.513&lt;/td&gt;
+&lt;td&gt;0.957&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r&lt;sub&gt;106&lt;/sub&gt;&lt;/td&gt;
+&lt;td&gt;2.598&lt;/td&gt;
+&lt;td&gt;2.004&lt;/td&gt;
+&lt;td&gt;1.274&lt;/td&gt;
+&lt;td&gt;2.047&lt;/td&gt;
+&lt;td&gt;1.477&lt;/td&gt;
+&lt;td&gt;1.521&lt;/td&gt;
+&lt;td&gt;1.331&lt;/td&gt;
+&lt;td&gt;2.591&lt;/td&gt;
+&lt;td&gt;1.045&lt;/td&gt;
+&lt;td&gt;5.017&lt;/td&gt;
+&lt;td&gt;1.759&lt;/td&gt;
+&lt;td&gt;4.378&lt;/td&gt;
+&lt;td&gt;1.095&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="discussion"&gt;
+&lt;h2&gt;Discussion&lt;/h2&gt;
+&lt;p&gt;The nurtient diffusion constant k&lt;sub&gt;n&lt;/sub&gt; is over-estimated in every
+case; by three orders of magnitude in all but two. Independent and
+competition models seem to have similarly poor performance even when
+diffusion constant is large.&lt;/p&gt;
+&lt;p&gt;In the last blog post, using the CNS model, fits of C and N were good
+compared to fits of S. We therefore beleived that removing S from the
+model and just studying C and N would produce good estimates of
+parameters in a shorter time. However, due to the less distinctive
+shape of CN compared to CNS growth curves, estimates may be less
+accurate. We will investigate this using smaller 3x3 plates as we did
+in CNS fits. It is likely that some the error seen here can be
+explained by the weaker stopping criteria which we used to speed up
+fits for the larger plate. This is supported by the surprisingly poor
+estimates obtained fitting the independent model when k&lt;sub&gt;n&lt;/sub&gt;
+= 0. In this case r estimates, in the last table (Inde k&lt;sub&gt;n&lt;/sub&gt; =
+0), appear to be approaching the correct minimum.&lt;/p&gt;
+&lt;p&gt;Other estimates appear to be far from their true values and here we
+likely have more serious fitting issues. Simulations of smaller plates
+(not shown) seem to suggest that there is a particular issue when some
+cultures have zero growth constant (c.f. previous blog post). We will
+look at ways at solving this issue using smaller simulations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="possible-solutions"&gt;
+&lt;h2&gt;Possible Solutions&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Use stricter stopping criteria.&lt;ul&gt;
+&lt;li&gt;We should get a good fit of the independent model to k&lt;sub&gt;n&lt;/sub&gt; =
+0 simulations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Would more observations imporve results?&lt;ul&gt;
+&lt;li&gt;Perhaps I do not have enough timepoints during the growth phase or
+at the tail.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Add extra bounds and constraints.&lt;ul&gt;
+&lt;li&gt;Find zero growers from independent fits (all have the same minimum
+r value) and constrain these to be zero in competition fits.&lt;ul&gt;
+&lt;li&gt;Does not require extra computation as we are already fitting the
+independent model.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Consider placing bounds on k&lt;sub&gt;n&lt;/sub&gt;.&lt;ul&gt;
+&lt;li&gt;Not clear how to do this without measurement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Randomize starting conditions.&lt;ul&gt;
+&lt;li&gt;Requries extra computation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Would Bayesian fitting be more accurate?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We are assuming that there are no errors in the code. As the code is
+now more stable it might be a good idea to start writing some tests.&lt;/p&gt;
+&lt;p&gt;I will try some of these solutions for 2x2 and 3x3 plates containing
+a proportion of cultures with zero growth constant.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/</guid><pubDate>Mon, 02 May 2016 12:03:19 GMT</pubDate></item><item><title>Least squares fit of simulated time-courses</title><link>https://boo62.github.io/blog/least-squares-fit-of-simulated-time-courses/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;Here I look at least squares fits of the CANS model to simulated CANS
 data. I do this for two simulations of a 3x3 plate. In the first all
