@@ -36,12 +36,16 @@ constants ~N(1,1); all rate constant guesses are of value 1.
    :width: 32%
 
 The independent model provides a good fit to the competition model
-simulation but the competition model does not.
+simulation but the competition model overestimates the values of kn.
 
-Do I also have data where I vary kn using uniform starts?
+Uniform starting points for other values of kn
+----------------------------------------------
 
 Using independent estimates as the starting point for competition fitting
 -------------------------------------------------------------------------
+
+Using randomised starting points for independent and competition fitting
+------------------------------------------------------------------------
 
 
 
