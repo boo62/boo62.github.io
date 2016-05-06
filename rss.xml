@@ -1,5 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" href="https://boo62.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 02 May 2016 17:37:53 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Fitting of full plate (16x24) competition model simulations</title><link>https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 06 May 2016 10:57:43 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Independent Estimate as Initial Guess for Competition Fits</title><link>https://boo62.github.io/blog/use-inde-est-as-comp-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+&lt;h2&gt;Outline&lt;/h2&gt;
+&lt;p&gt;I study a competition model simulation of a 3x3 plate for which
+fitting of the competition model is inaccurate. I attempt to improve
+fits using independent model estimates of parameters as starting
+points for fits of the competition model. I vary the nutrient
+diffusion constant, kn, while keeping other parameteres fixed and
+observe the effect on fitting.&lt;/p&gt;
+&lt;p&gt;This suceeds at kn up to 0.12. Above this value, the independent
+solution is a local minimum.&lt;/p&gt;
+&lt;p&gt;Uniform starting points provide good fits for 0.02 &amp;lt;= kn &amp;lt;= 0.20.&lt;/p&gt;
+&lt;p&gt;In the Next post I will try several random sets of starting rs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="uniform-fit-kn-0"&gt;
+&lt;h2&gt;Uniform fit k&lt;sub&gt;n&lt;/sub&gt; = 0&lt;/h2&gt;
+&lt;p&gt;The below fits use a uniform initial parameter guess. True rate
+constants ~N(1,1); all rate constant guesses are of value 1.&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_00/truth_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_00/truth_0.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_00/inde_est_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_00/inde_est_0.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_00/comp_est_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_00/comp_est_0.png" style="width: 32%;"&gt;
+&lt;p&gt;The independent model provides a good fit to the competition model
+simulation but the competition model overestimates the values of kn.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="uniform-starting-points-for-other-values-of-kn"&gt;
+&lt;h2&gt;Uniform starting points for other values of k&lt;sub&gt;n&lt;/sub&gt;&lt;/h2&gt;
+&lt;p&gt;For the same set of rate constant parameters, competition fits are
+good when using uniform guesses of growth constant and k&lt;sub&gt;n&lt;/sub&gt;&amp;gt;0. On the other hand parameter estimates from independent fits are
+poor. Plots for the next kn value above zero and maximum simulated are
+shown below. Fits using itermediate kn values were simillarly good for
+the competition model and poor for the independent model.&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_02/truth_uniform_kn_1.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_02/truth_uniform_kn_1.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_02/inde_est_uniform_kn_1.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_02/inde_est_uniform_kn_1.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_02/comp_est_uniform_kn_1.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_02/comp_est_uniform_kn_1.png" style="width: 32%;"&gt;
+&lt;p&gt;inde r MAD 0.2846154083&lt;/p&gt;
+&lt;p&gt;comp r MAD 2.26275002272E-006&lt;/p&gt;
+&lt;p&gt;comp kn estimate 0.019999988&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/truth_uniform_kn_0_20.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_20/truth_uniform_kn_0_20.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/inde_est_uniform_kn_0_20.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_20/inde_est_uniform_kn_0_20.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/comp_est_uniform_kn_0_20.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/uni_kn_0_20/comp_est_uniform_kn_0_20.png" style="width: 32%;"&gt;
+&lt;p&gt;inde r MAD 0.7212100963&lt;/p&gt;
+&lt;p&gt;comp r MAD 2.60634831801E-006&lt;/p&gt;
+&lt;p&gt;comp kn estimate 0.1999999667&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="using-independent-estimates-as-the-starting-point-for-competition-fitting"&gt;
+&lt;h2&gt;Using independent estimates as the starting point for competition fitting&lt;/h2&gt;
+&lt;p&gt;This can be much faster when kn is small. For the rate constant
+parameters used, good parameter estimates were recovered for k&lt;sub&gt;n&lt;/sub&gt; &amp;lt;= 0.12. Above this value the the competition fit was unable
+to escape the independent estimate minimum.&lt;/p&gt;
+&lt;p&gt;Importantly, we can fit the competition model to competition
+simulations with k&lt;sub&gt;n&lt;/sub&gt;=0 using this method.&lt;/p&gt;
+&lt;p&gt;kn = 0&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_00/truth_0_00.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_00/truth_0_00.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_00/inde_est_0_00.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_00/inde_est_0_00.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_00/comp_est_0_00.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_00/comp_est_0_00.png" style="width: 32%;"&gt;
+&lt;p&gt;kn = 0.12&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_12/truth_0_12.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_12/truth_0_12.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_12/inde_est_0_12.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_12/inde_est_0_12.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_12/comp_est_0_12.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_12/comp_est_0_12.png" style="width: 32%;"&gt;
+&lt;p&gt;kn = 0.14&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_14/truth_0_14.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_14/truth_0_14.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_14/inde_est_0_14.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_14/inde_est_0_14.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_14/comp_est_0_14.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_14/comp_est_0_14.png" style="width: 32%;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="using-randomised-starting-points-for-independent-and-competition-fitting"&gt;
+&lt;h2&gt;Using randomised starting points for independent and competition fitting&lt;/h2&gt;
+&lt;p&gt;Below we use 3 different random sets of initial guesses in fits of the
+competition and independent models to competition simulations.&lt;/p&gt;
+&lt;p&gt;kn = 0&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_00/truth_0_00.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_00/truth_0_00.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_00/inde_est_0_00.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_00/inde_est_0_00.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/inde_kn_0_00/comp_est_0_00.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/inde_kn_0_00/comp_est_0_00.png" style="width: 32%;"&gt;
+&lt;p&gt;For other values of kn we found that uniform parameter guesses
+provided good fits. However, for other true parameters this may not be
+the case. We therefore look below at the performace of random
+parameter guesses and higher values of kn. The main drawback of this
+approach is that it increases the amount of computation time
+required. However, it may be neccessary to use it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="discussion"&gt;
+&lt;h2&gt;Discussion&lt;/h2&gt;
+&lt;p&gt;This approach speeds up fitting becuase the starting point of
+competition fitting is already close to a minimum. Full plate fitting
+of the independent model remains slow becuase we are treating C(t=0)
+and N(t=0) as shared parameters (i.e. the same for each culture on the
+plate) and there is therefore only one less parameter in independent
+fitting than in competition fitting. It would be worth seeing if we
+can speed up fits by first treating C(t=0) and N(t=0) as independent
+for each culture, fitting with the independent model for each culture,
+and then using the results of these fits in a second round of
+independent fitting where C(t=0) and N(t=0) are shared. Independent
+estimates could then be used as starting points for competition
+fits. Results above suggest that this would work so long as kn is
+relatively small.&lt;/p&gt;
+&lt;p&gt;When it is not appropriate to use independent estimates as the
+starting pionts for competition estimates (i.e. when kn is relatively
+large), we may use the competition model to first fit small segments
+of a plate and use estimates from these fits as starting points for
+fitting of increasingly larger segments up to the plate level.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/use-inde-est-as-comp-guess/</guid><pubDate>Thu, 05 May 2016 17:27:11 GMT</pubDate></item><item><title>Fitting of full plate (16x24) competition model simulations</title><link>https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;Here I fit full plate simulations of the competition only model by
 least squares, vary nutrient diffusion constant k&lt;sub&gt;n&lt;/sub&gt;, and
