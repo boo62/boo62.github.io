@@ -28,18 +28,55 @@ Uniform fit k\ :sub:`n` = 0
 The below fits use a uniform initial parameter guess. True rate
 constants ~N(1,1); all rate constant guesses are of value 1.
 
-.. image:: ../../images/use-inde-est-as-comp-guess/truth_0.png
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_00/truth_0.png
    :width: 32%
-.. image:: ../../images/use-inde-est-as-comp-guess/inde_est_0.png
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_00/inde_est_0.png
    :width: 32%
-.. image:: ../../images/use-inde-est-as-comp-guess/comp_est_0.png
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_00/comp_est_0.png
    :width: 32%
 
 The independent model provides a good fit to the competition model
 simulation but the competition model overestimates the values of kn.
 
-Uniform starting points for other values of kn
-----------------------------------------------
+Uniform starting points for other values of k\ :sub:`n`
+-------------------------------------------------------
+
+For the same set of rate constant parameters, competition fits are
+good when using uniform guesses of growth constant and k\ :sub:`n`\
+>0. On the other hand parameter estimates from independent fits are
+poor.
+
+
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_02/truth_uniform_kn_1.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_02/inde_est_uniform_kn_1.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_02/comp_est_uniform_kn_1.png
+   :width: 32%
+
+inde r MAD 0.2846154083
+
+comp r MAD 2.26275002272E-006
+
+comp kn estimate 0.019999988
+
+
+
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_20/truth_uniform_kn_0_20.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_20/inde_est_uniform_kn_0_20.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_20/comp_est_uniform_kn_0_20.png
+   :width: 32%
+
+
+inde r MAD 0.7212100963
+
+comp r MAD 2.60634831801E-006
+
+comp kn estimate 0.1999999667
+
+
 
 Using independent estimates as the starting point for competition fitting
 -------------------------------------------------------------------------
