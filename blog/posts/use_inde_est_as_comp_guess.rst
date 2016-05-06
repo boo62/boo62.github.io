@@ -146,6 +146,40 @@ as a start.
    :width: 32%
 
 
+kn = 0.02
+
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png
+
+Below are three estimates using different random initial guesses. Only
+the first two provide good fits. These beat the uniform guess above
+and provide similar accuracy to fitting using the independent estimate
+as a start.
+
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png
+   :width: 32%
+
+kn = 0.12
+
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png
+
+Below are three estimates using different random initial guesses. Only
+the first two provide good fits. These beat the uniform guess above
+and provide similar accuracy to fitting using the independent estimate
+as a start.
+
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png
+   :width: 32%
+
+
+
 For other values of kn we found that uniform parameter guesses
 provided good fits. However, for other true parameters this may not be
 the case. We therefore look below at the performace of random
