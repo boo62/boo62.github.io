@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://boo62.github.io/blog/successful-full-plate-independent-fit/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Successful full plate independent fit | boo62</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://boo62.github.io/blog/successful-full-plate-independent-fit/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Daniel Boocock">
+<link rel="prev" href="../use-inde-est-as-comp-guess/" title="Using Independent Estimate as Initial Guess for Competition Fits" type="text/html">
+<meta property="og:site_name" content="boo62">
+<meta property="og:title" content="Successful full plate independent fit">
+<meta property="og:url" content="https://boo62.github.io/blog/successful-full-plate-independent-fit/">
+<meta property="og:description" content="Outline
+In a previous blog post I did not recover good fits of competition
+model simulations with zero nutrient diffusion constant kn
+(equivlalent to the indepenent model). This was worrying when fitt">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-05-06T12:33:14+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://boo62.github.io/">
+
+                <span id="blog-title">boo62</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../organizer/">Organizer</a>
+                </li>
+<li>
+<a href="../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+                </li>
+<li>
+<a href="../">Blog</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Successful full plate independent fit</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    Daniel Boocock
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-05-06T12:33:14+01:00" itemprop="datePublished" title="2016-05-06 12:33">2016-05-06 12:33</time></a></p>
+                <p class="commentline">
+        
+
+
+            
+        </p>
+<p class="sourceline"><a href="index.rst" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="section" id="outline">
+<h2>Outline</h2>
+<p>In a previous blog post I did not recover good fits of competition
+model simulations with zero nutrient diffusion constant kn
+(equivlalent to the indepenent model). This was worrying when fitting
+the independent model. I had not realised that minimization was
+stopping early due to a limit on the maximum number of function
+evaluations. Here I show that, with better stopping criteria, the
+independent model can be fit to the simulation data. Data was
+simulated for 21 equally space timepoints which is comparable to
+experiment.</p>
+</div>
+<div class="section" id="results">
+<h2>Results</h2>
+<img alt="../../images/successful-full-plate-independent-fit/truth_comp_sim_kn_0.png" src="../../images/successful-full-plate-independent-fit/truth_comp_sim_kn_0.png" style="width: 49%;"><img alt="../../images/successful-full-plate-independent-fit/inde_est.png" src="../../images/successful-full-plate-independent-fit/inde_est.png" style="width: 49%;">
+</div>
+<div class="section" id="discussion">
+<h2>Discussion</h2>
+<p>We can successfully fit a whole plate using the independent
+model. This is likly to be true for the competition model as well if
+we use techniques described in the previous blog post but we should
+check this.</p>
+<p>Using default options for the minimization, except for the maximum
+number of function evaluations which was unlimited, fitting was very
+slow.</p>
+<p>I should have saved parameters and values of the objective
+function every 100 iterations or so. This would have allowed me to
+determine how long the simulations should run for in order to reach a
+minimum with the required level of accuracy.</p>
+<p>Estimates should be accurate enough to determine whether the
+independent or competition model provides a better fit by comparing
+the consistancy of growth constant estimates for identical
+strains. Ideally errors in growth constant estimates should be small
+compared to the range of their distribution. In simulations, without
+experimental noise but with a similar number of observations, we can
+recover growth constants to a high precision. Here the MAD of r
+estimates from truth was of order 10E-4 with true parameter values
+ranging 0 - 4.54.</p>
+<p>Biological variance in growth constants between identical strains will
+also be present in real data.</p>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../use-inde-est-as-comp-guess/" rel="prev" title="Using Independent Estimate as Initial Guess for Competition Fits">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+
+
+        </section></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:daniel.boocock@protonmail.ch">Daniel Boocock</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

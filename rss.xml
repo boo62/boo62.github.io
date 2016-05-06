@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" type="application/rss+xml" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Fri, 06 May 2016 11:30:26 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Using Independent Estimate as Initial Guess for Competition Fits</title><link>https://boo62.github.io/blog/use-inde-est-as-comp-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" href="https://boo62.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 06 May 2016 12:20:43 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Successful full plate independent fit</title><link>https://boo62.github.io/blog/successful-full-plate-independent-fit/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+&lt;h2&gt;Outline&lt;/h2&gt;
+&lt;p&gt;In a previous blog post I did not recover good fits of competition
+model simulations with zero nutrient diffusion constant kn
+(equivlalent to the indepenent model). This was worrying when fitting
+the independent model. I had not realised that minimization was
+stopping early due to a limit on the maximum number of function
+evaluations. Here I show that, with better stopping criteria, the
+independent model can be fit to the simulation data. Data was
+simulated for 21 equally space timepoints which is comparable to
+experiment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="results"&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;img alt="../../images/successful-full-plate-independent-fit/truth_comp_sim_kn_0.png" src="https://boo62.github.io/images/successful-full-plate-independent-fit/truth_comp_sim_kn_0.png" style="width: 49%;"&gt;
+&lt;img alt="../../images/successful-full-plate-independent-fit/inde_est.png" src="https://boo62.github.io/images/successful-full-plate-independent-fit/inde_est.png" style="width: 49%;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="discussion"&gt;
+&lt;h2&gt;Discussion&lt;/h2&gt;
+&lt;p&gt;We can successfully fit a whole plate using the independent
+model. This is likly to be true for the competition model as well if
+we use techniques described in the previous blog post but we should
+check this.&lt;/p&gt;
+&lt;p&gt;Using default options for the minimization, except for the maximum
+number of function evaluations which was unlimited, fitting was very
+slow.&lt;/p&gt;
+&lt;p&gt;I should have saved parameters and values of the objective
+function every 100 iterations or so. This would have allowed me to
+determine how long the simulations should run for in order to reach a
+minimum with the required level of accuracy.&lt;/p&gt;
+&lt;p&gt;Estimates should be accurate enough to determine whether the
+independent or competition model provides a better fit by comparing
+the consistancy of growth constant estimates for identical
+strains. Ideally errors in growth constant estimates should be small
+compared to the range of their distribution. In simulations, without
+experimental noise but with a similar number of observations, we can
+recover growth constants to a high precision. Here the MAD of r
+estimates from truth was of order 10E-4 with true parameter values
+ranging 0 - 4.54.&lt;/p&gt;
+&lt;p&gt;Biological variance in growth constants between identical strains will
+also be present in real data.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/successful-full-plate-independent-fit/</guid><pubDate>Fri, 06 May 2016 11:33:14 GMT</pubDate></item><item><title>Using Independent Estimate as Initial Guess for Competition Fits</title><link>https://boo62.github.io/blog/use-inde-est-as-comp-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;I study a competition model simulation of a 3x3 plate for which
 fitting of the competition model is inaccurate. I attempt to improve
@@ -68,6 +109,24 @@ simulations with k&lt;sub&gt;n&lt;/sub&gt;=0 using this method.&lt;/p&gt;
 &lt;p&gt;Below we use 3 different random sets of initial guesses in fits of the
 competition and independent models to competition simulations.&lt;/p&gt;
 &lt;p&gt;kn = 0&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"&gt;
+&lt;p&gt;Below are three estimates using different random initial guesses. Only
+the first two provide good fits. These beat the uniform guess above
+and provide similar accuracy to fitting using the independent estimate
+as a start.&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"&gt;
+&lt;p&gt;kn = 0.02&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"&gt;
+&lt;p&gt;Below are three estimates using different random initial guesses. Only
+the first two provide good fits. These beat the uniform guess above
+and provide similar accuracy to fitting using the independent estimate
+as a start.&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"&gt;
+&lt;p&gt;kn = 0.12&lt;/p&gt;
 &lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"&gt;
 &lt;p&gt;Below are three estimates using different random initial guesses. Only
 the first two provide good fits. These beat the uniform guess above

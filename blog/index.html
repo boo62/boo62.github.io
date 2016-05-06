@@ -68,7 +68,64 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="use-inde-est-as-comp-guess/" class="u-url">Using Independent Estimate as Initial Guess for Competition Fits</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="successful-full-plate-independent-fit/" class="u-url">Successful full plate independent fit</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Daniel Boocock
+            </span></p>
+            <p class="dateline"><a href="successful-full-plate-independent-fit/" rel="bookmark"><time class="published dt-published" datetime="2016-05-06T12:33:14+01:00" title="2016-05-06 12:33">2016-05-06 12:33</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<div class="section" id="outline">
+<h2>Outline</h2>
+<p>In a previous blog post I did not recover good fits of competition
+model simulations with zero nutrient diffusion constant kn
+(equivlalent to the indepenent model). This was worrying when fitting
+the independent model. I had not realised that minimization was
+stopping early due to a limit on the maximum number of function
+evaluations. Here I show that, with better stopping criteria, the
+independent model can be fit to the simulation data. Data was
+simulated for 21 equally space timepoints which is comparable to
+experiment.</p>
+</div>
+<div class="section" id="results">
+<h2>Results</h2>
+<img alt="../../images/successful-full-plate-independent-fit/truth_comp_sim_kn_0.png" src="../images/successful-full-plate-independent-fit/truth_comp_sim_kn_0.png" style="width: 49%;"><img alt="../../images/successful-full-plate-independent-fit/inde_est.png" src="../images/successful-full-plate-independent-fit/inde_est.png" style="width: 49%;">
+</div>
+<div class="section" id="discussion">
+<h2>Discussion</h2>
+<p>We can successfully fit a whole plate using the independent
+model. This is likly to be true for the competition model as well if
+we use techniques described in the previous blog post but we should
+check this.</p>
+<p>Using default options for the minimization, except for the maximum
+number of function evaluations which was unlimited, fitting was very
+slow.</p>
+<p>I should have saved parameters and values of the objective
+function every 100 iterations or so. This would have allowed me to
+determine how long the simulations should run for in order to reach a
+minimum with the required level of accuracy.</p>
+<p>Estimates should be accurate enough to determine whether the
+independent or competition model provides a better fit by comparing
+the consistancy of growth constant estimates for identical
+strains. Ideally errors in growth constant estimates should be small
+compared to the range of their distribution. In simulations, without
+experimental noise but with a similar number of observations, we can
+recover growth constants to a high precision. Here the MAD of r
+estimates from truth was of order 10E-4 with true parameter values
+ranging 0 - 4.54.</p>
+<p>Biological variance in growth constants between identical strains will
+also be present in real data.</p>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="use-inde-est-as-comp-guess/" class="u-url">Using Independent Estimate as Initial Guess for Competition Fits</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                 Daniel Boocock
@@ -135,6 +192,16 @@ simulations with k<sub>n</sub>=0 using this method.</p>
 <p>Below we use 3 different random sets of initial guesses in fits of the
 competition and independent models to competition simulations.</p>
 <p>kn = 0</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"><p>Below are three estimates using different random initial guesses. Only
+the first two provide good fits. These beat the uniform guess above
+and provide similar accuracy to fitting using the independent estimate
+as a start.</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"><p>kn = 0.02</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"><p>Below are three estimates using different random initial guesses. Only
+the first two provide good fits. These beat the uniform guess above
+and provide similar accuracy to fitting using the independent estimate
+as a start.</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"><p>kn = 0.12</p>
 <img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"><p>Below are three estimates using different random initial guesses. Only
 the first two provide good fits. These beat the uniform guess above
 and provide similar accuracy to fitting using the independent estimate
