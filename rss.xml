@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 06 May 2016 12:21:49 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Successful full plate independent fit</title><link>https://boo62.github.io/blog/successful-full-plate-independent-fit/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 06 May 2016 13:46:16 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Successful full plate independent fit</title><link>https://boo62.github.io/blog/successful-full-plate-independent-fit/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
-&lt;p&gt;In a previous blog post I did not recover good fits of competition
-model simulations with zero nutrient diffusion constant kn
+&lt;p&gt;In a previous blog post I did not recover good fits of full plate
+competition model simulations with zero nutrient diffusion constant kn
 (equivlalent to the indepenent model). This was worrying when fitting
 the independent model. I had not realised that minimization was
 stopping early due to a limit on the maximum number of function
 evaluations. Here I show that, with better stopping criteria, the
 independent model can be fit to the simulation data. Data was
-simulated for 21 equally space timepoints which is comparable to
-experiment.&lt;/p&gt;
+simulated for 21 equally space timepoints which is comparable
+experimental timepoints.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="results"&gt;
 &lt;h2&gt;Results&lt;/h2&gt;
@@ -83,6 +83,12 @@ the competition model and poor for the independent model.&lt;/p&gt;
 &lt;p&gt;inde r MAD 0.7212100963&lt;/p&gt;
 &lt;p&gt;comp r MAD 2.60634831801E-006&lt;/p&gt;
 &lt;p&gt;comp kn estimate 0.1999999667&lt;/p&gt;
+&lt;p&gt;For other values of kn we found that uniform parameter guesses
+provided good fits. However, for other true parameters this may not be
+the case. We therefore look below at the performace of random
+parameter guesses and higher values of kn. The main drawback of this
+approach is that it increases the amount of computation time
+required. However, it may be neccessary to use it.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="using-independent-estimates-as-the-starting-point-for-competition-fitting"&gt;
 &lt;h2&gt;Using independent estimates as the starting point for competition fitting&lt;/h2&gt;
@@ -118,29 +124,30 @@ as a start.&lt;/p&gt;
 &lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"&gt;
 &lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"&gt;
 &lt;p&gt;kn = 0.02&lt;/p&gt;
-&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"&gt;
-&lt;p&gt;Below are three estimates using different random initial guesses. Only
-the first two provide good fits. These beat the uniform guess above
-and provide similar accuracy to fitting using the independent estimate
-as a start.&lt;/p&gt;
-&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"&gt;
-&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"&gt;
-&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/truth_kn_1.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_02/truth_kn_1.png"&gt;
+&lt;p&gt;Only the first set of random starting parameters provides a good fit.&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_0_kn_1.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_0_kn_1.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_1_kn_1.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_1_kn_1.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_2_kn_1.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_2_kn_1.png" style="width: 32%;"&gt;
 &lt;p&gt;kn = 0.12&lt;/p&gt;
-&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"&gt;
-&lt;p&gt;Below are three estimates using different random initial guesses. Only
-the first two provide good fits. These beat the uniform guess above
-and provide similar accuracy to fitting using the independent estimate
-as a start.&lt;/p&gt;
-&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"&gt;
-&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"&gt;
-&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"&gt;
-&lt;p&gt;For other values of kn we found that uniform parameter guesses
-provided good fits. However, for other true parameters this may not be
-the case. We therefore look below at the performace of random
-parameter guesses and higher values of kn. The main drawback of this
-approach is that it increases the amount of computation time
-required. However, it may be neccessary to use it.&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/truth_kn_6.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_12/truth_kn_6.png"&gt;
+&lt;p&gt;Now, only the second set of random starting parameters provides a good fit.&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_0_kn_6.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_0_kn_6.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_1_kn_6.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_1_kn_6.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_2_kn_6.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_2_kn_6.png" style="width: 32%;"&gt;
+&lt;p&gt;kn = 0.18&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/truth_kn_9.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_18/truth_kn_9.png"&gt;
+&lt;p&gt;This is the only value of kn for which the third set provides a good
+estimate (I'm pretty sure). Here it recovers r parameters with the
+highest accuracy.&lt;/p&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_0_kn_9.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_0_kn_9.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_1_kn_9.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_1_kn_9.png" style="width: 32%;"&gt;
+&lt;img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_2_kn_9.png" src="https://boo62.github.io/images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_2_kn_9.png" style="width: 32%;"&gt;
+&lt;p&gt;Surprisingly, different initial guesses result in the best fit at
+different values of k&lt;sub&gt;n&lt;/sub&gt;. One set may provide the best fit at
+multiple separate regions of kn value.&lt;/p&gt;
+&lt;p&gt;Do we achieve good fits with at least one of these sets at every kn?
+It looks that way from the plots.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="discussion"&gt;
 &lt;h2&gt;Discussion&lt;/h2&gt;

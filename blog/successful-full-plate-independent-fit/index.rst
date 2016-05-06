@@ -10,15 +10,15 @@
 Outline
 -------
 
-In a previous blog post I did not recover good fits of competition
-model simulations with zero nutrient diffusion constant kn
+In a previous blog post I did not recover good fits of full plate
+competition model simulations with zero nutrient diffusion constant kn
 (equivlalent to the indepenent model). This was worrying when fitting
 the independent model. I had not realised that minimization was
 stopping early due to a limit on the maximum number of function
 evaluations. Here I show that, with better stopping criteria, the
 independent model can be fit to the simulation data. Data was
-simulated for 21 equally space timepoints which is comparable to
-experiment.
+simulated for 21 equally space timepoints which is comparable
+experimental timepoints.
 
 Results
 -------

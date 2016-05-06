@@ -136,6 +136,12 @@ the competition model and poor for the independent model.</p>
 <img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/truth_uniform_kn_0_20.png" src="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/truth_uniform_kn_0_20.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/inde_est_uniform_kn_0_20.png" src="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/inde_est_uniform_kn_0_20.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/comp_est_uniform_kn_0_20.png" src="../../images/use-inde-est-as-comp-guess/uni_kn_0_20/comp_est_uniform_kn_0_20.png" style="width: 32%;"><p>inde r MAD 0.7212100963</p>
 <p>comp r MAD 2.60634831801E-006</p>
 <p>comp kn estimate 0.1999999667</p>
+<p>For other values of kn we found that uniform parameter guesses
+provided good fits. However, for other true parameters this may not be
+the case. We therefore look below at the performace of random
+parameter guesses and higher values of kn. The main drawback of this
+approach is that it increases the amount of computation time
+required. However, it may be neccessary to use it.</p>
 </div>
 <div class="section" id="using-independent-estimates-as-the-starting-point-for-competition-fitting">
 <h2>Using independent estimates as the starting point for competition fitting</h2>
@@ -159,21 +165,18 @@ the first two provide good fits. These beat the uniform guess above
 and provide similar accuracy to fitting using the independent estimate
 as a start.</p>
 <img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"><p>kn = 0.02</p>
-<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"><p>Below are three estimates using different random initial guesses. Only
-the first two provide good fits. These beat the uniform guess above
-and provide similar accuracy to fitting using the independent estimate
-as a start.</p>
-<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"><p>kn = 0.12</p>
-<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png"><p>Below are three estimates using different random initial guesses. Only
-the first two provide good fits. These beat the uniform guess above
-and provide similar accuracy to fitting using the independent estimate
-as a start.</p>
-<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png" style="width: 32%;"><p>For other values of kn we found that uniform parameter guesses
-provided good fits. However, for other true parameters this may not be
-the case. We therefore look below at the performace of random
-parameter guesses and higher values of kn. The main drawback of this
-approach is that it increases the amount of computation time
-required. However, it may be neccessary to use it.</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/truth_kn_1.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/truth_kn_1.png"><p>Only the first set of random starting parameters provides a good fit.</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_0_kn_1.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_0_kn_1.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_1_kn_1.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_1_kn_1.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_2_kn_1.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_02/comp_est_rand_2_kn_1.png" style="width: 32%;"><p>kn = 0.12</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/truth_kn_6.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/truth_kn_6.png"><p>Now, only the second set of random starting parameters provides a good fit.</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_0_kn_6.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_0_kn_6.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_1_kn_6.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_1_kn_6.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_2_kn_6.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_12/comp_est_rand_2_kn_6.png" style="width: 32%;"><p>kn = 0.18</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/truth_kn_9.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/truth_kn_9.png"><p>This is the only value of kn for which the third set provides a good
+estimate (I'm pretty sure). Here it recovers r parameters with the
+highest accuracy.</p>
+<img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_0_kn_9.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_0_kn_9.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_1_kn_9.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_1_kn_9.png" style="width: 32%;"><img alt="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_2_kn_9.png" src="../../images/use-inde-est-as-comp-guess/rand_kn_0_18/comp_est_rand_2_kn_9.png" style="width: 32%;"><p>Surprisingly, different initial guesses result in the best fit at
+different values of k<sub>n</sub>. One set may provide the best fit at
+multiple separate regions of kn value.</p>
+<p>Do we achieve good fits with at least one of these sets at every kn?
+It looks that way from the plots.</p>
 </div>
 <div class="section" id="discussion">
 <h2>Discussion</h2>
