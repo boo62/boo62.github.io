@@ -20,7 +20,8 @@ observe the effect on fitting.
 This suceeds at kn up to 0.12. Above this value, the independent
 solution is a local minimum.
 
-Uniform starting points provide good fits for 0.02 <= kn <= 0.20.
+Uniform starting points provide good fits for 0.02 <= kn <=
+0.20. Other ranges were not stuidied except for the case kn=0.
 
 In the Next post I will try several random sets of starting rs.
 
@@ -130,11 +131,18 @@ competition and independent models to competition simulations.
 
 kn = 0
 
-.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/truth_0_00.png
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/truth_kn_0.png
+
+Below are three estimates using different random initial guesses. Only
+the first two provide good fits. These beat the uniform guess above
+and provide similar accuracy to fitting using the independent estimate
+as a start.
+
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_0_kn_0.png
    :width: 32%
-.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/inde_est_0_00.png
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_1_kn_0.png
    :width: 32%
-.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/comp_est_0_00.png
+.. image:: ../../images/use-inde-est-as-comp-guess/rand_kn_0_00/comp_est_rand_2_kn_0.png
    :width: 32%
 
 
