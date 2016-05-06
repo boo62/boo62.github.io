@@ -20,6 +20,8 @@ observe the effect on fitting.
 This suceeds at kn up to 0.12. Above this value, the independent
 solution is a local minimum.
 
+Uniform starting points provide good fits for 0.02 <= kn <= 0.20.
+
 In the Next post I will try several random sets of starting rs.
 
 Uniform fit k\ :sub:`n` = 0
@@ -83,10 +85,13 @@ comp kn estimate 0.1999999667
 Using independent estimates as the starting point for competition fitting
 -------------------------------------------------------------------------
 
-This can be much faster when it works. For the rate constant
+This can be much faster when kn is small. For the rate constant
 parameters used, good parameter estimates were recovered for k\
 :sub:`n` <= 0.12. Above this value the the competition fit was unable
 to escape the independent estimate minimum.
+
+Importantly, we can fit the competition model to competition
+simulations with k\ :sub:`n`\ =0 using this method.
 
 kn = 0
 
@@ -120,7 +125,17 @@ kn = 0.14
 Using randomised starting points for independent and competition fitting
 ------------------------------------------------------------------------
 
+Below we use 3 different random sets of initial guesses in fits of the
+competition and independent models to competition simulations.
+
 kn = 0
+
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/truth_0_00.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/inde_est_0_00.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/comp_est_0_00.png
+   :width: 32%
 
 
 For other values of kn we found that uniform parameter guesses
