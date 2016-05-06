@@ -44,7 +44,9 @@ Uniform starting points for other values of k\ :sub:`n`
 For the same set of rate constant parameters, competition fits are
 good when using uniform guesses of growth constant and k\ :sub:`n`\
 >0. On the other hand parameter estimates from independent fits are
-poor.
+poor. Plots for the next kn value above zero and maximum simulated are
+shown below. Fits using itermediate kn values were simillarly good for
+the competition model and poor for the independent model.
 
 
 .. image:: ../../images/use-inde-est-as-comp-guess/uni_kn_0_02/truth_uniform_kn_1.png
@@ -81,8 +83,52 @@ comp kn estimate 0.1999999667
 Using independent estimates as the starting point for competition fitting
 -------------------------------------------------------------------------
 
+This can be much faster when it works. For the rate constant
+parameters used, good parameter estimates were recovered for k\
+:sub:`n` <= 0.12. Above this value the the competition fit was unable
+to escape the independent estimate minimum.
+
+kn = 0
+
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/truth_0_00.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/inde_est_0_00.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_00/comp_est_0_00.png
+   :width: 32%
+
+
+kn = 0.12
+
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_12/truth_0_12.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_12/inde_est_0_12.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_12/comp_est_0_12.png
+   :width: 32%
+
+kn = 0.14
+
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_14/truth_0_14.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_14/inde_est_0_14.png
+   :width: 32%
+.. image:: ../../images/use-inde-est-as-comp-guess/inde_kn_0_14/comp_est_0_14.png
+   :width: 32%
+
+
 Using randomised starting points for independent and competition fitting
 ------------------------------------------------------------------------
+
+kn = 0
+
+
+For other values of kn we found that uniform parameter guesses
+provided good fits. However, for other true parameters this may not be
+the case. We therefore look below at the performace of random
+parameter guesses and higher values of kn. The main drawback of this
+approach is that it increases the amount of computation time
+required. However, it may be neccessary to use it.
 
 
 
@@ -103,7 +149,8 @@ estimates could then be used as starting points for competition
 fits. Results above suggest that this would work so long as kn is
 relatively small.
 
-In the next blog post I study whether better fits can be achieved
-using multiple randomised starting points. I am particularly
-interested in how this works for large kn where the above method
-fails.
+When it is not appropriate to use independent estimates as the
+starting pionts for competition estimates (i.e. when kn is relatively
+large), we may use the competition model to first fit small segments
+of a plate and use estimates from these fits as starting points for
+fitting of increasingly larger segments up to the plate level.
