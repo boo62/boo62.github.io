@@ -33,7 +33,7 @@ Discussion
 ----------
 
 We can successfully fit a whole plate using the independent
-model. This is likly to be true for the competition model as well if
+model. This is likely to be true for the competition model as well if
 we use techniques described in the previous blog post but we should
 check this.
 
