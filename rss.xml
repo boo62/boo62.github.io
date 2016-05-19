@@ -1,5 +1,343 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 06 May 2016 13:46:16 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Successful full plate independent fit</title><link>https://boo62.github.io/blog/successful-full-plate-independent-fit/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 19 May 2016 19:52:45 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Fit a 16x24 Competition Simulation</title><link>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+&lt;h2&gt;Outline&lt;/h2&gt;
+&lt;p&gt;This time we fit the competition model to plates also simulated using
+the competition model with kn &amp;gt; 0.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="plan"&gt;
+&lt;h2&gt;Plan&lt;/h2&gt;
+&lt;div class="section" id="simulation"&gt;
+&lt;h3&gt;Simulation&lt;/h3&gt;
+&lt;p&gt;We want to fit a full plate simulation of the competition model using
+the competition model. We use some information that we will not have
+for real data. For instance, we use the same N(5, 3) distribution to
+genereate rate constants for the simulation and initial guesses for
+fitting. We aim to determine sensible stopping criteria for the
+minimizer, how many initial parameter guesses we will need to make to
+find the correct minimum and how long fitting will take.&lt;/p&gt;
+&lt;p&gt;Becuase there is a large number of cultures on the plate (384), one
+set of random growth constants should do for simulated data. For 3x3
+plates, we have &lt;a class="reference external" href="https://boo62.github.io/blog/use-inde-est-as-comp-guess/"&gt;previously shown&lt;/a&gt;
+that, using enough random initial guesses of growth constants, we can
+achieve good fits over a range of kn values. Therefore, we will just
+use one value for kn and one simulated data set.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="real-data"&gt;
+&lt;h3&gt;Real Data&lt;/h3&gt;
+&lt;p&gt;We will not know how realistic values of test parameters are, or
+whether the model can even produce a good fit, until we try fitting
+real data. If, in fits of real data, some parameters are much smaller
+than others then we may have to scale them to be of roughly the same
+order of magnitude in order for the minimizer to work. We may also
+have to use many more initial parameter guesses from different
+distributions to achieve a first fit. After this we will have ball
+park values which we can use.&lt;/p&gt;
+&lt;p&gt;To reduce computation time we will first fit a central 5x5 or 4x4
+section of a real plate. To reduce errors due to not fitting the
+entire plate, we will discard edge cultures and assess the inner 3x3
+or 2x2 fit. We can use the results of this fitting to calibrate for
+full plate fitting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="results"&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;I simulated a full 16x24 plate and generated 100 sets of random
+~N(5, 3) guesses for rate constants r which were annotated and saved
+to file.&lt;/p&gt;
+&lt;div class="section" id="x1-fits"&gt;
+&lt;h3&gt;2x1 Fits&lt;/h3&gt;
+&lt;p&gt;I took the parameters from a 2x1 zone of the full plate. Coordiates of
+the top left culture of the zone are (7, 13) with the origin of the
+plate being (0, 0). I used these parameters and the competition model
+to simulate new amounts as if the zone was not part of the larger
+plate. I fitted the competition model to the simulations using ten of
+the sets of random r guesses as initial guesses. To be consistant I
+used the r guesses corresponding to the zone.&lt;/p&gt;
+&lt;div class="section" id="effect-of-initial-guess-of-kn"&gt;
+&lt;h4&gt;Effect of initial guess of kn&lt;/h4&gt;
+&lt;p&gt;At first I used an initial guess for kn of 0.0. This produced
+relatively poor fits. Contrary to &lt;a class="reference external" href="https://boo62.github.io/blog/use-inde-est-as-comp-guess/"&gt;previous findings&lt;/a&gt;, where different parameters were used
+for simulating data, the initial guess of kn is importatant. Here,
+parameters were changed to better match experimental growth times
+which are typically around 5 days. A value of kn = 0.1 as an initial
+guess improves fits (the true value is 0.2).&lt;/p&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_0_factr_10e0.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_0_factr_10e0.png" style="width: 49%;"&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_1_factr_10e0.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_1_factr_10e0.png" style="width: 49%;"&gt;
+&lt;p&gt;Initial guess 5:&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="21%"&gt;
+&lt;col width="13%"&gt;
+&lt;col width="33%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Truth&lt;/th&gt;
+&lt;th class="head"&gt;Est kn_guess=0.0&lt;/th&gt;
+&lt;th class="head"&gt;Est kn_guess=0.1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C_0&lt;/td&gt;
+&lt;td&gt;1.0E-4&lt;/td&gt;
+&lt;td&gt;3.63E-5&lt;/td&gt;
+&lt;td&gt;9.91E-5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N_0&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;0.94&lt;/td&gt;
+&lt;td&gt;0.9994&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;kn&lt;/td&gt;
+&lt;td&gt;0.2&lt;/td&gt;
+&lt;td&gt;0.28&lt;/td&gt;
+&lt;td&gt;0.2006&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r0&lt;/td&gt;
+&lt;td&gt;4.350&lt;/td&gt;
+&lt;td&gt;5.2&lt;/td&gt;
+&lt;td&gt;4.357&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r1&lt;/td&gt;
+&lt;td&gt;1.859&lt;/td&gt;
+&lt;td&gt;2.4&lt;/td&gt;
+&lt;td&gt;1.864&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;obj fun&lt;/td&gt;
+&lt;td&gt;na&lt;/td&gt;
+&lt;td&gt;3.6E-2&lt;/td&gt;
+&lt;td&gt;3.7E-4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;I also made fits using a uniform guess of rate constants r_i = 5.0
+(the true distribution mean). Fits were again dependent on the kn
+initial guess and not as good as for the best random guess. We only
+fit to the simulated number of cells observations (blue crosses). In
+the right plot below a fairly good fit is made to the cell timecourse
+even though the starting nutrient amount is poorly estimated. This
+affects other parameters as can be seen in the table. However, we can
+distinguish the better fit for inititial guess five by the value of
+the objective function which is two orders of magnitude smaller.&lt;/p&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/2x1_guess_uni_kn_0_0_factr_10e0.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/2x1_guess_uni_kn_0_0_factr_10e0.png" style="width: 49%;"&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/2x1_guess_uni_kn_0_1_factr_10e0.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/2x1_guess_uni_kn_0_1_factr_10e0.png" style="width: 49%;"&gt;
+&lt;p&gt;Uniform initial guess:&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="21%"&gt;
+&lt;col width="13%"&gt;
+&lt;col width="33%"&gt;
+&lt;col width="33%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;Parameter&lt;/th&gt;
+&lt;th class="head"&gt;Truth&lt;/th&gt;
+&lt;th class="head"&gt;Est kn_guess=0.0&lt;/th&gt;
+&lt;th class="head"&gt;Est kn_guess=0.1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;C_0&lt;/td&gt;
+&lt;td&gt;1.0E-4&lt;/td&gt;
+&lt;td&gt;9.4E-8&lt;/td&gt;
+&lt;td&gt;1.1E-5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;N_0&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;0.62&lt;/td&gt;
+&lt;td&gt;0.87&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;kn&lt;/td&gt;
+&lt;td&gt;0.2&lt;/td&gt;
+&lt;td&gt;4.3&lt;/td&gt;
+&lt;td&gt;0.39&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r0&lt;/td&gt;
+&lt;td&gt;4.350&lt;/td&gt;
+&lt;td&gt;12.2&lt;/td&gt;
+&lt;td&gt;6.3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;r1&lt;/td&gt;
+&lt;td&gt;1.859&lt;/td&gt;
+&lt;td&gt;3.5&lt;/td&gt;
+&lt;td&gt;3.1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;obj fun&lt;/td&gt;
+&lt;td&gt;na&lt;/td&gt;
+&lt;td&gt;4.8E-1&lt;/td&gt;
+&lt;td&gt;6.7E-2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;No way to judge fit of N in fits of real data. Could look at how
+ranking of r_i's is affected when other parameters are inacurate. If
+it is consistent with the good fits then it may not be such an issue.&lt;/p&gt;
+&lt;p&gt;Discussion of parameters and rescaling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="stopping-criteria"&gt;
+&lt;h4&gt;Stopping Criteria&lt;/h4&gt;
+&lt;p&gt;To fit I used the &lt;a class="reference external" href="http://docs.scipy.org/doc/scipy-0.17.0/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb"&gt;L-BFGS-B method&lt;/a&gt; from scipy.optimize.minimize.&lt;/p&gt;
+&lt;p&gt;For each initial guess, I stopped the minimization over a logorithmic
+range of factr: 10e14, 10e13, ..., 10e0, where ftol = factr*eps. Note
+that documentation for the L-BFGS-B method is currently inaccurate
+(19/05/2016) and factr must be passed through ftol (&lt;a class="reference external" href="https://github.com/scipy/scipy/issues/5231"&gt;issue report&lt;/a&gt;). To reduce computation
+time, I used estimates at each stopping point as the initial guess for
+the next lowest factr (low factr being more accurate). However, this
+may negatively affect the performance of the minimizer. When I was
+mistakenly sending a different set of factrs due to a rounding error
+init guess 5 rather than 7 produced the best fit, although values of
+the objective function were comparable (init_guess_5: 3.7E-4,
+init_guess_7: 3.3E-4). I believe this is to do with how step size
+varies as the minimizer progresses. In fitting real data I will decide
+a suitible factr and remove the loop in fitting which I will know once
+I have fitted a full plate.&lt;/p&gt;
+&lt;p&gt;The transition of a successful fit using initial guess 7 is shown
+below.&lt;/p&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/2x1_stop_factr_10e9_init_guess_7.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/2x1_stop_factr_10e9_init_guess_7.png" style="width: 49%;"&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/2x1_stop_factr_10e8_init_guess_7.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/2x1_stop_factr_10e8_init_guess_7.png" style="width: 49%;"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="x5-fits"&gt;
+&lt;h3&gt;5x5 Fits&lt;/h3&gt;
+&lt;p&gt;I performed the same fitting for a 5x5 zone with coordinates (6, 11)
+using only kn = 0.1 as an initial guess. In this case the uniform
+guess was best. As plates become larger I suspect the uniform guess
+will perform best more often becuase it is less likely that any random
+guess will be close to the true values.&lt;/p&gt;
+&lt;p&gt;Transition to a good fit for the uniform guess:&lt;/p&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e9.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e9.png" style="width: 50em;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e8.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e8.png" style="width: 50em;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;img alt="../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e0.png" src="https://boo62.github.io/images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e0.png" style="width: 50em;"&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Parameter deviations for 5x5 uinform fit:&lt;/p&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="15%"&gt;
+&lt;col width="20%"&gt;
+&lt;col width="15%"&gt;
+&lt;col width="15%"&gt;
+&lt;col width="15%"&gt;
+&lt;col width="20%"&gt;
+&lt;/colgroup&gt;
+&lt;thead valign="bottom"&gt;
+&lt;tr&gt;&lt;th class="head"&gt;factr&lt;/th&gt;
+&lt;th class="head"&gt;obj fun&lt;/th&gt;
+&lt;th class="head"&gt;C_0&lt;/th&gt;
+&lt;th class="head"&gt;N_0&lt;/th&gt;
+&lt;th class="head"&gt;kn&lt;/th&gt;
+&lt;th class="head"&gt;r (MAD)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;10e0&lt;/td&gt;
+&lt;td&gt;0.066&lt;/td&gt;
+&lt;td&gt;4.6e-5&lt;/td&gt;
+&lt;td&gt;0.0041&lt;/td&gt;
+&lt;td&gt;0.0032&lt;/td&gt;
+&lt;td&gt;0.31&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e1&lt;/td&gt;
+&lt;td&gt;0.082&lt;/td&gt;
+&lt;td&gt;5.9e-5&lt;/td&gt;
+&lt;td&gt;0.0051&lt;/td&gt;
+&lt;td&gt;0.0042&lt;/td&gt;
+&lt;td&gt;0.36&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e2&lt;/td&gt;
+&lt;td&gt;0.098&lt;/td&gt;
+&lt;td&gt;6.0e-5&lt;/td&gt;
+&lt;td&gt;0.0058&lt;/td&gt;
+&lt;td&gt;0.0052&lt;/td&gt;
+&lt;td&gt;0.37&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e3&lt;/td&gt;
+&lt;td&gt;0.14&lt;/td&gt;
+&lt;td&gt;5.8e-5&lt;/td&gt;
+&lt;td&gt;0.010&lt;/td&gt;
+&lt;td&gt;0.012&lt;/td&gt;
+&lt;td&gt;0.38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e4&lt;/td&gt;
+&lt;td&gt;0.22&lt;/td&gt;
+&lt;td&gt;2.2E-4&lt;/td&gt;
+&lt;td&gt;0.014&lt;/td&gt;
+&lt;td&gt;0.010&lt;/td&gt;
+&lt;td&gt;0.79&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e5&lt;/td&gt;
+&lt;td&gt;0.22&lt;/td&gt;
+&lt;td&gt;2.3e-4&lt;/td&gt;
+&lt;td&gt;0.015&lt;/td&gt;
+&lt;td&gt;0.012&lt;/td&gt;
+&lt;td&gt;0.80&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e6&lt;/td&gt;
+&lt;td&gt;0.24&lt;/td&gt;
+&lt;td&gt;2.3e-4&lt;/td&gt;
+&lt;td&gt;0.015&lt;/td&gt;
+&lt;td&gt;0.013&lt;/td&gt;
+&lt;td&gt;0.82&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e7&lt;/td&gt;
+&lt;td&gt;0.25&lt;/td&gt;
+&lt;td&gt;2.7e-4&lt;/td&gt;
+&lt;td&gt;0.016&lt;/td&gt;
+&lt;td&gt;0.012&lt;/td&gt;
+&lt;td&gt;0.88&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e8&lt;/td&gt;
+&lt;td&gt;0.30&lt;/td&gt;
+&lt;td&gt;2.7e-4&lt;/td&gt;
+&lt;td&gt;0.017&lt;/td&gt;
+&lt;td&gt;0.015&lt;/td&gt;
+&lt;td&gt;0.90&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;10e9&lt;/td&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;2.0E-4&lt;/td&gt;
+&lt;td&gt;0.10&lt;/td&gt;
+&lt;td&gt;0.013&lt;/td&gt;
+&lt;td&gt;2.5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="section" id="x24-fits"&gt;
+&lt;h3&gt;16x24 Fits&lt;/h3&gt;
+&lt;p&gt;Currently running on the yzer machine for 10 random guesses&lt;/p&gt;
+&lt;p&gt;Uniform fits will be made without looping and through factr.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="to-do"&gt;
+&lt;h3&gt;To do&lt;/h3&gt;
+&lt;p&gt;I used C_0 = 1E-4. For N_0 = 1.0, the average final cell level C_f is also
+1.0 in this model so I have a ratio of 1:10,000.&lt;/p&gt;
+&lt;p&gt;Cell amounts in the above siulations:&lt;/p&gt;
+&lt;p&gt;C_0 = 1E-4; C_f ~ 0.1; ratio 1:10,000&lt;/p&gt;
+&lt;p&gt;Typical values in experiments.&lt;/p&gt;
+&lt;p&gt;Dilute inoculated cultures:
+C_0 ~ 1E-5; C_f ~ 0.1; ratio 1:10,000&lt;/p&gt;
+&lt;p&gt;Concentrated cultures:
+C_0 ~ 1E-3; C_f ~ 0.15; ratio 1:150&lt;/p&gt;
+&lt;p&gt;I match the larger ratio in dilute incoulated cultures but will adjust
+C_0 to be 1E-5 and N_0 to be 0.1 in future simulations so as to more
+closely match absolute amounts.&lt;/p&gt;
+&lt;p&gt;I could also try simulations of concentrated cultures using C_0 = 1E-3
+and N_0 = 0.15.&lt;/p&gt;
+&lt;p&gt;The larger ratio of dilute cultures is more likely to be a problem for
+step sizes in the minimizer.&lt;/p&gt;
+&lt;p&gt;I will just proceed and try to fit read data; this will at least set
+up the infrastructure to do so.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</guid><pubDate>Sat, 14 May 2016 13:12:16 GMT</pubDate></item><item><title>Successful full plate independent fit</title><link>https://boo62.github.io/blog/successful-full-plate-independent-fit/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;In a previous blog post I did not recover good fits of full plate
 competition model simulations with zero nutrient diffusion constant kn
@@ -1183,10 +1521,10 @@ Other constants are manually set.&lt;/p&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_text output_error"&gt;
 &lt;pre&gt;
-&lt;span class="ansi-cyan-intense-fg ansi-bold"&gt;  File &lt;/span&gt;&lt;span class="ansi-green-intense-fg ansi-bold"&gt;"&amp;lt;ipython-input-1-8d90ecae1fe0&amp;gt;"&lt;/span&gt;&lt;span class="ansi-cyan-intense-fg ansi-bold"&gt;, line &lt;/span&gt;&lt;span class="ansi-green-intense-fg ansi-bold"&gt;1&lt;/span&gt;
-&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;    print "hello"&lt;/span&gt;
-&lt;span class="ansi-white-intense-fg ansi-bold"&gt;                ^&lt;/span&gt;
-&lt;span class="ansi-red-intense-fg ansi-bold"&gt;SyntaxError&lt;/span&gt;&lt;span class="ansi-red-intense-fg ansi-bold"&gt;:&lt;/span&gt; Missing parentheses in call to 'print'
+&lt;span class="ansicyan"&gt;  File &lt;/span&gt;&lt;span class="ansigreen"&gt;"&amp;lt;ipython-input-1-8d90ecae1fe0&amp;gt;"&lt;/span&gt;&lt;span class="ansicyan"&gt;, line &lt;/span&gt;&lt;span class="ansigreen"&gt;1&lt;/span&gt;
+&lt;span class="ansiyellow"&gt;    print "hello"&lt;/span&gt;
+&lt;span class="ansigrey"&gt;                ^&lt;/span&gt;
+&lt;span class="ansired"&gt;SyntaxError&lt;/span&gt;&lt;span class="ansired"&gt;:&lt;/span&gt; Missing parentheses in call to 'print'
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1375,235 +1713,21 @@ If @KERNEL is missing then it defaults to the nikola Python version.&lt;/p&gt;
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://boo62.github.io/blog/example-python-2711-notebook/</guid><pubDate>Fri, 25 Mar 2016 20:08:15 GMT</pubDate></item><item><title>org-mode example</title><link>https://boo62.github.io/blog/org-mode-example/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div id="outline-container-orgheadline5" class="outline-2"&gt;
-&lt;h2 id="orgheadline5"&gt;Headline&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgheadline5"&gt;
-&lt;/div&gt;&lt;div id="outline-container-orgheadline1" class="outline-3"&gt;
-&lt;h3 id="orgheadline1"&gt;Second level&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgheadline1"&gt;
-&lt;p&gt;
-Hello some text
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-orgheadline2" class="outline-4"&gt;
-&lt;h4 id="orgheadline2"&gt;Another third&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orgheadline2"&gt;
-&lt;p&gt;
-Some text over a couple of lines. Some text over a couple of
-lines. Some text over a couple of lines. Some text over a couple
-of lines. Some text over a couple of lines.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-orgheadline3" class="outline-4"&gt;
-&lt;h4 id="orgheadline3"&gt;A Third level&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orgheadline3"&gt;
-&lt;p&gt;
-Some more text
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-
-&lt;div id="outline-container-orgheadline4" class="outline-3"&gt;
-&lt;h3 id="orgheadline4"&gt;Another 2nd level&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgheadline4"&gt;
-&lt;p&gt;
-And some text
-&lt;/p&gt;
-
-&lt;ol class="org-ol"&gt;
-&lt;li&gt;poo&lt;/li&gt;
-&lt;li&gt;poop&lt;/li&gt;
-&lt;li&gt;pi&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p&gt;
-a. Hello
-b. There
-&lt;/p&gt;
-&lt;dl class="org-dl"&gt;
-&lt;dt&gt;hello&lt;/dt&gt;&lt;dd&gt;He plays Sam&lt;/dd&gt;
-&lt;dt&gt;list&lt;/dt&gt;&lt;dd&gt;He plays Frodo&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;p&gt;
-c. A list
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-orgheadline6" class="outline-2"&gt;
-&lt;h2 id="orgheadline6"&gt;Another top level&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgheadline6"&gt;
-&lt;p&gt;
-hELLO
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-orgheadline7" class="outline-3"&gt;
-&lt;h3 id="orgheadline7"&gt;Another down&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgheadline7"&gt;
-&lt;p&gt;
-Hello
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-orgheadline8" class="outline-3"&gt;
-&lt;h3 id="orgheadline8"&gt;This is a headline&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgheadline8"&gt;
-&lt;p&gt;
-Still outside the drawer
-&lt;/p&gt;
-&lt;p&gt;
-This is inside the drawer.
-Is everything on a single line,
-Or can I see it all?
-Seems that the nikola org-mode compiler is not handling drawers properly.
-Maybe just use this mode for checkboxes until it is either updated or
-I figure out how to use it.
-&lt;/p&gt;
-&lt;p&gt;
-After the drawer..
-&lt;/p&gt;
-
-&lt;p&gt;
-some poop in a drawer.
-poo!
-Need to upgrade org-mode or configure org-drawers for this to work.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-
-&lt;div id="outline-container-orgheadline14" class="outline-3"&gt;
-&lt;h3 id="orgheadline14"&gt;Second level&lt;/h3&gt;
-&lt;div class="outline-text-3" id="text-orgheadline14"&gt;
-&lt;/div&gt;&lt;div id="outline-container-orgheadline9" class="outline-4"&gt;
-&lt;h4 id="orgheadline9"&gt;Second level&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orgheadline9"&gt;
-&lt;p&gt;
-Hello some text
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;ul class="org-ul"&gt;&lt;li&gt;&lt;a id="orgheadline10"&gt;&lt;/a&gt;A Third level&lt;br&gt;&lt;div class="outline-text-5" id="text-orgheadline10"&gt;
-&lt;p&gt;
-Some more text
-&lt;/p&gt;
-&lt;/div&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a id="orgheadline11"&gt;&lt;/a&gt;Another third&lt;br&gt;&lt;div class="outline-text-5" id="text-orgheadline11"&gt;
-&lt;p&gt;
-Some text over a couple of lines. Some text over a couple of
-lines. Some text over a couple of lines. Some text over a couple
-of lines. Some text over a couple of lines.
-&lt;/p&gt;
-
-&lt;ul class="org-ul"&gt;
-&lt;li&gt;A list&lt;/li&gt;
-&lt;li&gt;of some stuff&lt;/li&gt;
-&lt;li&gt;to list&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;
-Hello some text
-&lt;/p&gt;
-&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-orgheadline12" class="outline-4"&gt;
-&lt;h4 id="orgheadline12"&gt;A Third level&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orgheadline12"&gt;
-&lt;p&gt;
-Some more text
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-orgheadline13" class="outline-4"&gt;
-&lt;h4 id="orgheadline13"&gt;Another third&lt;/h4&gt;
-&lt;div class="outline-text-4" id="text-orgheadline13"&gt;
-&lt;p&gt;
-Some text over a couple of lines. Some text over a couple of
-lines. Some text over a couple of lines. Some text over a couple
-of lines. Some text over a couple of lines.
-&lt;/p&gt;
-
-&lt;pre class="example"&gt;
-Some example from a text file.
-&lt;/pre&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;defun&lt;/span&gt; &lt;span class="nv"&gt;org-xor&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-   &lt;span class="s"&gt;"Exclusive or."&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if &lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;not &lt;/span&gt;&lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;b&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;
-There is an issue with using line numbers and refs in code blocks.
-Cannot fontify src block (htmlize.el &amp;gt;= 1.34 required)
-&lt;a href="https://github.com/getnikola/plugins/issues/104"&gt;https://github.com/getnikola/plugins/issues/104&lt;/a&gt; Changing conf.py
-to compile with pandoc still does not have these features and
-removes syntax highlighting.
-&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="nv"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"coderef-sc"&lt;/span&gt; &lt;span class="nv"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"coderef-off"&lt;/span&gt;&lt;span class="nv"&gt;&amp;gt;&amp;lt;span&lt;/span&gt; &lt;span class="nv"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"linenr"&lt;/span&gt;&lt;span class="nv"&gt;&amp;gt;1:&lt;/span&gt; &lt;span class="nv"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;save-excursion&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;span class="nv"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="nv"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"coderef-jump"&lt;/span&gt; &lt;span class="nv"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"coderef-off"&lt;/span&gt;&lt;span class="nv"&gt;&amp;gt;&amp;lt;span&lt;/span&gt; &lt;span class="nv"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"linenr"&lt;/span&gt;&lt;span class="nv"&gt;&amp;gt;2:&lt;/span&gt; &lt;span class="nv"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;goto-char&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;point-min&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;&lt;span class="nv"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-In line &lt;a href="https://boo62.github.io/blog/org-mode-example/#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');"&gt;1&lt;/a&gt; we remember the current position.  &lt;a href="https://boo62.github.io/blog/org-mode-example/#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');"&gt;Line 2&lt;/a&gt;
-jumps to point-min.
-&lt;/p&gt;
-
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;save-excursion&lt;/span&gt;
-   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;Goto-char&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nf"&gt;point-min&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;
-In line &lt;a href="https://boo62.github.io/blog/org-mode-example/#coderef-sc" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-sc');" onmouseout="CodeHighlightOff(this, 'coderef-sc');"&gt;1&lt;/a&gt; we remember the current position.  &lt;a href="https://boo62.github.io/blog/org-mode-example/#coderef-jump" class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-jump');" onmouseout="CodeHighlightOff(this, 'coderef-jump');"&gt;Line 2&lt;/a&gt;
-jumps to point-min.
-&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"hello"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    &lt;span class="c1"&gt;# Add a comment&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Another Hello"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Add&lt;/span&gt;
-&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id="outline-container-orgheadline15" class="outline-2"&gt;
-&lt;h2 id="orgheadline15"&gt;&lt;span class="todo TODO"&gt;TODO&lt;/span&gt; Organize party &lt;code&gt;[1/3]&lt;/code&gt;&lt;/h2&gt;
-&lt;div class="outline-text-2" id="text-orgheadline15"&gt;
-&lt;ul class="org-ul"&gt;
-&lt;li class="off"&gt;&lt;code&gt;[ ]&lt;/code&gt; order food&lt;/li&gt;
-&lt;li class="on"&gt;&lt;code&gt;[X]&lt;/code&gt; think about what music to play&lt;/li&gt;
-&lt;li class="off"&gt;&lt;code&gt;[ ]&lt;/code&gt; talk to the neighbors&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description><guid>https://boo62.github.io/blog/org-mode-example/</guid><pubDate>Fri, 25 Mar 2016 12:31:27 GMT</pubDate></item><item><title>Another Post</title><link>https://boo62.github.io/blog/another-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="a-listing-to-some-python-code"&gt;
+</description><guid>https://boo62.github.io/blog/example-python-2711-notebook/</guid><pubDate>Fri, 25 Mar 2016 20:08:15 GMT</pubDate></item><item><title>Another Post</title><link>https://boo62.github.io/blog/another-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="a-listing-to-some-python-code"&gt;
 &lt;h2&gt;A listing to some python code.&lt;/h2&gt;
 &lt;p&gt;hello.py is inside the listings folder.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://boo62.github.io/listings/hello.py.html"&gt;hello.py&lt;/a&gt;&lt;/p&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-1"&gt;&lt;/a&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'world'&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-7"&gt;&lt;/a&gt;    &lt;span class="n"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"hello "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-8"&gt;&lt;/a&gt;    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;greeting&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-9"&gt;&lt;/a&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_ee018d4a9af044d2a070a5b549972a74-11"&gt;&lt;/a&gt;    &lt;span class="n"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
+&lt;pre class="code python"&gt;&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-1"&gt;&lt;/a&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-4"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-5"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'world'&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-7"&gt;&lt;/a&gt;    &lt;span class="n"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"hello "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-8"&gt;&lt;/a&gt;    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;greeting&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-9"&gt;&lt;/a&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-11"&gt;&lt;/a&gt;    &lt;span class="n"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="another-title"&gt;
 &lt;h2&gt;Another title&lt;/h2&gt;

@@ -7,74 +7,74 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://boo62.github.io/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/2016/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/archive.html</loc>
-  <lastmod>2016-05-06T12:20:00Z</lastmod>
+  <lastmod>2016-05-14T14:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/</loc>
-  <lastmod>2016-05-06T12:20:00Z</lastmod>
+  <lastmod>2016-05-14T14:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/another-post/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/default-nikola-python-version-351-example/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/example-python-2711-notebook/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</loc>
+  <lastmod>2016-05-14T14:27:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/fitting-of-full-plate-16x24-competition-model-simulations/</loc>
-  <lastmod>2016-05-02T17:09:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/least-squares-fit-of-simulated-time-courses/</loc>
-  <lastmod>2016-04-28T19:11:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/my-first-blog-post/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
- </url>
- <url>
-  <loc>https://boo62.github.io/blog/org-mode-example/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/simulate-independent-and-cans-plates/</loc>
-  <lastmod>2016-04-27T17:58:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/successful-full-plate-independent-fit/</loc>
-  <lastmod>2016-05-06T12:20:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/blog/use-inde-est-as-comp-guess/</loc>
-  <lastmod>2016-05-06T10:57:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/categories/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/listings/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/listings/hello.py.html</loc>
-  <lastmod>2016-05-02T17:37:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://boo62.github.io/organizer/</loc>
-  <lastmod>2016-04-27T11:40:00Z</lastmod>
+  <lastmod>2016-05-14T13:10:00Z</lastmod>
  </url>
 </urlset>
