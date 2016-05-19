@@ -185,12 +185,19 @@ guess will be close to the true values.
 Transition to a good fit for the uniform guess:
 
 .. image:: ../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e9.png
+   :width: 50em
 
+|
 
 .. image:: ../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e8.png
+   :width: 50em
 
+|
 
 .. image:: ../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e0.png
+   :width: 50em
+
+|
 
 Parameter deviations for 5x5 uinform fit:
 
@@ -214,7 +221,6 @@ factr  obj fun  C_0     N_0    kn     r (MAD)
 Currently running on the yzer machine for 10 random guesses
 
 Uniform fits will be made without looping and through factr.
-
 
 To do
 -----
