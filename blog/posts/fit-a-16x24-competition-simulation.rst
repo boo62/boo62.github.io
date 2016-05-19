@@ -10,6 +10,12 @@
 Outline
 =======
 
+This time we fit the competition model to plates also simulated using
+the competition model with kn > 0.
+
+Plan
+====
+
 Simulation
 ----------
 
@@ -46,3 +52,42 @@ section of a real plate. To reduce errors due to not fitting the
 entire plate, we will discard edge cultures and assess the inner 3x3
 or 2x2 fit. We can use the results of this fitting to calibrate for
 full plate fitting.
+
+
+Results
+=======
+
+2x1 Fits
+--------
+
+I simulated a full 16x24 plate and generated 100 sets of random
+~N(5, 3) guesses for rate constants r which were saved to file. I took
+the parameters from a 2x1 zone of the full plate. Coordiates of the
+top left culture of the zone are (7, 13) with the origin of the plate
+being (0, 0). I used these parameters and the competition model to
+simulate new amounts as if the zone was not part of the larger
+plate. I fitted the competition model to the simulations using ten of
+the sets of random r guesses as initial guesses. To be consistant I
+used the r guesses corresponding to the zone.
+
+At first I used an initial guess for kn of 0.0. This produced poor
+fits.
+
+.. Plots of kn = 0 guess fits
+
+Contrary to :doc:`previous findingsn <use-inde-est-as-comp-guess>`,
+where different parameters were used for simulating data, the initial
+guess of kn is importatant. A value of kn = 0.1 as an initial guess
+improves fits (the true value is 0.2).
+
+.. Plots of kn = 0.1 guess fits
+
+I also made a fit using a uniform guess for rate constants r U(5)
+
+Discussion of parameters and rescaling.
+
+I did the same for a 5x5 zone with coordinates (6, 11) using only
+kn = 0.1 as an initial guess
+
+5x5 Fits
+--------
