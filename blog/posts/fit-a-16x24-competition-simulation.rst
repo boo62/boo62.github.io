@@ -75,15 +75,22 @@ used the r guesses corresponding to the zone.
 Effect of initial guess of kn
 +++++++++++++++++++++++++++++
 
-At first I used an initial guess for kn of 0.0. This produced poor
-fits.
+At first I used an initial guess for kn of 0.0. This produced
+relatively poor fits. Contrary to :doc:`previous findings
+<use-inde-est-as-comp-guess>`, where different parameters were used
+for simulating data, the initial guess of kn is importatant. Here,
+parameters were changed to better match experimental growth times
+which are typically around 5 days.  A value of kn = 0.1 as an initial
+guess improves fits (the true value is 0.2).
 
-.. Plots of kn = 0 guess fits
 
-Contrary to :doc:`previous findings <use-inde-est-as-comp-guess>`,
-where different parameters were used for simulating data, the initial
-guess of kn is importatant. A value of kn = 0.1 as an initial guess
-improves fits (the true value is 0.2).
+.. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_0_factr_10e0.png
+   :width: 49%
+
+.. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_1_factr_10e0.png
+   :width: 49%
+
+
 
 .. Plots of kn = 0.1 guess fits
 
@@ -133,3 +140,32 @@ kn = 0.1 as an initial guess.
 ----------
 
 Currently running on the yzer machine.
+
+
+To do
+-----
+
+I used C_0 = 1E-4. For N_0 = 1.0, the average final cell level C_f is also
+1.0 in this model so I have a ratio of 1:10,000.
+
+Cell amounts in the above siulations:
+
+C_0 = 1E-4; C_f ~ 0.1; ratio 1:10,000
+
+Typical values in experiments.
+
+Dilute inoculated cultures:
+C_0 ~ 1E-5; C_f ~ 0.1; ratio 1:10,000
+
+Concentrated cultures:
+C_0 ~ 1E-3; C_f ~ 0.15; ratio 1:150
+
+I match the larger ratio in dilute incoulated cultures but will adjust
+C_0 to be 1E-5 and N_0 to be 0.1 in future simulations so as to more
+closely match absolute amounts.
+
+I could also try simulations of concentrated cultures using C_0 = 1E-3
+and N_0 = 0.15.
+
+The larger ratio of dilute cultures is more likely to be a problem for
+step sizes in the minimizer.
