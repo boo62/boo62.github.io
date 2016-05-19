@@ -83,7 +83,6 @@ parameters were changed to better match experimental growth times
 which are typically around 5 days.  A value of kn = 0.1 as an initial
 guess improves fits (the true value is 0.2).
 
-
 .. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_0_factr_10e0.png
    :width: 49%
 
@@ -91,14 +90,56 @@ guess improves fits (the true value is 0.2).
    :width: 49%
 
 
+.. parameter deviations and value of the objective function
 
-.. Plots of kn = 0.1 guess fits
+Initial guess 5:
 
-I also made fits using a uniform guess for rate constants of r =
-5.0 (the true distribution mean).
+========== ====== ================ ================
+Parameter  Truth  Est kn_guess=0.0 Est kn_guess=0.1
+========== ====== ================ ================
+C_0        1.0E-4 3.63E-5          9.91E-5
+N_0        1.0    0.9362           0.9994
+kn         0.2    0.2757           0.2006
+r0         4.350  5.204            4.357
+r1         1.859  2.364            1.864
 
-.. Uinform kn = 0.0
-.. Uniform plot for kn = 0.1
+obj fun    na     0.035630822719   0.000367387748
+========== ====== ================ ================
+
+I also made fits using a uniform guess of rate constants r_i = 5.0
+(the true distribution mean). Fits were again dependent on the kn
+initial guess and not as good as for the best random guess. We only
+fit to the simulated number of cells observations (blue crosses). In
+the right plot below a fairly good fit is made to the cell timecourse
+even though the starting nutrient amount is poorly estimated. This
+affects other parameters as can be seen in the table.
+
+.. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_uni_kn_0_0_factr_10e0.png
+   :width: 49%
+
+.. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_uni_kn_0_1_factr_10e0.png
+   :width: 49%
+
+.. parameter devs for bottom right image. and value of the objective function.
+
+Uniform initial guess:
+
+========== ====== ================ ================
+Parameter  Truth  Est kn_guess=0.0 Est kn_guess=0.1
+========== ====== ================ ================
+C_0        1.0E-4 9.396743857E-8
+N_0        1.0    0.6239879
+kn         0.2    4.318
+r0         4.350  12.1833
+r1         1.859
+
+obj fun    na
+========== ====== ================ ================
+
+
+No way to judge fit of N in fits of real data. Could look at how
+ranking of r_i's is affected when other parameters are inacurate. If
+it is consistent with the good fits then it may not be such an issue.
 
 Discussion of parameters and rescaling.
 
