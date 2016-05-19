@@ -250,3 +250,7 @@ and N_0 = 0.15.
 
 The larger ratio of dilute cultures is more likely to be a problem for
 step sizes in the minimizer.
+
+
+I will just proceed and try to fit read data; this will at least set
+up the infrastructure to do so.
