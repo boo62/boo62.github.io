@@ -80,7 +80,7 @@ relatively poor fits. Contrary to :doc:`previous findings
 <use-inde-est-as-comp-guess>`, where different parameters were used
 for simulating data, the initial guess of kn is importatant. Here,
 parameters were changed to better match experimental growth times
-which are typically around 5 days.  A value of kn = 0.1 as an initial
+which are typically around 5 days. A value of kn = 0.1 as an initial
 guess improves fits (the true value is 0.2).
 
 .. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_0_factr_10e0.png
@@ -151,33 +151,69 @@ that documentation for the L-BFGS-B method is currently inaccurate
 (19/05/2016) and factr must be passed through ftol (`issue report
 <https://github.com/scipy/scipy/issues/5231>`_). To reduce computation
 time, I used estimates at each stopping point as the initial guess for
-the next lowest factr (low factr being more accurate).
+the next lowest factr (low factr being more accurate). However, this
+may negatively affect the performance of the minimizer. When I was
+mistakenly sending a different set of factrs due to a rounding error
+init guess 5 rather than 7 produced the best fit, although values of
+the objective function were comparable (init_guess_5: 3.7E-4,
+init_guess_7: 3.3E-4). I believe this is to do with how step size
+varies as the minimizer progresses. In fitting real data I will decide
+a suitible factr and remove the loop in fitting which I will know once
+I have fitted a full plate.
+
 
 .. _L-BFGS-B method: http://docs.scipy.org/doc/scipy-0.17.0/reference/optimize.minimize-lbfgsb.html#optimize-minimize-lbfgsb
 
-The transition for a succesful fit (init_guess_5) is shown below.
+The transition of a successful fit using initial guess 7 is shown
+below.
 
-.. Transition plots
+.. image:: ../../images/fit-a-16x24-competition-simulation/2x1_stop_factr_10e9_init_guess_7.png
+   :width: 49%
 
-Once I have data for a full plate fit I should know how to set factr
-in order to reduce fitting time.
+.. image:: ../../images/fit-a-16x24-competition-simulation/2x1_stop_factr_10e8_init_guess_7.png
+   :width: 49%
 
 5x5 Fits
 --------
 
-I did the same for a 5x5 zone with coordinates (6, 11) using only
-kn = 0.1 as an initial guess.
+I performed the same fitting for a 5x5 zone with coordinates (6, 11)
+using only kn = 0.1 as an initial guess. In this case the uniform
+guess was best. As plates become larger I suspect the uniform guess
+will perform best more often becuase it is less likely that any random
+guess will be close to the true values.
 
-.. A good example showing transition with factr from bad to good and
-   best.
+Transition to a good fit for the uniform guess:
 
-.. A bad example, ideally uniform if this is bad
+.. image:: ../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e9.png
 
+
+.. image:: ../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e8.png
+
+
+.. image:: ../../images/fit-a-16x24-competition-simulation/5x5_uni_stop_factr_10e0.png
+
+Parameter deviations for 5x5 uinform fit:
+
+====== ======== ======= ====== ====== ========
+factr  obj fun  C_0     N_0    kn     r (MAD)
+====== ======== ======= ====== ====== ========
+10e0   0.066    4.6e-05 0.0041 0.0032 0.31
+10e1   0.082    5.9e-05 0.0051 0.0042 0.36
+10e2   0.098    6.0e-05 0.0058 0.0052 0.37
+10e3   0.14     5.8e-05 0.010  0.012  0.38
+10e4   0.22     2.2E-04 0.014  0.010  0.79
+10e5   0.22     2.3e-04 0.015  0.012  0.80
+10e6   0.24     2.3e-04 0.015  0.013  0.82
+10e7   0.25     2.7e-04 0.016  0.012  0.88
+10e8   0.30     2.7e-04 0.017  0.015  0.90
+====== ======== ======= ====== ====== ========
 
 16x24 Fits
 ----------
 
-Currently running on the yzer machine.
+Currently running on the yzer machine for 10 random guesses
+
+Uniform fits will be made without looping and through factr.
 
 
 To do
