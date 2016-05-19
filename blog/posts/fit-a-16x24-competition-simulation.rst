@@ -89,21 +89,18 @@ guess improves fits (the true value is 0.2).
 .. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_5_kn_0_1_factr_10e0.png
    :width: 49%
 
-
-.. parameter deviations and value of the objective function
-
 Initial guess 5:
 
 ========== ====== ================ ================
 Parameter  Truth  Est kn_guess=0.0 Est kn_guess=0.1
 ========== ====== ================ ================
 C_0        1.0E-4 3.63E-5          9.91E-5
-N_0        1.0    0.9362           0.9994
-kn         0.2    0.2757           0.2006
-r0         4.350  5.204            4.357
-r1         1.859  2.364            1.864
+N_0        1.0    0.94             0.9994
+kn         0.2    0.28             0.2006
+r0         4.350  5.2              4.357
+r1         1.859  2.4              1.864
 
-obj fun    na     0.035630822719   0.000367387748
+obj fun    na     3.6E-2           3.7E-4
 ========== ====== ================ ================
 
 I also made fits using a uniform guess of rate constants r_i = 5.0
@@ -112,7 +109,9 @@ initial guess and not as good as for the best random guess. We only
 fit to the simulated number of cells observations (blue crosses). In
 the right plot below a fairly good fit is made to the cell timecourse
 even though the starting nutrient amount is poorly estimated. This
-affects other parameters as can be seen in the table.
+affects other parameters as can be seen in the table. However, we can
+distinguish the better fit for inititial guess five by the value of
+the objective function which is two orders of magnitude smaller.
 
 .. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_uni_kn_0_0_factr_10e0.png
    :width: 49%
@@ -120,20 +119,18 @@ affects other parameters as can be seen in the table.
 .. image:: ../../images/fit-a-16x24-competition-simulation/2x1_guess_uni_kn_0_1_factr_10e0.png
    :width: 49%
 
-.. parameter devs for bottom right image. and value of the objective function.
-
 Uniform initial guess:
 
 ========== ====== ================ ================
 Parameter  Truth  Est kn_guess=0.0 Est kn_guess=0.1
 ========== ====== ================ ================
-C_0        1.0E-4 9.396743857E-8
-N_0        1.0    0.6239879
-kn         0.2    4.318
-r0         4.350  12.1833
-r1         1.859
+C_0        1.0E-4 9.4E-8           1.1E-5
+N_0        1.0    0.62             0.87
+kn         0.2    4.3              0.39
+r0         4.350  12.2             6.3
+r1         1.859  3.5              3.1
 
-obj fun    na
+obj fun    na     4.8E-1           6.7E-2
 ========== ====== ================ ================
 
 
