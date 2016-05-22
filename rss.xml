@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 19 May 2016 19:52:45 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Fit a 16x24 Competition Simulation</title><link>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 22 May 2016 10:47:32 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
+&lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
+&lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
+average final cell amount (given small C_0). We know the typical
+dilution used in experiments; 1:10,000 for ditiulted cultures
+(i.e. C_0 ~ N_0/10,000 or could just take average C_f of growers
+rather than use N_0).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="guess-kn"&gt;
+&lt;h2&gt;Guess kn&lt;/h2&gt;
+&lt;p&gt;More difficult&lt;/p&gt;
+&lt;img alt="../../images/make-a-guess/c_f_var_vs_kn.png" src="https://boo62.github.io/images/make-a-guess/c_f_var_vs_kn.png" style="width: 100%;"&gt;
+&lt;p&gt;Might be possible if we can make good enough guesses of growth
+constants r and simulate for different kns.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="guess-r"&gt;
+&lt;h2&gt;Guess r&lt;/h2&gt;
+&lt;p&gt;Try fitting a simpler model. Then can guess kn.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/make-a-guess/</guid><pubDate>Sun, 22 May 2016 09:13:19 GMT</pubDate></item><item><title>Fit a 16x24 Competition Simulation</title><link>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;This time we fit the competition model to plates also simulated using
 the competition model with kn &amp;gt; 0.&lt;/p&gt;
@@ -1731,101 +1749,4 @@ If @KERNEL is missing then it defaults to the nikola Python version.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="section" id="another-title"&gt;
 &lt;h2&gt;Another title&lt;/h2&gt;
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/another-post/</guid><pubDate>Thu, 24 Mar 2016 16:33:57 GMT</pubDate></item><item><title>My First Blog Post!</title><link>https://boo62.github.io/blog/my-first-blog-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;p&gt;Here I reproduce &lt;a class="reference external" href="https://getnikola.com/quickstart.html"&gt;https://getnikola.com/quickstart.html&lt;/a&gt; and play around.&lt;/p&gt;
-&lt;p&gt;A paragraph.&lt;/p&gt;
-&lt;blockquote&gt;
-This &lt;em&gt;paragraph&lt;/em&gt; will result in an indented &lt;strong&gt;block&lt;/strong&gt; of text, typically
-used for &lt;tt class="docutils literal"&gt;quoting&lt;/tt&gt; other text.&lt;/blockquote&gt;
-&lt;p&gt;This is another paragraph.&lt;/p&gt;
-&lt;ol class="arabic simple"&gt;
-&lt;li&gt;Number List&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol class="upperalpha"&gt;
-&lt;li&gt;&lt;p class="first"&gt;Upper-case Letters
-over two lines&lt;/p&gt;
-&lt;p&gt;with two paragraphs.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol class="loweralpha simple"&gt;
-&lt;li&gt;lower-case letters&lt;ol class="arabic" start="3"&gt;
-&lt;li&gt;with a sub-list starting at a different number&lt;/li&gt;
-&lt;li&gt;numbers should be in the correct sequence.&lt;/li&gt;
-&lt;li&gt;Have a look at the emacs commands for ReST mode.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol class="upperroman simple"&gt;
-&lt;li&gt;upper-case roman numerals&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol class="lowerroman simple"&gt;
-&lt;li&gt;lower-case roman numerals&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol class="arabic simple"&gt;
-&lt;li&gt;Numbers again&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol class="arabic simple" start="2"&gt;
-&lt;li&gt;And again&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;a bullet point using "*"&lt;ul&gt;
-&lt;li&gt;a sub-list using "-"&lt;ul&gt;
-&lt;li&gt;Yet another sub-list&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;another item.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;dl class="docutils"&gt;
-&lt;dt&gt;what&lt;/dt&gt;
-&lt;dd&gt;Definition lists associate a term with a definition&lt;/dd&gt;
-&lt;dt&gt;&lt;em&gt;how&lt;/em&gt;&lt;/dt&gt;
-&lt;dd&gt;&lt;p class="first"&gt;The term is a one-line phrase, and the deifinition is one or more
-paragraphs or body elements, indented relative to the term.&lt;/p&gt;
-&lt;p class="last"&gt;Blank lines are not allowed between term and definition.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;div class="section" id="preformatting"&gt;
-&lt;h2&gt;Preformatting&lt;/h2&gt;
-&lt;p&gt;An Example:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-    Whitespace, newlines, blank lines, and all kinds of markup
-       (like *this* or \this) is preserved by literal blocks.
-Lookie here, I've dropped an indentation level
-(but not far enough)
-&lt;/pre&gt;
-&lt;p&gt;no more example&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="sections"&gt;
-&lt;h2&gt;Sections&lt;/h2&gt;
-&lt;p&gt;All sections marked with the same adornment style are deemed to be at
-the same level.&lt;/p&gt;
-&lt;div class="section" id="chapter-1-title"&gt;
-&lt;h3&gt;Chapter 1 Title&lt;/h3&gt;
-&lt;div class="section" id="section-1-1-title"&gt;
-&lt;h4&gt;Section 1.1 Title&lt;/h4&gt;
-&lt;div class="section" id="subsection-1-1-1-title"&gt;
-&lt;h5&gt;Subsection 1.1.1 Title&lt;/h5&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="section-1-2-title"&gt;
-&lt;h4&gt;Section 1.2 Title&lt;/h4&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="chapter-2-title"&gt;
-&lt;h3&gt;Chapter 2 Title&lt;/h3&gt;
-&lt;p&gt;Note that section titles &lt;cite&gt;Section 1.2 Title&lt;/cite&gt; are available as link targets, just using
-their name.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="document-title-subtitle"&gt;
-&lt;h2&gt;Document Title / Subtitle&lt;/h2&gt;
-&lt;p&gt;The text of overline-and-underline titles (but not underline-only) may
-be inset for aesthetics.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="images"&gt;
-&lt;h2&gt;Images&lt;/h2&gt;
-&lt;img alt="../../images/illus_001.jpg" src="https://boo62.github.io/images/illus_001.jpg"&gt;
-&lt;!-- You can make a
-comment like this. --&gt;
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/my-first-blog-post/</guid><pubDate>Thu, 24 Mar 2016 10:58:12 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/another-post/</guid><pubDate>Thu, 24 Mar 2016 16:33:57 GMT</pubDate></item></channel></rss>

@@ -12,6 +12,7 @@
 <meta content="#5670d4" name="theme-color">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="https://boo62.github.io/blog/">
+<link rel="next" href="index-1.html" type="text/html">
 <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
@@ -68,7 +69,41 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="fit-a-16x24-competition-simulation/" class="u-url">Fit a 16x24 Competition Simulation</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="make-a-guess/" class="u-url">Make a Guess</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Daniel Boocock
+            </span></p>
+            <p class="dateline"><a href="make-a-guess/" rel="bookmark"><time class="published dt-published" datetime="2016-05-22T10:13:19+01:00" title="2016-05-22 10:13">2016-05-22 10:13</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<div class="section" id="guess-c-0-and-n-0">
+<h2>Guess C_0 and N_0</h2>
+<p>If growth is more or less complete then this is easy. N_0 is the
+average final cell amount (given small C_0). We know the typical
+dilution used in experiments; 1:10,000 for ditiulted cultures
+(i.e. C_0 ~ N_0/10,000 or could just take average C_f of growers
+rather than use N_0).</p>
+</div>
+<div class="section" id="guess-kn">
+<h2>Guess kn</h2>
+<p>More difficult</p>
+<img alt="../../images/make-a-guess/c_f_var_vs_kn.png" src="../images/make-a-guess/c_f_var_vs_kn.png" style="width: 100%;"><p>Might be possible if we can make good enough guesses of growth
+constants r and simulate for different kns.</p>
+</div>
+<div class="section" id="guess-r">
+<h2>Guess r</h2>
+<p>Try fitting a simpler model. Then can guess kn.</p>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="fit-a-16x24-competition-simulation/" class="u-url">Fit a 16x24 Competition Simulation</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                 Daniel Boocock
@@ -2057,131 +2092,14 @@ If @KERNEL is missing then it defaults to the nikola Python version.</p>
 </div>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="my-first-blog-post/" class="u-url">My First Blog Post!</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
-                Daniel Boocock
-            </span></p>
-            <p class="dateline"><a href="my-first-blog-post/" rel="bookmark"><time class="published dt-published" datetime="2016-03-24T10:58:12Z" title="2016-03-24 10:58">2016-03-24 10:58</time></a></p>
-                <p class="commentline">
-        
-
-
-        </p>
-</div>
-    </header><div class="e-content entry-content">
-    <div>
-<p>Here I reproduce <a class="reference external" href="https://getnikola.com/quickstart.html">https://getnikola.com/quickstart.html</a> and play around.</p>
-<p>A paragraph.</p>
-<blockquote>
-This <em>paragraph</em> will result in an indented <strong>block</strong> of text, typically
-used for <tt class="docutils literal">quoting</tt> other text.</blockquote>
-<p>This is another paragraph.</p>
-<ol class="arabic simple">
-<li>Number List</li>
-</ol>
-<ol class="upperalpha">
-<li>
-<p class="first">Upper-case Letters
-over two lines</p>
-<p>with two paragraphs.</p>
-</li>
-</ol>
-<ol class="loweralpha simple">
-<li>lower-case letters<ol class="arabic" start="3">
-<li>with a sub-list starting at a different number</li>
-<li>numbers should be in the correct sequence.</li>
-<li>Have a look at the emacs commands for ReST mode.</li>
-</ol>
-</li>
-</ol>
-<ol class="upperroman simple">
-<li>upper-case roman numerals</li>
-</ol>
-<ol class="lowerroman simple">
-<li>lower-case roman numerals</li>
-</ol>
-<ol class="arabic simple">
-<li>Numbers again</li>
-</ol>
-<ol class="arabic simple" start="2">
-<li>And again</li>
-</ol>
-<ul class="simple">
-<li>a bullet point using "*"<ul>
-<li>a sub-list using "-"<ul>
-<li>Yet another sub-list</li>
-</ul>
-</li>
-<li>another item.</li>
-</ul>
-</li>
-</ul>
-<dl class="docutils">
-<dt>what</dt>
-<dd>Definition lists associate a term with a definition</dd>
-<dt><em>how</em></dt>
-<dd>
-<p class="first">The term is a one-line phrase, and the deifinition is one or more
-paragraphs or body elements, indented relative to the term.</p>
-<p class="last">Blank lines are not allowed between term and definition.</p>
-</dd>
-</dl>
-<div class="section" id="preformatting">
-<h2>Preformatting</h2>
-<p>An Example:</p>
-<pre class="literal-block">
-    Whitespace, newlines, blank lines, and all kinds of markup
-       (like *this* or \this) is preserved by literal blocks.
-Lookie here, I've dropped an indentation level
-(but not far enough)
-</pre>
-<p>no more example</p>
-</div>
-<div class="section" id="sections">
-<h2>Sections</h2>
-<p>All sections marked with the same adornment style are deemed to be at
-the same level.</p>
-<div class="section" id="chapter-1-title">
-<h3>Chapter 1 Title</h3>
-<div class="section" id="section-1-1-title">
-<h4>Section 1.1 Title</h4>
-<div class="section" id="subsection-1-1-1-title">
-<h5>Subsection 1.1.1 Title</h5>
-</div>
-</div>
-<div class="section" id="section-1-2-title">
-<h4>Section 1.2 Title</h4>
-</div>
-</div>
-<div class="section" id="chapter-2-title">
-<h3>Chapter 2 Title</h3>
-<p>Note that section titles <cite>Section 1.2 Title</cite> are available as link targets, just using
-their name.</p>
-</div>
-</div>
-<div class="section" id="document-title-subtitle">
-<h2>Document Title / Subtitle</h2>
-<p>The text of overline-and-underline titles (but not underline-only) may
-be inset for aesthetics.</p>
-</div>
-<div class="section" id="images">
-<h2>Images</h2>
-<img alt="../../images/illus_001.jpg" src="../images/illus_001.jpg"><!-- You can make a
-comment like this. -->
-</div>
-</div>
-    </div>
     </article>
 </div>
 
-
-
-        
-
-
-
-            <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+        <nav class="postindexpager"><ul class="pager">
+<li class="next">
+                <a href="index-1.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
             MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
             </script>
 </div>
