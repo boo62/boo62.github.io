@@ -33,3 +33,27 @@ Guess r
 -------
 
 Try fitting a simpler model. Then can guess kn.
+
+Fit a smaller zone
+++++++++++++++++++
+
+1. Try to fit either a 3x3 or 5x5 zone around each cultures using the
+   competition model.
+
+2. Simplified model with linear diffusion term could be good enough
+   for guesses and would be fast. Fit each culture individually. k is
+   culture, not plate, level.
+
+   dC/dt = rCN
+
+   dN/dt = -rCN + k
+
+3. Arbitrary neighbours? Finite reservoirs? N_low and N_high.
+
+   N = -rCN -k_1(N-N_l) -k_2(N-N_h)
+
+   N_l_0 = 0; N_h_0 = ?; Too many loose params?
+
+
+- 2. seems most practical to implement but there might be merit
+  in 1. if this doesn't work.
