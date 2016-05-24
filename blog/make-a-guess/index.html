@@ -117,6 +117,31 @@ constants r and simulate for different kns.</p>
 <div class="section" id="guess-r">
 <h2>Guess r</h2>
 <p>Try fitting a simpler model. Then can guess kn.</p>
+<div class="section" id="fit-a-smaller-zone">
+<h3>Fit a smaller zone</h3>
+<ol class="arabic">
+<li>
+<p class="first">Try to fit either a 3x3 or 5x5 zone around each cultures using the
+competition model.</p>
+</li>
+<li>
+<p class="first">Simplified model with linear diffusion term could be good enough
+for guesses and would be fast. Fit each culture individually. k is
+culture, not plate, level.</p>
+<p>dC/dt = rCN</p>
+<p>dN/dt = -rCN + k</p>
+</li>
+<li>
+<p class="first">Arbitrary neighbours? Finite reservoirs? N_low and N_high.</p>
+<p>N = -rCN -k_1(N-N_l) -k_2(N-N_h)</p>
+<p>N_l_0 = 0; N_h_0 = ?; Too many loose params?</p>
+</li>
+</ol>
+<ul class="simple">
+<li>2. seems most practical to implement but there might be merit
+in 1. if this doesn't work.</li>
+</ul>
+</div>
 </div>
 </div>
     </div>

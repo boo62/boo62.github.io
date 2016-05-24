@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 22 May 2016 10:47:32 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 24 May 2016 11:29:11 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
 &lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
 &lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
 average final cell amount (given small C_0). We know the typical
@@ -17,6 +17,28 @@ constants r and simulate for different kns.&lt;/p&gt;
 &lt;div class="section" id="guess-r"&gt;
 &lt;h2&gt;Guess r&lt;/h2&gt;
 &lt;p&gt;Try fitting a simpler model. Then can guess kn.&lt;/p&gt;
+&lt;div class="section" id="fit-a-smaller-zone"&gt;
+&lt;h3&gt;Fit a smaller zone&lt;/h3&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Try to fit either a 3x3 or 5x5 zone around each cultures using the
+competition model.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Simplified model with linear diffusion term could be good enough
+for guesses and would be fast. Fit each culture individually. k is
+culture, not plate, level.&lt;/p&gt;
+&lt;p&gt;dC/dt = rCN&lt;/p&gt;
+&lt;p&gt;dN/dt = -rCN + k&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Arbitrary neighbours? Finite reservoirs? N_low and N_high.&lt;/p&gt;
+&lt;p&gt;N = -rCN -k_1(N-N_l) -k_2(N-N_h)&lt;/p&gt;
+&lt;p&gt;N_l_0 = 0; N_h_0 = ?; Too many loose params?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;2. seems most practical to implement but there might be merit
+in 1. if this doesn't work.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/make-a-guess/</guid><pubDate>Sun, 22 May 2016 09:13:19 GMT</pubDate></item><item><title>Fit a 16x24 Competition Simulation</title><link>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;This time we fit the competition model to plates also simulated using
