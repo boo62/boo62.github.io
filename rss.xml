@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" rel="self" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Wed, 25 May 2016 13:33:10 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" href="https://boo62.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 25 May 2016 16:01:47 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
 &lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
 &lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
 average final cell amount (given small C_0). We know the typical
@@ -70,6 +70,23 @@ the average of final cell amounts and knowledge about the ratio
 (1:1000) and used as a fixed constraint.&lt;/p&gt;
 &lt;p&gt;True r: 55.7, 22.6, 20.7, 33.8, 38.8, 08.0, 12.3, 31.9, 53.6&lt;/p&gt;
 &lt;p&gt;Est  r: 18.8, 20.0, 20.0, 62.1, 20.8, 20.0, 20.0, 52.6, 18.9&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="power-series-model"&gt;
+&lt;h2&gt;Power Series Model&lt;/h2&gt;
+&lt;p&gt;The idea is to allow N to vary arbitrarily so as to produce a good fit for C with the hope that the arbitrary N is close to truth.&lt;/p&gt;
+&lt;p&gt;We keep C_0 and N_0 fixed according to the guesses and fit the following model.&lt;/p&gt;
+&lt;p&gt;dC/dt = rNC&lt;/p&gt;
+&lt;p&gt;dN/dt = -rNC + k1 + k2*t&lt;/p&gt;
+&lt;img alt="../../images/make-a-guess/power_series_fit_k1_k2.png" src="https://boo62.github.io/images/make-a-guess/power_series_fit_k1_k2.png"&gt;
+&lt;p&gt;True: 33.1, 11.5, 42.7, 30.8, 44.2, 56.7, 19.2, 15.7, 32.7&lt;/p&gt;
+&lt;p&gt;Est:: 32.6, 20.0, 42.9, 32.7, 42.7, 57.7, 20.0, 20.0, 30.4&lt;/p&gt;
+&lt;p&gt;Bounds must also be applied to k1 and k2. If they are not, then
+estimates of r do not stray very far from the initial guess and the
+timecourse of N_0 poorly matches the truth. It would be good to
+constrain dN/dt to be always less than zero but I haven't figured out
+how to do so.&lt;/p&gt;
+&lt;p&gt;Unbounded k1 and k2:&lt;/p&gt;
+&lt;img alt="../../images/make-a-guess/power_series_fit_k1_k2_unbounded.png" src="https://boo62.github.io/images/make-a-guess/power_series_fit_k1_k2_unbounded.png"&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/make-a-guess/</guid><pubDate>Sun, 22 May 2016 09:13:19 GMT</pubDate></item><item><title>Fit a 16x24 Competition Simulation</title><link>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;This time we fit the competition model to plates also simulated using
