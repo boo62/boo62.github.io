@@ -68,9 +68,41 @@ the minimizer to work.
 Until we get to a 7x7 grid there are more edge than internal cultures.
 
 
-Below shows fitting of a zone from a larger plate. In the first figure amounts have been resimulated from the true parameters and are as they would be if the zone was not part of a larger plate. In the second the amounts from a zone of the larger plate have fitted without adjustment.
+Below shows fitting of a zone from the midle of a simulated 16x24
+plate. In the first figure amounts have been resimulated from the true
+parameters and are as they would be if the zone was not part of a
+larger plate. In the second the amounts from the larger plate have
+fitted without adjustment.
 
 .. image:: ../../images/make-a-guess/fit_of_resim.png
 
-
 .. image:: ../../images/make-a-guess/fit_of_isolated.png
+
+
+Guesses from individual fits of the independent model are poor
+--------------------------------------------------------------
+
+.. image:: ../../images/make-a-guess/indi_inde_fits.png
+
+Using individual fits of the independent model, cultures with the
+greatest r's are estimated to have the smallest r's.
+
+Inde model: dC/dt = rNC, dN/dt = -rNC.
+
+In the independent model N_0 must be equal to the final cell amount
+for each culture. If there are more nutrients, for the same r, the
+reaction should complete in less time. In the competition model N_0 is
+equal for all cultures, so reactions with greater r are not
+substantially quicker. This is why the independent model provides poor
+estimates.
+
+An initial guess of r = 20 was used for all. C_0 was estimated from
+the average of final cell amounts and knowledge about the ratio
+(1:1000) and used as a fixed constraint.
+
+
+
+True r: 55.7, 22.6, 20.7, 33.8, 38.8, 08.0, 12.3, 31.9, 53.6
+
+
+Est  r: 18.8, 20.0, 20.0, 62.1, 20.8, 20.0, 20.0, 52.6, 18.9
