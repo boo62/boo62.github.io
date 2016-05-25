@@ -106,3 +106,34 @@ True r: 55.7, 22.6, 20.7, 33.8, 38.8, 08.0, 12.3, 31.9, 53.6
 
 
 Est  r: 18.8, 20.0, 20.0, 62.1, 20.8, 20.0, 20.0, 52.6, 18.9
+
+
+Power Series Model
+------------------
+
+The idea is to allow N to vary arbitrarily so as to produce a good fit for C with the hope that the arbitrary N is close to truth.
+
+We keep C_0 and N_0 fixed according to the guesses and fit the following model.
+
+dC/dt = rNC
+
+
+dN/dt = -rNC + k1 + k2*t
+
+
+.. image:: ../../images/make-a-guess/power_series_fit_k1_k2.png
+
+True: 33.1, 11.5, 42.7, 30.8, 44.2, 56.7, 19.2, 15.7, 32.7
+
+Est:: 32.6, 20.0, 42.9, 32.7, 42.7, 57.7, 20.0, 20.0, 30.4
+
+
+Bounds must also be applied to k1 and k2. If they are not, then
+estimates of r do not stray very far from the initial guess and the
+timecourse of N_0 poorly matches the truth. It would be good to
+constrain dN/dt to be always less than zero but I haven't figured out
+how to do so.
+
+Unbounded k1 and k2:
+
+.. image:: ../../images/make-a-guess/power_series_fit_k1_k2_unbounded.png
