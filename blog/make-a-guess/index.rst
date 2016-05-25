@@ -57,3 +57,20 @@ Fit a smaller zone
 
 - 2. seems most practical to implement but there might be merit
   in 1. if this doesn't work.
+
+
+Fitting
+-------
+
+It was important to rescale C_0 to a similar value as N_0 in order for
+the minimizer to work.
+
+Until we get to a 7x7 grid there are more edge than internal cultures.
+
+
+Below shows fitting of a zone from a larger plate. In the first figure amounts have been resimulated from the true parameters and are as they would be if the zone was not part of a larger plate. In the second the amounts from a zone of the larger plate have fitted without adjustment.
+
+.. image:: ../../images/make-a-guess/fit_of_resim.png
+
+
+.. image:: ../../images/make-a-guess/fit_of_isolated.png
