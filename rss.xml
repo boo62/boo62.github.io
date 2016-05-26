@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 26 May 2016 12:56:03 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 26 May 2016 16:17:53 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
 &lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
 &lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
 average final cell amount (given small C_0). We know the typical
@@ -125,6 +125,36 @@ neighbour). The scenario is similar for loss of nutrients to fast
 growing cultures. Incorporating more fast and slow growing neighbours,
 which could use the same kn- and kn+ (i.e. having larger reservoirs),
 could solve this issue.&lt;/p&gt;
+&lt;p&gt;This is easily acomplished by adding a factor for the number of
+identical neighbours + or - into only the real culture rate
+equation. E.g. for 2 of each type of neighbour...&lt;/p&gt;
+&lt;p&gt;Real culture:&lt;/p&gt;
+&lt;p&gt;dN/dt = -rNC - 2*kn1(N - N1) - 2*kn2(N - N2)&lt;/p&gt;
+&lt;p&gt;Resultant fits:&lt;/p&gt;
+&lt;div class="section" id="of-each"&gt;
+&lt;h3&gt;1 of each&lt;/h3&gt;
+&lt;img alt="../../images/make-a-guess/one_of_each.png" src="https://boo62.github.io/images/make-a-guess/one_of_each.png"&gt;
+&lt;p&gt;True r: 47.8, 0.0, 29.3, 32.9, 27.0, 3.54, 18.8, 43.6, 11.7&lt;/p&gt;
+&lt;p&gt;Est r: 47.4, 14.4, 29.9, 31.7, 25.4, 23.1, 26.8, 60.0, 13.2&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h3&gt;2 of each&lt;/h3&gt;
+&lt;img alt="../../images/make-a-guess/two_of_each.png" src="https://boo62.github.io/images/make-a-guess/two_of_each.png"&gt;
+&lt;p&gt;True r: 47.8, 0.0, 29.3, 32.9, 27.0, 3.54, 18.8, 43.6, 11.7&lt;/p&gt;
+&lt;p&gt;Est: 42.5, 4.87, 30.5, 35.4, 26.2, 24.2, 25.1, 42.3, 13.8&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h3&gt;3 of each&lt;/h3&gt;
+&lt;img alt="../../images/make-a-guess/three_of_each.png" src="https://boo62.github.io/images/make-a-guess/three_of_each.png"&gt;
+&lt;p&gt;True r: 47.8, 0.0, 29.3, 32.9, 27.0, 3.54, 18.8, 43.6, 11.7&lt;/p&gt;
+&lt;p&gt;Est r: 39.2, 16.0, 30.8, 30.6, 27.4, 24.3, 28.3, 43.0, 14.0&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id3"&gt;
+&lt;h3&gt;4 of each&lt;/h3&gt;
+&lt;img alt="../../images/make-a-guess/four_of_each.png" src="https://boo62.github.io/images/make-a-guess/four_of_each.png"&gt;
+&lt;p&gt;True r: 47.8, 0.0, 29.3, 32.9, 27.0, 3.54, 18.8, 43.6, 11.7&lt;/p&gt;
+&lt;p&gt;Est r: 38.9, 16.7, 36.9, 30.6, 26.5, 24.4, 28.1, 42.5, 14.2&lt;/p&gt;
+&lt;p&gt;For most cases two of each type of neighbour shoule be good enough.&lt;/p&gt;
 &lt;p&gt;There is a problem in distinguishing slow growers from cultures with
 strong growing neighbours which only the full competition model with a
 plate level diffusion constant can hope to solve.&lt;/p&gt;
@@ -135,6 +165,7 @@ arrested cells, I'm not sure how good/(complex) this approach would
 be.&lt;/p&gt;
 &lt;p&gt;At some point it might just be easier to fit the competion model for
 3x3 sections on each plate but this might require a guess for kn.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/make-a-guess/</guid><pubDate>Sun, 22 May 2016 09:13:19 GMT</pubDate></item><item><title>Fit a 16x24 Competition Simulation</title><link>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;This time we fit the competition model to plates also simulated using
