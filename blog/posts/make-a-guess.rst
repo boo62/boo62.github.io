@@ -199,6 +199,62 @@ growing cultures. Incorporating more fast and slow growing neighbours,
 which could use the same kn- and kn+ (i.e. having larger reservoirs),
 could solve this issue.
 
+
+This is easily acomplished by adding a factor for the number of
+identical neighbours + or - into only the real culture rate
+equation. E.g. for 2 of each type of neighbour...
+
+Real culture:
+
+dN/dt = -rNC - 2*kn1(N - N1) - 2*kn2(N - N2)
+
+
+Resultant fits:
+
+
+1 of each
++++++++++
+
+.. image:: ../../images/make-a-guess/one_of_each.png
+
+True r: 47.8, 0.0, 29.3, 32.9, 27.0, 3.54, 18.8, 43.6, 11.7
+
+
+Est r: 47.4, 14.4, 29.9, 31.7, 25.4, 23.1, 26.8, 60.0, 13.2
+
+
+2 of each
++++++++++
+
+.. image:: ../../images/make-a-guess/two_of_each.png
+
+True r: 47.8, 0.0, 29.3, 32.9, 27.0, 3.54, 18.8, 43.6, 11.7
+
+Est: 42.5, 4.87, 30.5, 35.4, 26.2, 24.2, 25.1, 42.3, 13.8
+
+
+3 of each
++++++++++
+
+.. image:: ../../images/make-a-guess/three_of_each.png
+
+True r: 47.8, 0.0, 29.3, 32.9, 27.0, 3.54, 18.8, 43.6, 11.7
+
+Est r: 39.2, 16.0, 30.8, 30.6, 27.4, 24.3, 28.3, 43.0, 14.0
+
+
+4 of each
++++++++++
+
+.. image:: ../../images/make-a-guess/four_of_each.png
+
+True r: 47.8, 0.0, 29.3, 32.9, 27.0, 3.54, 18.8, 43.6, 11.7
+
+Est r: 38.9, 16.7, 36.9, 30.6, 26.5, 24.4, 28.1, 42.5, 14.2
+
+
+For most cases two of each type of neighbour shoule be good enough.
+
 There is a problem in distinguishing slow growers from cultures with
 strong growing neighbours which only the full competition model with a
 plate level diffusion constant can hope to solve.
