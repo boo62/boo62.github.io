@@ -265,6 +265,18 @@ competition model. If we start adding extra species such as signal and
 arrested cells, I'm not sure how good/(complex) this approach would
 be.
 
-
 At some point it might just be easier to fit the competion model for
 3x3 sections on each plate but this might require a guess for kn.
+
+We now need to find kn estimates from the r guesses
+---------------------------------------------------
+
+Options:
+
+- Fit the competition model with all rs bounded using the guesses
+
+- Make simulations using the r parameters and a range of kn values,
+  plot final cell variance against kn and fit a straight line.
+
+- Fit the competition model to small squares on the plate and find an
+  average kn.
