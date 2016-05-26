@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" href="https://boo62.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Wed, 25 May 2016 16:01:47 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" href="https://boo62.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 26 May 2016 12:56:03 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
 &lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
 &lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
 average final cell amount (given small C_0). We know the typical
@@ -82,11 +82,59 @@ the average of final cell amounts and knowledge about the ratio
 &lt;p&gt;Est:: 32.6, 20.0, 42.9, 32.7, 42.7, 57.7, 20.0, 20.0, 30.4&lt;/p&gt;
 &lt;p&gt;Bounds must also be applied to k1 and k2. If they are not, then
 estimates of r do not stray very far from the initial guess and the
-timecourse of N_0 poorly matches the truth. It would be good to
+timecourse of N_0 poorly matches the truth. Bounds could be generated
+w.r.t N_0 so that dN/dt is never too large. It would be good to
 constrain dN/dt to be always less than zero but I haven't figured out
 how to do so.&lt;/p&gt;
 &lt;p&gt;Unbounded k1 and k2:&lt;/p&gt;
 &lt;img alt="../../images/make-a-guess/power_series_fit_k1_k2_unbounded.png" src="https://boo62.github.io/images/make-a-guess/power_series_fit_k1_k2_unbounded.png"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="neighbour-model"&gt;
+&lt;h2&gt;Neighbour Model&lt;/h2&gt;
+&lt;p&gt;To incorporate diffusion more realistically I created a model in which
+the a culture has two neighbours: a zero grower and a fast grower. All
+cultures begin with the same amounts of nutrients and cells, derived
+from guesses. I allow diffusion constants between each neighbour to
+differ.&lt;/p&gt;
+&lt;p&gt;Model equations:&lt;/p&gt;
+&lt;p&gt;Zero growing reservior:&lt;/p&gt;
+&lt;p&gt;dC1/dt = 0&lt;/p&gt;
+&lt;p&gt;dN1/dt = - kn1(N1 - N)&lt;/p&gt;
+&lt;p&gt;Real culture:&lt;/p&gt;
+&lt;p&gt;dC/dt = rNC&lt;/p&gt;
+&lt;p&gt;dN/dt = -rNC - kn1(N - N1) - kn2(N - N2)&lt;/p&gt;
+&lt;p&gt;Fast growing reservior (r2 = 40.0):&lt;/p&gt;
+&lt;p&gt;dC2/dt = r2*N2*C2&lt;/p&gt;
+&lt;p&gt;dN2/dt = -r2*N2*C2 - kn2(N2 - N)&lt;/p&gt;
+&lt;p&gt;Free Parameters: kn1, kn2, r&lt;/p&gt;
+&lt;img alt="../../images/make-a-guess/two_neighbour_fit.png" src="https://boo62.github.io/images/make-a-guess/two_neighbour_fit.png"&gt;
+&lt;p&gt;True r: 24.4, 2.9, 8.2, 17.0, 8.6, 15.9, 39.7, 14.0, 39.3&lt;/p&gt;
+&lt;p&gt;Est r: 26.0, 23.0, 24.2, 16.4, 19.8, 24.7, 42.9, 21.1, 48.4&lt;/p&gt;
+&lt;p&gt;Below is a better fitting example using the same model but a different
+simulated plate.&lt;/p&gt;
+&lt;img alt="../../images/make-a-guess/two_neighbour_fit_better.png" src="https://boo62.github.io/images/make-a-guess/two_neighbour_fit_better.png"&gt;
+&lt;p&gt;True r: 15.6, 15.1, 40.3, 7.2, 28.0, 0.0, 27.7, 8.3, 37.2&lt;/p&gt;
+&lt;p&gt;Est r: 18.7, 22.0, 38.8, 22.2, 27.3, 9.4, 28.2, 14.8, 36.3&lt;/p&gt;
+&lt;p&gt;The total amount of nutrients that the culture can take from its
+neighbours is a limiting factor for this model. In the competition
+model, the culture could feasibally take all of the nutrients from
+each of its four neighbours (more with futher diffusion), whereas in
+the above model there is only access to nutrients from the one slow
+growing culture (assuming growth is no faster than the fast growing
+neighbour). The scenario is similar for loss of nutrients to fast
+growing cultures. Incorporating more fast and slow growing neighbours,
+which could use the same kn- and kn+ (i.e. having larger reservoirs),
+could solve this issue.&lt;/p&gt;
+&lt;p&gt;There is a problem in distinguishing slow growers from cultures with
+strong growing neighbours which only the full competition model with a
+plate level diffusion constant can hope to solve.&lt;/p&gt;
+&lt;p&gt;The power series and neighbour models work as good guesses because of
+the strong coupling of N and C amounts in the (nutrient only)
+competition model. If we start adding extra species such as signal and
+arrested cells, I'm not sure how good/(complex) this approach would
+be.&lt;/p&gt;
+&lt;p&gt;At some point it might just be easier to fit the competion model for
+3x3 sections on each plate but this might require a guess for kn.&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/make-a-guess/</guid><pubDate>Sun, 22 May 2016 09:13:19 GMT</pubDate></item><item><title>Fit a 16x24 Competition Simulation</title><link>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;This time we fit the competition model to plates also simulated using

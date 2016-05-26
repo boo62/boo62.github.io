@@ -130,10 +130,85 @@ Est:: 32.6, 20.0, 42.9, 32.7, 42.7, 57.7, 20.0, 20.0, 30.4
 
 Bounds must also be applied to k1 and k2. If they are not, then
 estimates of r do not stray very far from the initial guess and the
-timecourse of N_0 poorly matches the truth. It would be good to
+timecourse of N_0 poorly matches the truth. Bounds could be generated
+w.r.t N_0 so that dN/dt is never too large. It would be good to
 constrain dN/dt to be always less than zero but I haven't figured out
 how to do so.
 
 Unbounded k1 and k2:
 
 .. image:: ../../images/make-a-guess/power_series_fit_k1_k2_unbounded.png
+
+
+Neighbour Model
+---------------
+
+To incorporate diffusion more realistically I created a model in which
+the a culture has two neighbours: a zero grower and a fast grower. All
+cultures begin with the same amounts of nutrients and cells, derived
+from guesses. I allow diffusion constants between each neighbour to
+differ.
+
+
+Model equations:
+
+Zero growing reservior:
+
+dC1/dt = 0
+
+dN1/dt = - kn1(N1 - N)
+
+Real culture:
+
+dC/dt = rNC
+
+dN/dt = -rNC - kn1(N - N1) - kn2(N - N2)
+
+Fast growing reservior (r2 = 40.0):
+
+dC2/dt = r2*N2*C2
+
+dN2/dt = -r2*N2*C2 - kn2(N2 - N)
+
+Free Parameters: kn1, kn2, r
+
+
+.. image:: ../../images/make-a-guess/two_neighbour_fit.png
+
+True r: 24.4, 2.9, 8.2, 17.0, 8.6, 15.9, 39.7, 14.0, 39.3
+
+Est r: 26.0, 23.0, 24.2, 16.4, 19.8, 24.7, 42.9, 21.1, 48.4
+
+Below is a better fitting example using the same model but a different
+simulated plate.
+
+.. image:: ../../images/make-a-guess/two_neighbour_fit_better.png
+
+True r: 15.6, 15.1, 40.3, 7.2, 28.0, 0.0, 27.7, 8.3, 37.2
+
+Est r: 18.7, 22.0, 38.8, 22.2, 27.3, 9.4, 28.2, 14.8, 36.3
+
+The total amount of nutrients that the culture can take from its
+neighbours is a limiting factor for this model. In the competition
+model, the culture could feasibally take all of the nutrients from
+each of its four neighbours (more with futher diffusion), whereas in
+the above model there is only access to nutrients from the one slow
+growing culture (assuming growth is no faster than the fast growing
+neighbour). The scenario is similar for loss of nutrients to fast
+growing cultures. Incorporating more fast and slow growing neighbours,
+which could use the same kn- and kn+ (i.e. having larger reservoirs),
+could solve this issue.
+
+There is a problem in distinguishing slow growers from cultures with
+strong growing neighbours which only the full competition model with a
+plate level diffusion constant can hope to solve.
+
+The power series and neighbour models work as good guesses because of
+the strong coupling of N and C amounts in the (nutrient only)
+competition model. If we start adding extra species such as signal and
+arrested cells, I'm not sure how good/(complex) this approach would
+be.
+
+
+At some point it might just be easier to fit the competion model for
+3x3 sections on each plate but this might require a guess for kn.
