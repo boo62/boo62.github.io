@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Thu, 26 May 2016 16:17:53 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" rel="self" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Thu, 26 May 2016 16:25:10 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
 &lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
 &lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
 average final cell amount (given small C_0). We know the typical
@@ -166,6 +166,17 @@ be.&lt;/p&gt;
 &lt;p&gt;At some point it might just be easier to fit the competion model for
 3x3 sections on each plate but this might require a guess for kn.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="we-now-need-to-find-kn-estimates-from-the-r-guesses"&gt;
+&lt;h2&gt;We now need to find kn estimates from the r guesses&lt;/h2&gt;
+&lt;p&gt;Options:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Fit the competition model with all rs bounded using the guesses&lt;/li&gt;
+&lt;li&gt;Make simulations using the r parameters and a range of kn values,
+plot final cell variance against kn and fit a straight line.&lt;/li&gt;
+&lt;li&gt;Fit the competition model to small squares on the plate and find an
+average kn.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/make-a-guess/</guid><pubDate>Sun, 22 May 2016 09:13:19 GMT</pubDate></item><item><title>Fit a 16x24 Competition Simulation</title><link>https://boo62.github.io/blog/fit-a-16x24-competition-simulation/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="outline"&gt;
 &lt;h2&gt;Outline&lt;/h2&gt;
 &lt;p&gt;This time we fit the competition model to plates also simulated using
