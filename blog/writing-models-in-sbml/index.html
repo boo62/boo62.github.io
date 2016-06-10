@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<base href="https://boo62.github.io/blog/writing-models-in-sbml/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing models in SBML | boo62</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta content="#5670d4" name="theme-color">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://boo62.github.io/blog/writing-models-in-sbml/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Daniel Boocock">
+<link rel="prev" href="../make-a-guess/" title="Make a Guess" type="text/html">
+<meta property="og:site_name" content="boo62">
+<meta property="og:title" content="Writing models in SBML">
+<meta property="og:url" content="https://boo62.github.io/blog/writing-models-in-sbml/">
+<meta property="og:description" content="Using the libSBML Python API we are now able
+to generate SBML models for the competition model for any Plate size,
+given instances of CompModel and a Plate with parameter data. Here is an example of t">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-06-10T09:35:35+01:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://boo62.github.io/">
+
+                <span id="blog-title">boo62</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../../organizer/">Organizer</a>
+                </li>
+<li>
+<a href="../../archive.html">Archive</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS feed</a>
+                </li>
+<li>
+<a href="../">Blog</a>
+
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+    <a href="index.rst" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Writing models in SBML</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    Daniel Boocock
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2016-06-10T09:35:35+01:00" itemprop="datePublished" title="2016-06-10 09:35">2016-06-10 09:35</time></a></p>
+                <p class="commentline">
+        
+
+
+            
+        </p>
+<p class="sourceline"><a href="index.rst" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Using the <a class="reference external" href="http://sbml.org/Software/libSBML/docs/python-api/">libSBML Python API</a> we are now able
+to generate SBML models for the competition model for any Plate size,
+given instances of CompModel and a Plate with parameter data. <a class="reference external" href="/listings/simulated_2x2_plate.xml.html">Here</a> is an example of the
+xml generated for a simulated 2x2 plate with plots generated using
+both CANS (and SciPy's odeint solver (not from SBML)) and Copasi
+shown below.</p>
+<img alt="../../images/writing-models-in-sbml/cans_2x2_sim.png" src="../../images/writing-models-in-sbml/cans_2x2_sim.png"><img alt="../../images/writing-models-in-sbml/copasi_2x2_sim.png" src="../../images/writing-models-in-sbml/copasi_2x2_sim.png"><p>Copasi generates the below ODEs from the reaction equations in the
+table. Diffusion reactions are irreversible with rate kn*(N[i] - N[j])
+for culture numbers i &lt; j.</p>
+<img alt="../../images/writing-models-in-sbml/2x2.png" src="../../images/writing-models-in-sbml/2x2.png"><img alt="../../images/writing-models-in-sbml/reaction_table_2x2.png" src="../../images/writing-models-in-sbml/reaction_table_2x2.png"><p>With SBML we can now distribute versions of our model in a standard
+format and these can contain parameter estimates from fitting. The
+SBML models can be simulated using tools such as <a class="reference external" href="http://copasi.org/">Copasi</a> and <a class="reference external" href="http://libroadrunner.org/">libRoadRunner</a>. Currently it takes us days to fit a
+whole plate using CANS and SciPy. If the solvers/fitters for other
+tools are faster than what we are currently doing, we will be able to
+speed up our code using the APIs. Unfortunately libRoadRunner's and
+Copasi's Python bindings are only availible in Python 2 so we may have
+to rewrite some of our code. Also, neither are on pypi. The <a class="reference external" href="http://copasi.org/Support/Installation/Language_Bindings/">Copasi Python
+bindings</a>
+are a work in progress and not well documented but there are <a class="reference external" href="https://github.com/copasi/COPASI/tree/master/copasi/bindings/python/examples">examples</a>
+on GitHub. There is also currently <a class="reference external" href="http://software.opensuse.org/download.html?project=home%3Afbergman%3ACOPASI&amp;package=python-copasi">no download</a>
+for Ubuntu 16.04.</p>
+<p><a class="reference external" href="http://libroadrunner.org/install/">libroadrunner installation instructions</a></p>
+<p><a class="reference external" href="https://sourceforge.net/projects/libroadrunner/files/libroadrunner-1.3/">libroadrunner python bindings</a></p>
+<p>We may need to use a genetic algorithm in order to find the global
+minimum. For this we could use the Python package <a class="reference external" href="http://pythonhosted.org/inspyred/">Inspyred</a>. I am also going to look at how
+we can conduct Bayesian inferrence using <a class="reference external" href="https://pystan.readthedocs.io/en/latest/">pySTAN</a>.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../make-a-guess/" rel="prev" title="Make a Guess">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+
+
+        </section></article>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2016         <a href="mailto:daniel.boocock@protonmail.ch">Daniel Boocock</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

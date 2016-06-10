@@ -69,7 +69,49 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="make-a-guess/" class="u-url">Make a Guess</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="writing-models-in-sbml/" class="u-url">Writing models in SBML</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                Daniel Boocock
+            </span></p>
+            <p class="dateline"><a href="writing-models-in-sbml/" rel="bookmark"><time class="published dt-published" datetime="2016-06-10T09:35:35+01:00" title="2016-06-10 09:35">2016-06-10 09:35</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Using the <a class="reference external" href="http://sbml.org/Software/libSBML/docs/python-api/">libSBML Python API</a> we are now able
+to generate SBML models for the competition model for any Plate size,
+given instances of CompModel and a Plate with parameter data. <a class="reference external" href="/listings/simulated_2x2_plate.xml.html">Here</a> is an example of the
+xml generated for a simulated 2x2 plate with plots generated using
+both CANS (and SciPy's odeint solver (not from SBML)) and Copasi
+shown below.</p>
+<img alt="../../images/writing-models-in-sbml/cans_2x2_sim.png" src="../images/writing-models-in-sbml/cans_2x2_sim.png"><img alt="../../images/writing-models-in-sbml/copasi_2x2_sim.png" src="../images/writing-models-in-sbml/copasi_2x2_sim.png"><p>Copasi generates the below ODEs from the reaction equations in the
+table. Diffusion reactions are irreversible with rate kn*(N[i] - N[j])
+for culture numbers i &lt; j.</p>
+<img alt="../../images/writing-models-in-sbml/2x2.png" src="../images/writing-models-in-sbml/2x2.png"><img alt="../../images/writing-models-in-sbml/reaction_table_2x2.png" src="../images/writing-models-in-sbml/reaction_table_2x2.png"><p>With SBML we can now distribute versions of our model in a standard
+format and these can contain parameter estimates from fitting. The
+SBML models can be simulated using tools such as <a class="reference external" href="http://copasi.org/">Copasi</a> and <a class="reference external" href="http://libroadrunner.org/">libRoadRunner</a>. Currently it takes us days to fit a
+whole plate using CANS and SciPy. If the solvers/fitters for other
+tools are faster than what we are currently doing, we will be able to
+speed up our code using the APIs. Unfortunately libRoadRunner's and
+Copasi's Python bindings are only availible in Python 2 so we may have
+to rewrite some of our code. Also, neither are on pypi. The <a class="reference external" href="http://copasi.org/Support/Installation/Language_Bindings/">Copasi Python
+bindings</a>
+are a work in progress and not well documented but there are <a class="reference external" href="https://github.com/copasi/COPASI/tree/master/copasi/bindings/python/examples">examples</a>
+on GitHub. There is also currently <a class="reference external" href="http://software.opensuse.org/download.html?project=home%3Afbergman%3ACOPASI&amp;package=python-copasi">no download</a>
+for Ubuntu 16.04.</p>
+<p><a class="reference external" href="http://libroadrunner.org/install/">libroadrunner installation instructions</a></p>
+<p><a class="reference external" href="https://sourceforge.net/projects/libroadrunner/files/libroadrunner-1.3/">libroadrunner python bindings</a></p>
+<p>We may need to use a genetic algorithm in order to find the global
+minimum. For this we could use the Python package <a class="reference external" href="http://pythonhosted.org/inspyred/">Inspyred</a>. I am also going to look at how
+we can conduct Bayesian inferrence using <a class="reference external" href="https://pystan.readthedocs.io/en/latest/">pySTAN</a>.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="make-a-guess/" class="u-url">Make a Guess</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">
                 Daniel Boocock
@@ -1993,10 +2035,10 @@ Other constants are manually set.</p>
 <div class="prompt"></div>
 <div class="output_subarea output_text output_error">
 <pre>
-<span class="ansicyan">  File </span><span class="ansigreen">"&lt;ipython-input-1-8d90ecae1fe0&gt;"</span><span class="ansicyan">, line </span><span class="ansigreen">1</span>
-<span class="ansiyellow">    print "hello"</span>
-<span class="ansigrey">                ^</span>
-<span class="ansired">SyntaxError</span><span class="ansired">:</span> Missing parentheses in call to 'print'
+<span class="ansi-cyan-intense-fg ansi-bold">  File </span><span class="ansi-green-intense-fg ansi-bold">"&lt;ipython-input-1-8d90ecae1fe0&gt;"</span><span class="ansi-cyan-intense-fg ansi-bold">, line </span><span class="ansi-green-intense-fg ansi-bold">1</span>
+<span class="ansi-yellow-intense-fg ansi-bold">    print "hello"</span>
+<span class="ansi-white-intense-fg ansi-bold">                ^</span>
+<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> Missing parentheses in call to 'print'
 </pre>
 </div>
 </div>
@@ -2209,42 +2251,6 @@ If @KERNEL is missing then it defaults to the nikola Python version.</p>
     </div>
   </div>
 
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="another-post/" class="u-url">Another Post</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">
-                Daniel Boocock
-            </span></p>
-            <p class="dateline"><a href="another-post/" rel="bookmark"><time class="published dt-published" datetime="2016-03-24T16:33:57Z" title="2016-03-24 16:33">2016-03-24 16:33</time></a></p>
-                <p class="commentline">
-        
-
-
-        </p>
-</div>
-    </header><div class="e-content entry-content">
-    <div>
-<div class="section" id="a-listing-to-some-python-code">
-<h2>A listing to some python code.</h2>
-<p>hello.py is inside the listings folder.</p>
-<p><a class="reference external" href="../listings/hello.py.html">hello.py</a></p>
-<pre class="code python"><a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-1"></a><span class="ch">#!/usr/bin/python</span>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-2"></a>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-3"></a><span class="kn">import</span> <span class="nn">sys</span>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-4"></a>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-5"></a>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-6"></a><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'world'</span><span class="p">):</span>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-7"></a>    <span class="n">greeting</span> <span class="o">=</span> <span class="s2">"hello "</span> <span class="o">+</span> <span class="n">name</span>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-8"></a>    <span class="k">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-9"></a>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-10"></a><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-<a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-11"></a>    <span class="n">hello</span><span class="p">(</span><span class="o">*</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-</pre>
-</div>
-<div class="section" id="another-title">
-<h2>Another title</h2>
-</div>
-</div>
     </div>
     </article>
 </div>

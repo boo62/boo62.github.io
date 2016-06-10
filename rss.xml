@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" rel="self" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Thu, 26 May 2016 16:25:10 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" href="https://boo62.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 10 Jun 2016 11:11:07 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Writing models in SBML</title><link>https://boo62.github.io/blog/writing-models-in-sbml/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;p&gt;Using the &lt;a class="reference external" href="http://sbml.org/Software/libSBML/docs/python-api/"&gt;libSBML Python API&lt;/a&gt; we are now able
+to generate SBML models for the competition model for any Plate size,
+given instances of CompModel and a Plate with parameter data. &lt;a class="reference external" href="/listings/simulated_2x2_plate.xml.html"&gt;Here&lt;/a&gt; is an example of the
+xml generated for a simulated 2x2 plate with plots generated using
+both CANS (and SciPy's odeint solver (not from SBML)) and Copasi
+shown below.&lt;/p&gt;
+&lt;img alt="../../images/writing-models-in-sbml/cans_2x2_sim.png" src="https://boo62.github.io/images/writing-models-in-sbml/cans_2x2_sim.png"&gt;
+&lt;img alt="../../images/writing-models-in-sbml/copasi_2x2_sim.png" src="https://boo62.github.io/images/writing-models-in-sbml/copasi_2x2_sim.png"&gt;
+&lt;p&gt;Copasi generates the below ODEs from the reaction equations in the
+table. Diffusion reactions are irreversible with rate kn*(N[i] - N[j])
+for culture numbers i &amp;lt; j.&lt;/p&gt;
+&lt;img alt="../../images/writing-models-in-sbml/2x2.png" src="https://boo62.github.io/images/writing-models-in-sbml/2x2.png"&gt;
+&lt;img alt="../../images/writing-models-in-sbml/reaction_table_2x2.png" src="https://boo62.github.io/images/writing-models-in-sbml/reaction_table_2x2.png"&gt;
+&lt;p&gt;With SBML we can now distribute versions of our model in a standard
+format and these can contain parameter estimates from fitting. The
+SBML models can be simulated using tools such as &lt;a class="reference external" href="http://copasi.org/"&gt;Copasi&lt;/a&gt; and &lt;a class="reference external" href="http://libroadrunner.org/"&gt;libRoadRunner&lt;/a&gt;. Currently it takes us days to fit a
+whole plate using CANS and SciPy. If the solvers/fitters for other
+tools are faster than what we are currently doing, we will be able to
+speed up our code using the APIs. Unfortunately libRoadRunner's and
+Copasi's Python bindings are only availible in Python 2 so we may have
+to rewrite some of our code. Also, neither are on pypi. The &lt;a class="reference external" href="http://copasi.org/Support/Installation/Language_Bindings/"&gt;Copasi Python
+bindings&lt;/a&gt;
+are a work in progress and not well documented but there are &lt;a class="reference external" href="https://github.com/copasi/COPASI/tree/master/copasi/bindings/python/examples"&gt;examples&lt;/a&gt;
+on GitHub. There is also currently &lt;a class="reference external" href="http://software.opensuse.org/download.html?project=home%3Afbergman%3ACOPASI&amp;amp;package=python-copasi"&gt;no download&lt;/a&gt;
+for Ubuntu 16.04.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://libroadrunner.org/install/"&gt;libroadrunner installation instructions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://sourceforge.net/projects/libroadrunner/files/libroadrunner-1.3/"&gt;libroadrunner python bindings&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We may need to use a genetic algorithm in order to find the global
+minimum. For this we could use the Python package &lt;a class="reference external" href="http://pythonhosted.org/inspyred/"&gt;Inspyred&lt;/a&gt;. I am also going to look at how
+we can conduct Bayesian inferrence using &lt;a class="reference external" href="https://pystan.readthedocs.io/en/latest/"&gt;pySTAN&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/writing-models-in-sbml/</guid><pubDate>Fri, 10 Jun 2016 08:35:35 GMT</pubDate></item><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
 &lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
 &lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
 average final cell amount (given small C_0). We know the typical
@@ -1699,10 +1728,10 @@ Other constants are manually set.&lt;/p&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_text output_error"&gt;
 &lt;pre&gt;
-&lt;span class="ansicyan"&gt;  File &lt;/span&gt;&lt;span class="ansigreen"&gt;"&amp;lt;ipython-input-1-8d90ecae1fe0&amp;gt;"&lt;/span&gt;&lt;span class="ansicyan"&gt;, line &lt;/span&gt;&lt;span class="ansigreen"&gt;1&lt;/span&gt;
-&lt;span class="ansiyellow"&gt;    print "hello"&lt;/span&gt;
-&lt;span class="ansigrey"&gt;                ^&lt;/span&gt;
-&lt;span class="ansired"&gt;SyntaxError&lt;/span&gt;&lt;span class="ansired"&gt;:&lt;/span&gt; Missing parentheses in call to 'print'
+&lt;span class="ansi-cyan-intense-fg ansi-bold"&gt;  File &lt;/span&gt;&lt;span class="ansi-green-intense-fg ansi-bold"&gt;"&amp;lt;ipython-input-1-8d90ecae1fe0&amp;gt;"&lt;/span&gt;&lt;span class="ansi-cyan-intense-fg ansi-bold"&gt;, line &lt;/span&gt;&lt;span class="ansi-green-intense-fg ansi-bold"&gt;1&lt;/span&gt;
+&lt;span class="ansi-yellow-intense-fg ansi-bold"&gt;    print "hello"&lt;/span&gt;
+&lt;span class="ansi-white-intense-fg ansi-bold"&gt;                ^&lt;/span&gt;
+&lt;span class="ansi-red-intense-fg ansi-bold"&gt;SyntaxError&lt;/span&gt;&lt;span class="ansi-red-intense-fg ansi-bold"&gt;:&lt;/span&gt; Missing parentheses in call to 'print'
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1891,22 +1920,4 @@ If @KERNEL is missing then it defaults to the nikola Python version.&lt;/p&gt;
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://boo62.github.io/blog/example-python-2711-notebook/</guid><pubDate>Fri, 25 Mar 2016 20:08:15 GMT</pubDate></item><item><title>Another Post</title><link>https://boo62.github.io/blog/another-post/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="a-listing-to-some-python-code"&gt;
-&lt;h2&gt;A listing to some python code.&lt;/h2&gt;
-&lt;p&gt;hello.py is inside the listings folder.&lt;/p&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://boo62.github.io/listings/hello.py.html"&gt;hello.py&lt;/a&gt;&lt;/p&gt;
-&lt;pre class="code python"&gt;&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-1"&gt;&lt;/a&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-3"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-4"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-5"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-6"&gt;&lt;/a&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'world'&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-7"&gt;&lt;/a&gt;    &lt;span class="n"&gt;greeting&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"hello "&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-8"&gt;&lt;/a&gt;    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;greeting&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-9"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-10"&gt;&lt;/a&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;"__main__"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-&lt;a name="rest_code_f182e6d5f3e8434b83f0392f71039ed3-11"&gt;&lt;/a&gt;    &lt;span class="n"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;div class="section" id="another-title"&gt;
-&lt;h2&gt;Another title&lt;/h2&gt;
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/another-post/</guid><pubDate>Thu, 24 Mar 2016 16:33:57 GMT</pubDate></item></channel></rss>
+</description><guid>https://boo62.github.io/blog/example-python-2711-notebook/</guid><pubDate>Fri, 25 Mar 2016 20:08:15 GMT</pubDate></item></channel></rss>
