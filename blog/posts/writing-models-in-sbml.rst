@@ -86,3 +86,10 @@ Roadrunner does allow you to specify a startpoint other than zero, so
 it is possible to simulate between two timepoints at a time. Another
 alternative, which might work well when we have a lot of observations,
 is to take even timepoints from a spline.
+
+RoadRunner allows you to specify absolute and relative tollerances
+which affect the speed and default to 0.0001. Similarly SciPy has atol
+and rtol which default to 1.49012e-8. Somehow, increasing atol and ftol
+to 1.49012e-4 actually makes the odeint solver slower; setting
+relative and absolute to 1.49012e-8 has very little impact on the
+speed of RaodRunner.simulate().
