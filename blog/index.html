@@ -83,6 +83,8 @@
 </div>
     </header><div class="e-content entry-content">
     <div>
+<div class="section" id="generating-an-sbml-model-in-python-using-libsbml">
+<h2>Generating an SBML model in Python using libsbml</h2>
 <p>Using the <a class="reference external" href="http://sbml.org/Software/libSBML/docs/python-api/">libSBML Python API</a> we are now able
 to generate SBML models for the competition model for any Plate size,
 given instances of CompModel and a Plate with parameter data. <a class="reference external" href="/listings/simulated_2x2_plate.xml.html">Here</a> is an example of the
@@ -109,6 +111,29 @@ for Ubuntu 16.04.</p>
 <p>We may need to use a genetic algorithm in order to find the global
 minimum. For this we could use the Python package <a class="reference external" href="http://pythonhosted.org/inspyred/">Inspyred</a>. I am also going to look at how
 we can conduct Bayesian inferrence using <a class="reference external" href="https://pystan.readthedocs.io/en/latest/">pySTAN</a>.</p>
+</div>
+<div class="section" id="update">
+<h2>Update</h2>
+<p>I tried solving models by writing in SBML and running using
+roadrunner's python binding. For a full plate simulation with ~10 even
+time steps roadrunner is about 50 times faster than our current method
+using SciPy's odeint. However, unlike odeint, RoadRunner does not
+allow you to specify arbitrary timepoints at which to return values,
+instead requiring even steps. This is a problem for experimental
+observations which are not taken at even timesteps. Simulating using
+roadrunner with minute resolution over 5 days (7200 steps) is actually
+a little slower than using odeint with the experimental timepoints
+specified. The number of timepoints used, 10 and 20, did not
+significantly affect the speed of odeint.</p>
+<p>Reducing resolution to ten minute resolution over 5 days (720 steps)
+increases the speed of libroadrunner by about a factor of 7. However,
+we still have large arrays of values from which we need to extract
+just the values we need.</p>
+<p>Roadrunner does allow you to specify a startpoint other than zero, so
+it is possible to simulate between two timepoints at a time. Another
+alternative, which might work well when we have a lot of observations,
+is to take even timepoints from a spline.</p>
+</div>
 </div>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="make-a-guess/" class="u-url">Make a Guess</a></h1>

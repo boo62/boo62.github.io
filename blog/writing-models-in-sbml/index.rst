@@ -60,3 +60,29 @@ minimum. For this we could use the Python package `Inspyred
 <http://pythonhosted.org/inspyred/>`_. I am also going to look at how
 we can conduct Bayesian inferrence using `pySTAN
 <https://pystan.readthedocs.io/en/latest/>`_.
+
+
+Update
+------
+
+I tried solving models by writing in SBML and running using
+roadrunner's python binding. For a full plate simulation with ~10 even
+time steps roadrunner is about 50 times faster than our current method
+using SciPy's odeint. However, unlike odeint, RoadRunner does not
+allow you to specify arbitrary timepoints at which to return values,
+instead requiring even steps. This is a problem for experimental
+observations which are not taken at even timesteps. Simulating using
+roadrunner with minute resolution over 5 days (7200 steps) is actually
+a little slower than using odeint with the experimental timepoints
+specified. The number of timepoints used, 10 and 20, did not
+significantly affect the speed of odeint.
+
+Reducing resolution to ten minute resolution over 5 days (720 steps)
+increases the speed of libroadrunner by about a factor of 7. However,
+we still have large arrays of values from which we need to extract
+just the values we need.
+
+Roadrunner does allow you to specify a startpoint other than zero, so
+it is possible to simulate between two timepoints at a time. Another
+alternative, which might work well when we have a lot of observations,
+is to take even timepoints from a spline.

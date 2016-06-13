@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" href="https://boo62.github.io/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 10 Jun 2016 11:11:07 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Writing models in SBML</title><link>https://boo62.github.io/blog/writing-models-in-sbml/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;p&gt;Using the &lt;a class="reference external" href="http://sbml.org/Software/libSBML/docs/python-api/"&gt;libSBML Python API&lt;/a&gt; we are now able
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" type="application/rss+xml" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Mon, 13 Jun 2016 13:37:41 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Writing models in SBML</title><link>https://boo62.github.io/blog/writing-models-in-sbml/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="generating-an-sbml-model-in-python-using-libsbml"&gt;
+&lt;h2&gt;Generating an SBML model in Python using libsbml&lt;/h2&gt;
+&lt;p&gt;Using the &lt;a class="reference external" href="http://sbml.org/Software/libSBML/docs/python-api/"&gt;libSBML Python API&lt;/a&gt; we are now able
 to generate SBML models for the competition model for any Plate size,
 given instances of CompModel and a Plate with parameter data. &lt;a class="reference external" href="/listings/simulated_2x2_plate.xml.html"&gt;Here&lt;/a&gt; is an example of the
 xml generated for a simulated 2x2 plate with plots generated using
@@ -28,7 +30,30 @@ for Ubuntu 16.04.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="https://sourceforge.net/projects/libroadrunner/files/libroadrunner-1.3/"&gt;libroadrunner python bindings&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;We may need to use a genetic algorithm in order to find the global
 minimum. For this we could use the Python package &lt;a class="reference external" href="http://pythonhosted.org/inspyred/"&gt;Inspyred&lt;/a&gt;. I am also going to look at how
-we can conduct Bayesian inferrence using &lt;a class="reference external" href="https://pystan.readthedocs.io/en/latest/"&gt;pySTAN&lt;/a&gt;.&lt;/p&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/writing-models-in-sbml/</guid><pubDate>Fri, 10 Jun 2016 08:35:35 GMT</pubDate></item><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
+we can conduct Bayesian inferrence using &lt;a class="reference external" href="https://pystan.readthedocs.io/en/latest/"&gt;pySTAN&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="update"&gt;
+&lt;h2&gt;Update&lt;/h2&gt;
+&lt;p&gt;I tried solving models by writing in SBML and running using
+roadrunner's python binding. For a full plate simulation with ~10 even
+time steps roadrunner is about 50 times faster than our current method
+using SciPy's odeint. However, unlike odeint, RoadRunner does not
+allow you to specify arbitrary timepoints at which to return values,
+instead requiring even steps. This is a problem for experimental
+observations which are not taken at even timesteps. Simulating using
+roadrunner with minute resolution over 5 days (7200 steps) is actually
+a little slower than using odeint with the experimental timepoints
+specified. The number of timepoints used, 10 and 20, did not
+significantly affect the speed of odeint.&lt;/p&gt;
+&lt;p&gt;Reducing resolution to ten minute resolution over 5 days (720 steps)
+increases the speed of libroadrunner by about a factor of 7. However,
+we still have large arrays of values from which we need to extract
+just the values we need.&lt;/p&gt;
+&lt;p&gt;Roadrunner does allow you to specify a startpoint other than zero, so
+it is possible to simulate between two timepoints at a time. Another
+alternative, which might work well when we have a lot of observations,
+is to take even timepoints from a spline.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/writing-models-in-sbml/</guid><pubDate>Fri, 10 Jun 2016 08:35:35 GMT</pubDate></item><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
 &lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
 &lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
 average final cell amount (given small C_0). We know the typical
