@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" type="application/rss+xml" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Mon, 13 Jun 2016 13:37:41 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Writing models in SBML</title><link>https://boo62.github.io/blog/writing-models-in-sbml/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="generating-an-sbml-model-in-python-using-libsbml"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link href="https://boo62.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 13 Jun 2016 14:34:52 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Writing models in SBML</title><link>https://boo62.github.io/blog/writing-models-in-sbml/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="generating-an-sbml-model-in-python-using-libsbml"&gt;
 &lt;h2&gt;Generating an SBML model in Python using libsbml&lt;/h2&gt;
 &lt;p&gt;Using the &lt;a class="reference external" href="http://sbml.org/Software/libSBML/docs/python-api/"&gt;libSBML Python API&lt;/a&gt; we are now able
 to generate SBML models for the competition model for any Plate size,
@@ -53,6 +53,12 @@ just the values we need.&lt;/p&gt;
 it is possible to simulate between two timepoints at a time. Another
 alternative, which might work well when we have a lot of observations,
 is to take even timepoints from a spline.&lt;/p&gt;
+&lt;p&gt;RoadRunner allows you to specify absolute and relative tollerances
+which affect the speed and default to 0.0001. Similarly SciPy has atol
+and rtol which default to 1.49012e-8. Somehow, increasing atol and ftol
+to 1.49012e-4 actually makes the odeint solver slower; setting
+relative and absolute to 1.49012e-8 has very little impact on the
+speed of RaodRunner.simulate().&lt;/p&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/writing-models-in-sbml/</guid><pubDate>Fri, 10 Jun 2016 08:35:35 GMT</pubDate></item><item><title>Make a Guess</title><link>https://boo62.github.io/blog/make-a-guess/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="guess-c-0-and-n-0"&gt;
 &lt;h2&gt;Guess C_0 and N_0&lt;/h2&gt;
 &lt;p&gt;If growth is more or less complete then this is easy. N_0 is the
