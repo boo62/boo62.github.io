@@ -93,3 +93,5 @@ and rtol which default to 1.49012e-8. Somehow, increasing atol and ftol
 to 1.49012e-4 actually makes the odeint solver slower; setting
 relative and absolute to 1.49012e-8 has very little impact on the
 speed of RaodRunner.simulate().
+
+We can also start use lots of features in GUI Copasi including fitting with genetic algorithms.
