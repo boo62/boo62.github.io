@@ -154,7 +154,7 @@ noise in the data). Dealing better with boundaries might improve
 agreement between the zones.
 
 How can a Bayesian approach help us deal with local minima that are
-far apart compared to a genetic algoritm?
+far apart compared to a genetic algorithm?
 
 ..
   If we have two (or more) local minima, fairly far appart, that we are4
