@@ -1,64 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link rel="self" type="application/rss+xml" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Wed, 15 Jun 2016 16:28:11 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Fits of overlapping 5x5 zones</title><link>https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="procedure"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>boo62</title><link>https://boo62.github.io/</link><description>This is a demo site for Nikola.</description><atom:link type="application/rss+xml" rel="self" href="https://boo62.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Thu, 16 Jun 2016 12:02:53 GMT</lastBuildDate><generator>https://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Fits of overlapping 5x5 zones</title><link>https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="procedure"&gt;
 &lt;h2&gt;Procedure&lt;/h2&gt;
 &lt;p&gt;I took cell measurement data from plate 15 for overlapping 5x5 zones
 with top-left coordinates (7, 13) and (9, 15) where coordinates start
-(0, 0). I guessed the initial amount of nutrients from the average of final cell
-amounts. I used a 10x11x11 grid of guesses for C_0, kn, and r. C_0
-guesses were on a logarithmic scale whereas kn and r guesses were ona
-linear scale (see code below). I used the same r guess for all
-cultures in a single fit.&lt;/p&gt;
+(0, 0). I guessed the initial amount of nutrients from the average of
+final cell amounts just for the zone (i.e not full plate). I used a
+10x11x11 grid of guesses for C_0, kn, and r. C_0 guesses are on a
+logarithmic scale whereas kn and r guesses are on a linear scale (see
+code below). I used the same r guess for all cultures in a single fit.&lt;/p&gt;
 &lt;p&gt;Code for grid of guesses:&lt;/p&gt;
-&lt;table class="codetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_f31455dddc564ff1a39a9ece5b51ca53-1"&gt;1&lt;/a&gt;
-&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_f31455dddc564ff1a39a9ece5b51ca53-2"&gt;2&lt;/a&gt;
-&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_f31455dddc564ff1a39a9ece5b51ca53-3"&gt;3&lt;/a&gt;
-&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_f31455dddc564ff1a39a9ece5b51ca53-4"&gt;4&lt;/a&gt;
-&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_f31455dddc564ff1a39a9ece5b51ca53-5"&gt;5&lt;/a&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code python"&gt;&lt;a name="rest_code_f31455dddc564ff1a39a9ece5b51ca53-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;a name="rest_code_f31455dddc564ff1a39a9ece5b51ca53-2"&gt;&lt;/a&gt;
-&lt;a name="rest_code_f31455dddc564ff1a39a9ece5b51ca53-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;C_0s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_f31455dddc564ff1a39a9ece5b51ca53-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;kns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;10.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;a name="rest_code_f31455dddc564ff1a39a9ece5b51ca53-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;rs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;25.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;75.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;I made bounds large in the hope that solutions would not have any
+&lt;table class="codetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_85571adab90945d5b408131fbda95907-1"&gt;1&lt;/a&gt;
+&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_85571adab90945d5b408131fbda95907-2"&gt;2&lt;/a&gt;
+&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_85571adab90945d5b408131fbda95907-3"&gt;3&lt;/a&gt;
+&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_85571adab90945d5b408131fbda95907-4"&gt;4&lt;/a&gt;
+&lt;a href="https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/#rest_code_85571adab90945d5b408131fbda95907-5"&gt;5&lt;/a&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre class="code python"&gt;&lt;a name="rest_code_85571adab90945d5b408131fbda95907-1"&gt;&lt;/a&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;a name="rest_code_85571adab90945d5b408131fbda95907-2"&gt;&lt;/a&gt;
+&lt;a name="rest_code_85571adab90945d5b408131fbda95907-3"&gt;&lt;/a&gt;&lt;span class="n"&gt;C_0s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_85571adab90945d5b408131fbda95907-4"&gt;&lt;/a&gt;&lt;span class="n"&gt;kns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;10.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;a name="rest_code_85571adab90945d5b408131fbda95907-5"&gt;&lt;/a&gt;&lt;span class="n"&gt;rs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;25.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;75.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;I made bounds large in the hope that the best fits would not have any
 estimates located at a boundary. I fit the competition model to both
-zones using each of the 1000 initial guesses. The table bw&lt;/p&gt;
+zones using each of the 1000 initial guesses.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="results"&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;The table below contains estimates for the two best guesses for each
+zone (totalling four for each zone). r_18 and r_6 are estimates of
+growth constant for the same culture from different zones. This
+culture is the central culture in the red area (representing the
+overlap) in the plots at the bottom of the post.&lt;/p&gt;
 &lt;img alt="../../images/fits-of-overlapping-5x5-zones/est_table.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/est_table.png"&gt;
 &lt;p&gt;The two best fits for each zone have reasonable agreement in estimated
 parameters. However we are hoping to find a global minimum where the
 parameter estimates are, within the limits of accuracy of the
-minimizer, the same and it doesn't look like this is happening.&lt;/p&gt;
-&lt;p&gt;Unfortunately, agreement of parameter estimates between the two zones
-is fairly poor.&lt;/p&gt;
-&lt;p&gt;For zone (7, 13) estimates 440 and 803 produced N_0 guesses at the lower bounds.&lt;/p&gt;
-&lt;p&gt;I am not sure how much cultures the boundaries could be messing up
-fits. At the moment I include least squares fits of cell observations
-for edge cultures in the objective function. This will cause issues
-for the model because neighbours compete for nutrients and there is a
-great uncertainty about the amount of nutrients in edge cultures due
-to competition with cultures outside the boundary. There is likely to
-be a net flux of nutrients between the zone and the rest of the
-plate. When we include all of the cultures in the objective function
-we also fix the total amount of nutrients in the zone (assuming growth
-runs long enough to complete this is equal to the final amount of
-cells) and this affects N_0 (in fact all of the parameters are
-coupled). In fits of zones, a buffer could be created by allowing
-parameters for edge cultures to be estimated but without including
-measurements for these cultures in the objective function.&lt;/p&gt;
-&lt;p&gt;In the current fits, I made guesses of N_0 from the zone from which I
-determined bounds. If there is a buffer at the boundary, N_0 is not so
-strongly coupled to the final cell observations and I can instead use
-guesses and bounds for the plate rather than zone.&lt;/p&gt;
+data/minimizer, the same and I am not sure that this is happening.&lt;/p&gt;
+&lt;p&gt;Agreement of parameter estimates between the two zones is fairly poor.&lt;/p&gt;
+&lt;p&gt;For zone (7, 13) estimates 440 and 803 produced N_0 guesses at the
+lower bounds, highlighted in yellow.&lt;/p&gt;
+&lt;div class="section" id="the-effect-of-boundaries"&gt;
+&lt;h3&gt;The Effect of Boundaries&lt;/h3&gt;
+&lt;p&gt;At the moment I include least squares fits of cell observations for
+edge cultures in the objective function. Competition with cultures
+outside of the boundary causes a discrepency between the actual
+amount of nutrients in edge cultures and the amount of nutrients
+predicted by fits of our model. There is also likely to be a net flux
+of nutrients between the zone and the rest of the plate so when we
+include all of the cultures in the objective function we incorectly
+fix the total amount of nutrients in the zone (assuming growth runs
+long enough to complete this is equal to the final amount of cells)
+and this affects estimates of N_0 and in turn the other parameters. In
+fits of zones, a buffer could be created by allowing parameters for
+edge cultures to be estimated but without including measurements for
+these cultures in the objective function.&lt;/p&gt;
+&lt;p&gt;In the current fits, I made guesses of N_0 from the zone, from which I
+then determined bounds. If there is a buffer at the boundary, N_0 is
+not so strongly coupled to the final cell observations and I can
+instead use guesses and bounds for the plate rather than zone.&lt;/p&gt;
 &lt;p&gt;I have increased the speed of simulations significantly by vectorising
 ode calculations using numpy (5x for full plate). We also have an even
 faster simulation method using RoadRunner with models written in SBML
 (50x faster again for a full plate). This should have translated into
 a speed up of fitting so we could now also try fitting larger zones
-where there is a smaller proportion of edge cultures.&lt;/p&gt;
-&lt;p&gt;(I could fit a simulated zone to check this. I may have already
-done this somewhere.)&lt;/p&gt;
+where there is a smaller proportion of edge cultures. I could also fit
+two overlapping zones on a simulated plate as verification.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="initial-guesses"&gt;
+&lt;h3&gt;Initial Guesses&lt;/h3&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/guesses.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/guesses.png"&gt;
+&lt;p&gt;Interestingly, the best fits all had initial guesses of zero for
+kn. Estimates of C_0 were similar for each pair of best fits despite
+very different initial guesses. Guesses or r were close or fairly
+similar to the mean estimate for the plate.&lt;/p&gt;
+&lt;p&gt;I am not sure that the full parameter space is being explored by the
+fitter. We could do with getting better initial guesses for r and/or using
+a genetic algorithm/swarm.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="plots-of-fits"&gt;
 &lt;h2&gt;Plots of Fits&lt;/h2&gt;
-&lt;p&gt;How do the plots look. Why are we haveing truble?&lt;/p&gt;
+&lt;p&gt;Overlapping zones are indicated by red boxes with fits using the same
+initial guess displayed side by side.&lt;/p&gt;
+&lt;div class="section" id="guess-638"&gt;
+&lt;h3&gt;Guess 638&lt;/h3&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/coords_7_13_5x5_argv_638.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/coords_7_13_5x5_argv_638.png" style="width: 49%;"&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/coords_9_15_5x5_argv_638.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/coords_9_15_5x5_argv_638.png" style="width: 49%;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="guess-1012"&gt;
+&lt;h3&gt;Guess 1012&lt;/h3&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/coords_7_13_5x5_argv_1012.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/coords_7_13_5x5_argv_1012.png" style="width: 49%;"&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/coords_9_15_5x5_argv_1012.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/coords_9_15_5x5_argv_1012.png" style="width: 49%;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="guess-440"&gt;
+&lt;h3&gt;Guess 440&lt;/h3&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/coords_7_13_5x5_argv_440.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/coords_7_13_5x5_argv_440.png" style="width: 49%;"&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/coords_9_15_5x5_argv_440.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/coords_9_15_5x5_argv_440.png" style="width: 49%;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="guess-803"&gt;
+&lt;h3&gt;Guess 803&lt;/h3&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/coords_7_13_5x5_argv_803.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/coords_7_13_5x5_argv_803.png" style="width: 49%;"&gt;
+&lt;img alt="../../images/fits-of-overlapping-5x5-zones/coords_9_15_5x5_argv_803.png" src="https://boo62.github.io/images/fits-of-overlapping-5x5-zones/coords_9_15_5x5_argv_803.png" style="width: 49%;"&gt;
+&lt;/div&gt;
+&lt;div class="section" id="discussion"&gt;
+&lt;h3&gt;Discussion&lt;/h3&gt;
+&lt;p&gt;Even the worst fits, with parameter guesses at the bounds, are
+qualitatively quite close to timecourse data. However, parameters from
+the two best fits for each zone are reasonably close so it looks like
+we might have enough power to discern between mimima that are far
+apart and recover reasonable estimates (i.e. there is not too much
+noise in the data). Dealing better with boundaries might improve
+agreement between the zones.&lt;/p&gt;
+&lt;p&gt;How can a Bayesian approach help us deal with local minima that are
+far apart compared to a genetic algoritm?&lt;/p&gt;
+&lt;!-- If we have two (or more) local minima, fairly far appart, that we are4
+unable to discern between, would a Bayesian aproach, where we instead
+estimate parameter distributions, be the best way to deal with this? --&gt;
+&lt;/div&gt;
 &lt;/div&gt;&lt;/div&gt;</description><guid>https://boo62.github.io/blog/fits-of-overlapping-5x5-zones/</guid><pubDate>Wed, 15 Jun 2016 12:14:58 GMT</pubDate></item><item><title>Writing models in SBML</title><link>https://boo62.github.io/blog/writing-models-in-sbml/</link><dc:creator>Daniel Boocock</dc:creator><description>&lt;div&gt;&lt;div class="section" id="generating-an-sbml-model-in-python-using-libsbml"&gt;
 &lt;h2&gt;Generating an SBML model in Python using libsbml&lt;/h2&gt;
 &lt;p&gt;Using the &lt;a class="reference external" href="http://sbml.org/Software/libSBML/docs/python-api/"&gt;libSBML Python API&lt;/a&gt; we are now able
