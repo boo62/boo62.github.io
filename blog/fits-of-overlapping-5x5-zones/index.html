@@ -111,16 +111,16 @@ logarithmic scale whereas kn and r guesses are on a linear scale (see
 code below). I used the same r guess for all cultures in a single fit.</p>
 <p>Code for grid of guesses:</p>
 <table class="codetable"><tr>
-<td class="linenos"><div class="linenodiv"><pre><a href="#rest_code_85571adab90945d5b408131fbda95907-1">1</a>
-<a href="#rest_code_85571adab90945d5b408131fbda95907-2">2</a>
-<a href="#rest_code_85571adab90945d5b408131fbda95907-3">3</a>
-<a href="#rest_code_85571adab90945d5b408131fbda95907-4">4</a>
-<a href="#rest_code_85571adab90945d5b408131fbda95907-5">5</a></pre></div></td>
-<td class="code"><pre class="code python"><a name="rest_code_85571adab90945d5b408131fbda95907-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<a name="rest_code_85571adab90945d5b408131fbda95907-2"></a>
-<a name="rest_code_85571adab90945d5b408131fbda95907-3"></a><span class="n">C_0s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<a name="rest_code_85571adab90945d5b408131fbda95907-4"></a><span class="n">kns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<a name="rest_code_85571adab90945d5b408131fbda95907-5"></a><span class="n">rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">25.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<td class="linenos"><div class="linenodiv"><pre><a href="#rest_code_6ae00196796d49d9b756e0c3655cd7b6-1">1</a>
+<a href="#rest_code_6ae00196796d49d9b756e0c3655cd7b6-2">2</a>
+<a href="#rest_code_6ae00196796d49d9b756e0c3655cd7b6-3">3</a>
+<a href="#rest_code_6ae00196796d49d9b756e0c3655cd7b6-4">4</a>
+<a href="#rest_code_6ae00196796d49d9b756e0c3655cd7b6-5">5</a></pre></div></td>
+<td class="code"><pre class="code python"><a name="rest_code_6ae00196796d49d9b756e0c3655cd7b6-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<a name="rest_code_6ae00196796d49d9b756e0c3655cd7b6-2"></a>
+<a name="rest_code_6ae00196796d49d9b756e0c3655cd7b6-3"></a><span class="n">C_0s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a name="rest_code_6ae00196796d49d9b756e0c3655cd7b6-4"></a><span class="n">kns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<a name="rest_code_6ae00196796d49d9b756e0c3655cd7b6-5"></a><span class="n">rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">25.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 </pre></td>
 </tr></table>
 <p>I made bounds large in the hope that the best fits would not have any
@@ -209,7 +209,7 @@ apart and recover reasonable estimates (i.e. there is not too much
 noise in the data). Dealing better with boundaries might improve
 agreement between the zones.</p>
 <p>How can a Bayesian approach help us deal with local minima that are
-far apart compared to a genetic algoritm?</p>
+far apart compared to a genetic algorithm?</p>
 <!-- If we have two (or more) local minima, fairly far appart, that we are4
 unable to discern between, would a Bayesian aproach, where we instead
 estimate parameter distributions, be the best way to deal with this? -->
